@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'guard-puma'
+
 # Devise, for user auth (NEED TO ADD FACEBOOK, TWITTER, LINKEDIN -- "Chef at Trophus")
 gem 'devise', "~> 3.4.1"
 gem 'omniauth-facebook'

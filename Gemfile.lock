@@ -75,6 +75,9 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
+    guard-puma (0.3.1)
+      guard (~> 2.8)
+      puma
     guard-rails (0.7.1)
       guard (~> 2.11)
       guard-compat (~> 1.0)
@@ -127,6 +130,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.11.3)
+      rack (>= 1.1, < 2.0)
     rack (1.5.3)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -198,6 +203,7 @@ DEPENDENCIES
   devise (~> 3.4.1)
   geokit-rails
   gmaps4rails
+  guard-puma
   guard-rails
   jbuilder (~> 2.0)
   jquery-rails
