@@ -5,17 +5,30 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDvFI2YD6EH3YePpYr5OmJt_gfNBTDjSYk" %>
 
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #map-canvas {
+      	margin-top: 30px;
+      }
+    </style>
 </head>
 <body>
 
 	<%= render('layouts/header') %>
+	<div id="map-canvas" style="display: none"></div>
 	<div class="container">
 		<% flash.each { |name, msg| %>
 			<%= content_tag(:div, msg, class: "alert alert-info") %>
 		<% } %> 
 		<%= yield %>
+		
 	</div>
 
 </body>

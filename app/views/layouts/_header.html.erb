@@ -26,6 +26,7 @@
           </li>
         
         <% else %>
+          <li style="top: 15px; padding: 10px"> Welcome, <%= current_user.name %> </li>
 
           <li> 
             <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn", method: :delete %>  

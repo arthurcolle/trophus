@@ -1,19 +1,76 @@
+<!-- Main component for a primary marketing message or call to action -->
+
+<% if current_user %>
+    <script>
+      $('#map-canvas').toggle();
+      var geocoder;
+      var map;
+      var address = '<%= current_user.home %>';
+
+      function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+        var myOptions = {
+          zoom: 18,
+          center: latlng,
+          mapTypeControl: true,
+          mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+          },
+          navigationControl: true,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        if (geocoder) {
+          geocoder.geocode({
+            'address': address
+          }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                map.setCenter(results[0].geometry.location);
+
+                var infowindow = new google.maps.InfoWindow({
+                  content: '<b>' + address + '</b>',
+                  size: new google.maps.Size(150, 50)
+                });
+
+                var marker = new google.maps.Marker({
+                  position: results[0].geometry.location,
+                  map: map,
+                  title: address
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map, marker);
+                });
+
+              } else {
+                alert("No results found");
+              }
+            } else {
+              alert("Geocode was not successful for the following reason: " + status);
+            }
+          });
+        }
+      }
+//      google.maps.event.addDomListener(window, 'load', initialize);
+      initialize();
+    </script>
+    
+<% end %>
+
+	<div class="jumbotron" style="position: auto; top: 10%;">
+		<h1 style="width:90%;"> Trophus
+		  <span style="float: right;">
+		  <a class="btn btn-lg btn-success" role="button" href="users/sign_up"> <span style="position: relative; bottom: 1px; left: -2px;" class="fa fa-child"></span> <span style="position:relative; right: -2px;"> Join Trophus </span> </a>
+			</span>
+		</h1>
 
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron" style="position: auto; top: 10%;">
 
-      	<h1 style="width:90%;k"> Trophus
-      		<span style="float: right;">
+		<h2>Connecting food lovers with local people that love cooking. </h2> 
 
-	          <a class="btn btn-lg btn-success" role="button" href="users/sign_up"> <span style="position: relative; bottom: 1px; left: -2px;" class="fa fa-child"></span> <span style="position:relative; right: -2px;"> Join Trophus </span> </a>
-	        </span>
-	    </h1>
+		<p> The way it works is instead of asking GrubHub to quickly deliver some MSG-filled chinese food by City Food, have it made with love and care by Xuexie, a graduate linguistics student who grew up in China and has interesting thoughts on contemporary Chinese state capitalism. Oh, you work at a bank and are interested in economics? Great! </p>
 
-        <p>Connecting food lovers with local people that love cooking. </p> 
+		<p> Our technology prioritizes similarity of interests and compatibility using deep-learning algorithms which allows cooks and eaters to hit it off, and become friends! </p>
 
-        <p> The way it works is instead of asking GrubHub to quickly deliver some MSG-filled chinese food by City Food, have it made with love and care by Xuexie, a graduate linguistics student who grew up in China and has interesting thoughts on contemporary Chinese state capitalism. Oh, you work at a bank and are interested in economics? Great! </p>
-
-        <p> Our technology prioritizes similarity of interests and compatibility using deep-learning algorithms which allows cooks and eaters to hit it off, and become friends! </p>
-
-      </div>
+	</div>
