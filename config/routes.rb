@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :dishes
-  post 'users#edit_latlong' => 'users#edit_latlong'
+  #post 'users#edit_latlong' => 'users#edit_latlong'
+  match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

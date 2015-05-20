@@ -40,13 +40,14 @@
                   title: address
                 };
 
+
+                var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
                 $.ajax({
-                    url: 'users#edit_latlong', 
-                    type: 'post',
+                    url: postUrl, 
+                    type: 'POST',
                     data: {
-                        id: parseInt('<%= current_user.id %>'), 
                         lat: parseFloat(mrkr.position.A), 
-                        long: parseFloat(mrkr.position.F)                        
+                        long: parseFloat(mrkr.position.F)                      
                     },
                     dataType: 'json'
                 });
