@@ -42,16 +42,17 @@
 
 
                 var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
+                var dt = {
+                  lat: parseFloat(mrkr.position.A), 
+                  long: parseFloat(mrkr.position.F)                    
+                };
                 $.ajax({
                     url: postUrl, 
                     type: 'POST',
-                    data: {
-                        lat: parseFloat(mrkr.position.A), 
-                        long: parseFloat(mrkr.position.F)                      
-                    },
+                    data: dt,
                     dataType: 'json'
                 });
-
+                console.log(dt);
                 var marker = new google.maps.Marker(mrkr);
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.open(map, marker);
