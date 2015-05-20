@@ -33,6 +33,14 @@ gem 'turbolinks'
 # Mapping gems
 gem 'gmaps4rails'
 gem 'geokit-rails'
+gem 'elasticsearch-rails'
+
+gem 'stripe'
+
+gem 'paperclip'				# for image upload in case user doesn't have instagram
+# gem 'imagemagick' 			# for image compression prior to upload (in case no instagram)
+gem 'instagram'				# for instagram integration
+
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

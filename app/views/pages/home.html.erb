@@ -34,11 +34,24 @@
                   size: new google.maps.Size(150, 50)
                 });
 
-                var marker = new google.maps.Marker({
+                var mrkr = {
                   position: results[0].geometry.location,
                   map: map,
                   title: address
+                };
+
+                $.ajax({
+                    url: 'users#edit_latlong', 
+                    type: 'post',
+                    data: {
+                        id: parseInt('<%= current_user.id %>'), 
+                        lat: parseFloat(mrkr.position.A), 
+                        long: parseFloat(mrkr.position.F)                        
+                    },
+                    dataType: 'json'
                 });
+
+                var marker = new google.maps.Marker(mrkr);
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.open(map, marker);
                 });

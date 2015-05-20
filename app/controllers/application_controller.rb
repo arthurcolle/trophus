@@ -10,7 +10,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     devise_parameter_sanitizer.for(:sign_up) { |u| 
       u.permit(:name, :home, :email, :password, :remember_me) 
     }
-
+    
     devise_parameter_sanitizer.for(:sign_in) { |u| 
       u.permit(:login, :username, :email, :password, :remember_me) 
     }
