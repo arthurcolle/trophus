@@ -1,30 +1,29 @@
 <!-- Main component for a primary marketing message or call to action -->
 
 <% if current_user %>
-    <script>
-      $('#map-canvas').toggle();
-      var geocoder;
-      var map;
-      var address = '<%= current_user.home %>';
+  <script>
+    $('#map-canvas').toggle();
+    var geocoder;
+    var map;
+    var address = '<%= current_user.home %>';
 
-      function initialize() {
-        geocoder = new google.maps.Geocoder();
-        var latlng = new google.maps.LatLng(-34.397, 150.644);
-        var myOptions = {
-          zoom: 18,
-          center: latlng,
-          mapTypeControl: true,
-          mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-          },
-          navigationControl: true,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        if (geocoder) {
-          geocoder.geocode({
-            'address': address
-          }, function(results, status) {
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var lat_long = new google.maps.lat_long(-34.397, 150.644);
+      var myOptions = {
+        zoom: 18,
+        center: lat_long,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+        },
+        navigationControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+      if (geocoder) {
+        geocoder.geocode({'address': address}, 
+          function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
               if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
                 map.setCenter(results[0].geometry.location);
@@ -39,8 +38,6 @@
                   map: map,
                   title: address
                 };
-
-
                 var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
                 var dt = {
                   lat: parseFloat(mrkr.position.A), 
@@ -57,7 +54,6 @@
                 google.maps.event.addListener(marker, 'click', function() {
                   infowindow.open(map, marker);
                 });
-
               } else {
                 alert("No results found");
               }
@@ -67,11 +63,9 @@
           });
         }
       }
-      //  google.maps.event.addDomListener(window, 'load', initialize);
       initialize();
     </script>
-    
-<% end %>
+<% else %>
 
 	<div class="jumbotron" style="position: auto; top: 10%;">
 		<h1 style="width:90%;"> Trophus
@@ -87,3 +81,6 @@
 		<p> Our technology prioritizes similarity of interests and compatibility using deep-learning algorithms which allows cooks and eaters to hit it off, and become friends! </p>
 
 	</div>
+
+
+<% end %>
