@@ -9,10 +9,10 @@
 
     function initialize() {
       geocoder = new google.maps.Geocoder();
-      var lat_long = new google.maps.lat_long(-34.397, 150.644);
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
       var myOptions = {
         zoom: 18,
-        center: lat_long,
+        center: latlng,
         mapTypeControl: true,
         mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
