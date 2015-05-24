@@ -7,61 +7,175 @@
     var map;
     var address = '<%= current_user.home %>';
 
-    function initialize() {
-      geocoder = new google.maps.Geocoder();
-      var latlng = new google.maps.LatLng(-34.397, 150.644);
-      var myOptions = {
-        zoom: 18,
-        center: latlng,
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-        },
-        navigationControl: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-      if (geocoder) {
-        geocoder.geocode({'address': address}, 
-          function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-                map.setCenter(results[0].geometry.location);
+    // function initialize() {
+    //   geocoder = new google.maps.Geocoder();
+    //   var latlng = new google.maps.LatLng(-34.397, 150.644);
+    //   var myOptions = {
+    //     zoom: 18,
+    //     center: latlng,
+    //     mapTypeControl: true,
+    //     mapTypeControlOptions: {
+    //       style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+    //     },
+    //     navigationControl: true,
+    //     mapTypeId: google.maps.MapTypeId.ROADMAP
+    //   };
+    //   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+    //   if (geocoder) {
+    //     geocoder.geocode({'address': address}, 
+    //       function(results, status) {
+    //         if (status == google.maps.GeocoderStatus.OK) {
+    //           if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+    //             map.setCenter(results[0].geometry.location);
 
-                var infowindow = new google.maps.InfoWindow({
-                  content: '<b>' + address + '</b>',
-                  size: new google.maps.Size(150, 50)
-                });
+    //             var infowindow = new google.maps.InfoWindow({
+    //               content: '<b>' + address + '</b>',
+    //               size: new google.maps.Size(150, 50)
+    //             });
 
-                var mrkr = {
-                  position: results[0].geometry.location,
-                  map: map,
-                  title: address
-                };
-                var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
-                var dt = {
-                  lat: parseFloat(mrkr.position.A), 
-                  long: parseFloat(mrkr.position.F)                    
-                };
-                $.ajax({
-                    url: postUrl, 
-                    type: 'POST',
-                    data: dt,
-                    dataType: 'json'
-                });
-                console.log(dt);
-                var marker = new google.maps.Marker(mrkr);
-                google.maps.event.addListener(marker, 'click', function() {
-                  infowindow.open(map, marker);
-                });
-              } else {
-                alert("No results found");
-              }
-            } else {
-              alert("Geocode was not successful for the following reason: " + status);
+    //             var mrkr = {
+    //               position: results[0].geometry.location,
+    //               map: map,
+    //               title: address
+    //             };
+    //             var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
+    //             var dt = {
+    //               lat: parseFloat(mrkr.position.A), 
+    //               long: parseFloat(mrkr.position.F)                    
+    //             };
+    //             $.ajax({
+    //                 url: postUrl, 
+    //                 type: 'POST',
+    //                 data: dt,
+    //                 dataType: 'json'
+    //             });
+    //             console.log(dt);
+    //             var marker = new google.maps.Marker(mrkr);
+    //             google.maps.event.addListener(marker, 'click', function() {
+    //               infowindow.open(map, marker);
+    //             });
+    //           } else {
+    //             alert("No results found");
+    //           }
+    //         } else {
+    //           alert("Geocode was not successful for the following reason: " + status);
+    //         }
+    //       });
+    //     }
+    //   }
+
+      function initialize() {
+          var bounds = new google.maps.LatLngBounds();
+          var mapOptions = {
+              mapTypeId: 'roadmap'
+          };
+                          
+          // Display a map on the page
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          map.setTilt(45);
+              
+          // Multiple Markers
+          var markers = [];
+          
+          var infoWindowContent = [];
+          var users = [];
+                              
+          // Info Window Content
+          <% User.all.each { |u| %>
+              users.push('<%= u.id %>');
+              infoWindowContent.push(['<div class="info_content"><h3><%= u.name %></h3><p><%= u.home %></p></div>']);
+              markers.push(['<%= u.home %>', parseFloat('<%= u.lat %>'), parseFloat('<%= u.long %>')])
+          <% } %>
+        
+          var me = 0;
+          for(i = 0; i < users.length; i++) {
+            if ('<%= current_user.id %>' === users[i]) {
+              me = i;
+              break;
             }
+          }
+
+          geocoder = new google.maps.Geocoder();
+          if (geocoder) {
+            geocoder.geocode({'address': address}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                  map.setCenter(results[0].geometry.location);
+
+                  var mrkr = {
+                    position: results[0].geometry.location,
+                    map: map,
+                    title: address
+                  };
+                  var postUrl = '/users/' + '<%= current_user.id %>' + '/edit_latlong';
+                  var dt = {
+                    lat: parseFloat(mrkr.position.A), 
+                    long: parseFloat(mrkr.position.F)                    
+                  };
+                  $.ajax({
+                      url: postUrl, 
+                      type: 'POST',
+                      data: dt,
+                      dataType: 'json'
+                  });
+                }
+              }
+            })
+          }
+
+          // Display multiple markers on a map
+          var infoWindow = new google.maps.InfoWindow(), marker, i;
+          // Loop through our array of markers & place each one on the map  
+          for( i = 0; i < markers.length; i++ ) {
+              if (i === me) {
+                var image = {
+                  url: 'http://www.1stwebdesigner.com/wp-content/uploads/2013/12/fnal2-570x456.png',
+                  // This marker is 20 pixels wide by 32 pixels tall.
+                  size: new google.maps.Size(20, 32),
+                  // The origin for this image is 0,0.
+                  origin: new google.maps.Point(0,0),
+                  // The anchor for this image is the base of the flagpole at 0,32.
+                  anchor: new google.maps.Point(0, 32)
+                };
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: markers[i][0],
+                    icon: {
+                      url: 'http://www.1stwebdesigner.com/wp-content/uploads/2013/12/fnal2-570x456.png',
+                      scaledSize: new google.maps.Size(55, 45)
+                    }
+                });
+              }
+              else {
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    title: markers[i][0]
+                });
+              }
+
+              // Allow each marker to have an info window    
+              google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                      infoWindow.setContent(infoWindowContent[i][0]);
+                      infoWindow.open(map, marker);
+                  }
+              })(marker, i));
+
+              // Automatically center the map fitting all markers on the screen
+              map.fitBounds(bounds);
+          }
+
+          // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+          var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+              this.setZoom(18);
+              google.maps.event.removeListener(boundsListener);
           });
-        }
       }
       initialize();
     </script>
