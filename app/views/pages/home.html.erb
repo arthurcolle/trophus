@@ -128,15 +128,6 @@
           // Loop through our array of markers & place each one on the map  
           for( i = 0; i < markers.length; i++ ) {
               if (i === me) {
-                var image = {
-                  url: 'http://www.1stwebdesigner.com/wp-content/uploads/2013/12/fnal2-570x456.png',
-                  // This marker is 20 pixels wide by 32 pixels tall.
-                  size: new google.maps.Size(20, 32),
-                  // The origin for this image is 0,0.
-                  origin: new google.maps.Point(0,0),
-                  // The anchor for this image is the base of the flagpole at 0,32.
-                  anchor: new google.maps.Point(0, 32)
-                };
                 var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
                 bounds.extend(position);
                 marker = new google.maps.Marker({
@@ -144,7 +135,7 @@
                     map: map,
                     title: markers[i][0],
                     icon: {
-                      url: 'http://www.1stwebdesigner.com/wp-content/uploads/2013/12/fnal2-570x456.png',
+                      url: 'http://trophus.com/current_user.png',
                       scaledSize: new google.maps.Size(55, 45)
                     }
                 });
