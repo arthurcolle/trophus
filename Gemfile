@@ -24,6 +24,8 @@ gem 'guard-puma'
 gem 'devise', "~> 3.4.1"
 gem 'omniauth-facebook'
 
+gem 'jsonify'
+
 gem 'bootstrap-sass', '~> 3.3.4'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -4,17 +4,16 @@ class DishesController < ApplicationController
 	end
 
 	def show
-		@dish = Dish.find(params["id"].to_s)
+		@dish = Dish.find(params["id"])
 	end
 
 	def index
-		my_dishes = []
+		@dishes = []
 		Dish.all.each { |dish|
-			if dish.user_id == current_user.id
-				my_dishes.push(dish)
+			if dish.user_id == params["id"]
+				@dishes.push(dish)
 			end
 		}
-		@dishes = my_dishes
 	end
 
 	def create
