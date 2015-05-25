@@ -26,6 +26,8 @@ gem 'omniauth-facebook'
 
 gem 'jsonify'
 
+gem 'paperclip', "~> 4.2"
+
 gem 'bootstrap-sass', '~> 3.3.4'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -39,7 +41,6 @@ gem 'elasticsearch-rails'
 
 gem 'stripe'
 
-gem 'paperclip'				# for image upload in case user doesn't have instagram
 # gem 'imagemagick' 			# for image compression prior to upload (in case no instagram)
 gem 'instagram'				# for instagram integration
 

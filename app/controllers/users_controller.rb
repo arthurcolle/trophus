@@ -1,5 +1,6 @@
 class UsersController < ActionController::Base
 	respond_to :html, :js
+	
 	def edit_latlong
 		respond_to do |format|   
 			format.json {      # listen for json post request
@@ -18,6 +19,7 @@ class UsersController < ActionController::Base
 	end
 
 	def dishes
+		@instagram = Instagram.user_recent_media("arthurcolle")
 		@user = User.find(params["id"])
 		@dishes = @user.dishes
 		respond_to do |format|
