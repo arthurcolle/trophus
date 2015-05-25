@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
 
-
   resources :dishes
   #post 'users#edit_latlong' => 'users#edit_latlong'
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
@@ -16,7 +15,7 @@ Rails.application.routes.draw do
   match '/oauth/connect', to: 'oauth#connect', via: 'post'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
-  match "/user_recent_media", to: 'users#user_recent_media', via: 'get'
+  get "/user_recent_media" => 'users#user_recent_media'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

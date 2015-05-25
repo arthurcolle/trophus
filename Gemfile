@@ -35,6 +35,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'instagram'
+gem 'bootbox-rails', '~>0.4'
+gem 'image-picker-rails'
 
 # Mapping gems
 gem 'gmaps4rails'
@@ -42,6 +44,8 @@ gem 'geokit-rails'
 gem 'elasticsearch-rails'
 
 gem 'stripe'
+
+gem 'sprockets-rails'
 
 # gem 'imagemagick' 			# for image compression prior to upload (in case no instagram)
 

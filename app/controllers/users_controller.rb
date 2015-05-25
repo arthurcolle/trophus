@@ -1,5 +1,5 @@
 class UsersController < ActionController::Base
-	respond_to :html, :js
+	respond_to :html, :json
 	
 	def edit_latlong
 		respond_to do |format|   
@@ -28,8 +28,23 @@ class UsersController < ActionController::Base
 
 	def user_recent_media
 		@client = Instagram.client(:access_token => session[:access_token])
-		@user = @client.user
+        response = @client.user_recent_media
+        @user = @client.user
+        album = [].concat(response)
+        max_id = response.pagination.next_max_id
+
+        while !(max_id.to_s.empty?) do
+            response = @client.user_recent_media(:max_id => max_id)
+            max_id = response.pagination.next_max_id
+            album.concat(response)
+        end
+        @album = album
+        
+        respond_to do |format|
+        	format.js
+        end
 	end
+
 
 	def jsonify
 		respond_to do |format|   

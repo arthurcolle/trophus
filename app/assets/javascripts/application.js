@@ -13,8 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootbox
 //= require turbolinks
 //= require map.js
+//= require custom.js
 //= require_tree .
 
 
