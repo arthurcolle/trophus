@@ -1,13 +1,13 @@
 function clicky(number) {
       document.getElementById("spikey").onclick = function () {
         location.href = "/users/"+number+"/dishes";
-        $.ajax({
-          url: "get_dishes",
-          async: true,
-          success: function(data) {
-            console.log("Success!");
-          }
-        })
+        // $.ajax({
+        //   url: "get_dishes",
+        //   async: true,
+        //   success: function(data) {
+        //     console.log("Success!");
+        //   }
+        // })
     };
 }
 
