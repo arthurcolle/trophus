@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
   match '/users/:id/jsonify', to: 'users#jsonify', via: 'get'
   match '/users/get_ids', to: 'users#get_ids', via: 'get'
-  get 'users/:id/dishes' => 'users#dishes', :as => :user_dishes
+  get '/users/:id/dishes' => 'users#dishes'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

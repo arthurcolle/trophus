@@ -1,4 +1,5 @@
 class UsersController < ActionController::Base
+	respond_to :html, :js
 	def edit_latlong
 		respond_to do |format|   
 			format.json {      # listen for json post request
@@ -19,6 +20,9 @@ class UsersController < ActionController::Base
 	def dishes
 		@user = User.find(params["id"])
 		@dishes = @user.dishes
+		respond_to do |format|
+	    	format.js
+	  	end
 	end
 
 	def jsonify

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-header container">
-      <h1>Listing your dishes</h1>
+      <h1><%= User.find(params["id"]).name %>'s dishes</h1>
     </div>
 
     <div class="panel-body">
@@ -28,8 +28,12 @@
           <% end %>
         </tbody>
       </table>
-
     </div>
+
+        <div class="panel-footer">
+      <%= button_to 'Back', root_path, method: :get, class: "btn btn-success" %>
+    </div>
+
     
   </div>
 </div>
