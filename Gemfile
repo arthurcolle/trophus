@@ -42,7 +42,6 @@ gem 'elasticsearch-rails'
 gem 'stripe'
 
 # gem 'imagemagick' 			# for image compression prior to upload (in case no instagram)
-gem 'instagram'				# for instagram integration
 
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

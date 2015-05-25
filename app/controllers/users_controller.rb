@@ -19,7 +19,6 @@ class UsersController < ActionController::Base
 	end
 
 	def dishes
-		@instagram = Instagram.user_recent_media("arthurcolle")
 		@user = User.find(params["id"])
 		@dishes = @user.dishes
 		respond_to do |format|
