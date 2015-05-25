@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520235649) do
+ActiveRecord::Schema.define(version: 20150525170254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dishes", force: true do |t|
     t.string   "name",        limit: 20
-    t.string   "description", limit: 50
     t.integer  "user_id"
-    t.decimal  "price",                  precision: 10, scale: 2
+    t.decimal  "price",                   precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description", limit: 150
   end
 
   add_index "dishes", ["user_id"], name: "index_dishes_on_user_id", using: :btree

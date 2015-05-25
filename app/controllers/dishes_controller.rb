@@ -10,7 +10,7 @@ class DishesController < ApplicationController
 	def index
 		@dishes = []
 		Dish.all.each { |dish|
-			if dish.user_id == params["id"]
+			if dish.user_id == current_user.id
 				@dishes.push(dish)
 			end
 		}

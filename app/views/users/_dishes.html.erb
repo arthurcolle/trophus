@@ -21,7 +21,7 @@
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
               <td>$<%= dish.price %></td>
-              <td><%= link_to 'Order', buy_dish_path(dish) %></td>
+              <td><%= link_to 'Show', dish %></td>
               <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
               <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
