@@ -4,6 +4,8 @@
   <div class="panel panel-default">
     <div class="panel-header container">
       <h1>Listing your dishes</h1>
+      <%= button_to "Connect to Instagram", "/oauth/connect" %>
+      <%= button_to "See recent user media", "/user_recent_media", method: :get %>
     </div>
 
     <div class="panel-body">

@@ -26,6 +26,11 @@ class UsersController < ActionController::Base
 	  	end
 	end
 
+	def user_recent_media
+		@client = Instagram.client(:access_token => session[:access_token])
+		@user = @client.user
+	end
+
 	def jsonify
 		respond_to do |format|   
 			format.json {      # listen for json post request
