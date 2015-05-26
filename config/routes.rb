@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   match '/users/:id/jsonify', to: 'users#jsonify', via: 'get'
   match '/users/get_ids', to: 'users#get_ids', via: 'get'
   get '/users/:id/dishes' => 'users#dishes'
-  match '/oauth/connect', to: 'oauth#connect', via: 'post'
+  match '/oauth/connect', to: 'oauth#connect', via: 'get'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
   get "/user_recent_media" => 'users#user_recent_media'
