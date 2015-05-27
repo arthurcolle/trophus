@@ -9,5 +9,5 @@ prod_client_secret = "dbdaa0b824e443e3aa78e4bb812f33c8"
 prod = [prod_client_id, prod_client_secret]
 
 Instagram.configure do |config|
-	config.client_id, config.client_secret = prod
+	config.client_id, config.client_secret = dev
 end

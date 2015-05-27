@@ -45,28 +45,34 @@ class DishesController < ApplicationController
 
 	def order
 		@dish = Dish.find(params["id"])
+		amount = ((@dish.price + 0.3*@dish.price).ceil * 100).to_i
 		charge = Stripe::Charge.create(
 			:customer => current_user.stripe_id,
-			:amount => ((@dish.price + 0.3*@dish.price).ceil * 100).to_i,
+			:amount => amount,
 			:description => @dish.description,
 			:currency => 'usd'
 		)
 
-		recipient = Stripe::Recipient.create(
-		  :name => "#{User.find(@dish.user_id).name}",
-		  :type => "individual",
-		  :email => "#{User.find(@dish.user_id).email}",
-		  :card => "#{User.find(@dish.user_id).stripe_id}"
-		)
+		# recipient = Stripe::Recipient.create(
+		#   :name => "#{User.find(@dish.user_id).name}",
+		#   :type => "individual",
+		#   :email => "#{User.find(@dish.user_id).email}",
+		#   :card => "#{User.find(@dish.user_id).stripe_id}"
+		# )
 
-		transfer = Stripe::Transfer.create(
-		  :amount => (@dish.price.ceil * 100).to_i, # amount in cents
-		  :currency => "usd",
-		  :recipient => recipient.id,
-		  :statement_descriptor => @dish.name
-		)
-
-		redirect_to @dish, notice: "#{User.find(@dish.user_id).name} is your point of contact! Call her at #{User.find(@dish.user_id).phone_number} or email her at #{User.find(@dish.user_id).email}"
+		# transfer = Stripe::Transfer.create(
+		#   :amount => (@dish.price.ceil * 100).to_i, # amount in cents
+		#   :currency => "usd",
+		#   :recipient => recipient.id,
+		#   :statement_descriptor => @dish.name
+		# )
+		num = User.find(@dish.user_id).phone_number
+		str = ""
+		if num != nil
+			str = "Call them at #{num}. "
+		end
+		str << "Email them at #{User.find(@dish.user_id).email}"
+		redirect_to @dish, notice: "(#{amount.fdiv 100}) #{User.find(@dish.user_id).name} is your point of contact! #{str}"
 	end
 
 	private
