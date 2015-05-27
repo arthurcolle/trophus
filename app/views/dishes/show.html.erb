@@ -14,10 +14,10 @@
   <%= @dish.price %>
 </p>
 
-<p>	<% if @dish.image_url != nil %>
+<p>	<% if @dish.image_url != "" %>
 		<%= link_to image_tag(@dish.image_url, height: "200px"), @dish.image_url %>
 	<% else %>
-		<%= link_to image_tag(@dish.image.url(:med)), @dish.image.url %>
+  <img height="200px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
 	<% end %>
 </p>
 

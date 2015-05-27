@@ -8,7 +8,7 @@ class DishesController < ApplicationController
 	end
 
 	def index
-		@dishes = Dish.all
+		@dishes = current_user.dishes
 	end
 
 	def create

@@ -46,7 +46,7 @@ gem 'gmaps4rails'
 gem 'geokit-rails'
 gem 'elasticsearch-rails'
 
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'sprockets-rails'
 

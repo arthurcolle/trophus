@@ -32,6 +32,14 @@
           </li>
         
         <% else %>
+
+          <% if current_user.stripe_id.nil? %>
+          <% end %>
+
+          <li>
+            <button class="button btn btn-default navbar-btn" id="customButton" 
+            onclick="addStripeInformation({name: '<%= current_user.name %>', email: '<%= current_user.email %>'});">Add Payment Information</button>
+          </li>          
           
           <li> 
             <%= button_to "View dishes", dishes_path, class: "btn btn-default navbar-btn", method: :get%>  

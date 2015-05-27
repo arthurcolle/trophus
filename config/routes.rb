@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
 
   resources :dishes
+  get '/charges/new' => 'charges#new'
+  post '/charges/create' => 'charges#create'
 
   #post 'users#edit_latlong' => 'users#edit_latlong'
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDvFI2YD6EH3YePpYr5OmJt_gfNBTDjSYk" %>
 
     <style>
@@ -20,6 +21,7 @@
     </style>
 </head>
 <body>
+  <script src="https://checkout.stripe.com/checkout.js"></script>
 
 	<%= render('layouts/header') %>
 	<div id="map-canvas" style="display: none"></div>
