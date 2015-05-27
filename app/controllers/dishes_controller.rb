@@ -42,6 +42,17 @@ class DishesController < ApplicationController
 	    end
 	end
 
+	def order
+		@dish = Dish.find(params["id"])
+		charge = Stripe::Charge.create(
+			:customer => current_user.stripe_id,
+			:amount => ((@dish.price + 0.3*@dish.price).ceil * 100).to_i,
+			:description => @dish.description,
+			:currency => 'usd'
+		)
+		redirect_to @dish, notice: "#{User.find(@dish.user_id).name} is your point of contact! Call her at #{User.find(@dish.user_id).phone_number} or email her at #{User.find(@dish.user_id).email}"
+	end
+
 	private
     # Using a private method to encapsulate the permissible parameters
     # is just a good pattern since you'll be able to reuse the same

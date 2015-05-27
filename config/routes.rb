@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
 
+
+  post 'dishes/:id/order' => 'dishes#order', :as => "order_dish"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

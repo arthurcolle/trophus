@@ -12,7 +12,7 @@
     
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
-        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "", root_path, class: "fa fa-home fa-2x" %></li>
+        <li class="<%= 'active' if current_page?(root_path) %>"><div class="btn navbar-btn" onClick="window.location.href='/'"><span style="color: white" class="fa fa-home fa-x"></span></div></li>
         <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
         <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
       </ul>
@@ -34,13 +34,13 @@
         <% else %>
 
           <% if current_user.stripe_id.nil? %>
-          <% end %>
+
 
           <li>
             <button class="button btn btn-default navbar-btn" id="customButton" 
             onclick="addStripeInformation({name: '<%= current_user.name %>', email: '<%= current_user.email %>'});">Add Payment Information</button>
           </li>          
-          
+                    <% end %>
           <li> 
             <%= button_to "View dishes", dishes_path, class: "btn btn-default navbar-btn", method: :get%>  
           </li>   
