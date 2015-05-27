@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+	before_action :authenticate_user!
 	def new
 		@dish = Dish.new
 	end
