@@ -50,6 +50,21 @@ class DishesController < ApplicationController
 			:description => @dish.description,
 			:currency => 'usd'
 		)
+
+		recipient = Stripe::Recipient.create(
+		  :name => "#{User.find(@dish.user_id).name}",
+		  :type => "individual",
+		  :email => "#{User.find(@dish.user_id).email}",
+		  :card => "#{User.find(@dish.user_id).stripe_id}"
+		)
+
+		transfer = Stripe::Transfer.create(
+		  :amount => (@dish.price.ceil * 100).to_i, # amount in cents
+		  :currency => "usd",
+		  :recipient => recipient.id,
+		  :statement_descriptor => @dish.name
+		)
+
 		redirect_to @dish, notice: "#{User.find(@dish.user_id).name} is your point of contact! Call her at #{User.find(@dish.user_id).phone_number} or email her at #{User.find(@dish.user_id).email}"
 	end
 

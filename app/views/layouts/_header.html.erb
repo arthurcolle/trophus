@@ -40,16 +40,20 @@
             <button class="button btn btn-default navbar-btn" id="customButton" 
             onclick="addStripeInformation({name: '<%= current_user.name %>', email: '<%= current_user.email %>'});">Add Payment Information</button>
           </li>          
-                    <% end %>
+          <% else %>
+          
           <li> 
             <%= button_to "View dishes", dishes_path, class: "btn btn-default navbar-btn", method: :get%>  
           </li>   
-
-
           
           <li> 
             <%= button_to "Add dish", new_dish_path, class: "btn btn-primary navbar-btn", method: :get%>  
           </li>   
+
+
+          <% end %>
+          
+
 
           <li class="navbar-text" style="color: black;"><b>Logged in as:</b> <%= current_user.name %></li> 
    
