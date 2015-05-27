@@ -8,12 +8,7 @@ class DishesController < ApplicationController
 	end
 
 	def index
-		@dishes = []
-		Dish.all.each { |dish|
-			if dish.user_id == current_user.id
-				@dishes.push(dish)
-			end
-		}
+		@dishes = Dish.all
 	end
 
 	def create
@@ -29,20 +24,23 @@ class DishesController < ApplicationController
   	end
 
 	def edit
+		@dish = Dish.find(params["id"])
 	end
 
 	def destroy
+		@dish = Dish.find(params["id"])
 		@dish.destroy
 	    redirect_to dishes_path, notice: 'Dish was successfully destroyed.'
 	end
 
 	def update
-  	if @dish.update(dish_params)
-    	redirect_to @dish, notice: 'Dish was successfully updated.'
-    else
-      render :edit
-    end
-  end
+		@dish = Dish.find(params["id"])
+	  	if @dish.update(dish_params)
+	    	redirect_to @dish, notice: 'Dish was successfully updated.'
+	    else
+	      render :edit
+	    end
+	end
 
 	private
     # Using a private method to encapsulate the permissible parameters
@@ -50,6 +48,9 @@ class DishesController < ApplicationController
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def dish_params
-    	params.require(:dish).permit(:name, :description, :price)
+    	if !params["image_url"].nil?
+			params["image"] = Dish.picture_from_url(params["image_url"])
+		end
+    	params.require(:dish).permit(:name, :description, :price, :image, :image_url)
     end
 end

@@ -31,6 +31,9 @@ GEM
     autoprefixer-rails (5.1.11)
       execjs
       json
+    aws-sdk-v1 (1.52.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     bootbox-rails (0.5.0)
     bootstrap-sass (3.3.4.1)
@@ -123,12 +126,15 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.5)
+    mini_portile (0.6.2)
     minitest (5.6.1)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nenv (0.2.0)
     netrc (0.10.3)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
     notiffany (0.0.6)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -235,6 +241,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-v1
   bootbox-rails (~> 0.4)
   bootstrap-sass (~> 3.3.4)
   coffee-rails (~> 4.0.0)

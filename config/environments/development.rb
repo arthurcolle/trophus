@@ -8,7 +8,15 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-
+  
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "trophus-dishes",
+      :s3_credentials => "#{Rails.root}/config/aws.yml",
+    }
+  }
+  
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false

@@ -1,18 +1,18 @@
-<div class="container">
+
   <div class="panel panel-default">
     <div class="panel-header container">
       <h1>Listing your dishes
 
       <span id="spannerbutton" style="position: relative; float: right; right: 50px">
-        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Select images", "onclick" => "snappy();" } %> 
+        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Select images", "onclick" => "snappy('multiple');" } %> 
 
 
-      <a href="/oauth/connect">
-        <button class="button btn btn-primary" id="instagram-connect">
-        <i class="fa fa-instagram"></i>
-           Connect to Instagram
-        </button>
-      </a>
+        <a href="/oauth/connect">
+          <button class="button btn btn-primary" id="instagram-connect">
+          <i class="fa fa-instagram"></i>
+             Connect to Instagram
+          </button>
+        </a>
       </span>
       </h1>
     
@@ -22,6 +22,7 @@
       <table class="table">
         <thead>
           <tr>
+            <th>Image</th>
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
@@ -32,21 +33,26 @@
         <tbody>
           <% @dishes.each do |dish| %>
             <tr>
+              <% if dish.image_url != nil %>
+                <td><img height="50px" src='<%= dish.image_url %>'></td>
+              <% else %>
+                <td>
+                  <img height="50px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
+                </td>
+              <% end %>
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
               <td>$<%= dish.price %></td>
               <td><%= link_to 'Show', dish %></td>
               <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-              <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-
     </div>
     
     <div class="panel-footer">
       <%= link_to 'New dish', new_dish_path %>
     </div>
   </div>
-</div>

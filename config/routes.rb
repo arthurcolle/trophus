@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :dishes
+
   #post 'users#edit_latlong' => 'users#edit_latlong'
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
   match '/users/:id/jsonify', to: 'users#jsonify', via: 'get'
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
   get "/user_recent_media" => 'users#user_recent_media'
-
+  get "/user_recent_media_single" => 'users#user_recent_media_single'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

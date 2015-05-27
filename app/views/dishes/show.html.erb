@@ -14,5 +14,9 @@
   <%= @dish.price %>
 </p>
 
+<p>
+	<%= link_to image_tag(@dish.image.url(:med)), @dish.image.url %>
+</p>
+
 <%= link_to 'Edit', edit_dish_path(@dish) %> |
 <%= link_to 'Back', dishes_path %>

@@ -2,10 +2,14 @@ $(function() {
 	<%	str = '' %>
 	<% count = 0 %>
 	var strings = []
-	bootbox.alert(" ", function() { console.log("Got here"); });
+	bootbox.confirm(" ", function(data) { 
+		if (data === true) {
+			console.log($("select").val());
+		}
+	});
 	// $(".bootbox-body").css("overflow-y: auto;");
 	
-	$(".modal-body").append('<div class="picker"> <select class="image-picker show-html"></select> </div>');
+	$(".modal-body").append('<div class="picker"> <select multiple="multiple" class="image-picker show-html"></select> </div>');
 	<% @album.each_with_index do |media_item, index| %>
 		// console.log('<%= media_item.images %>');
 		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.thumbnail.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
@@ -22,8 +26,6 @@ $(function() {
   //       show_label  : false
 	})
 
-	$("select").on('change', function() {
-		window.open(this.value);
-	})
+
 });
 

@@ -1,22 +1,44 @@
-      <%= form_for(@dish) do |f|%> 
+<%= form_for(@dish, :html => { :multipart => true }) do |f| %> 
 
-        <div class="form-group"> 
-          <%= f.label :name %>
-          <%= f.text_field :name, class: "form-control" %>
-        </div> 
-        
-        <div class="form-group"> 
-          <%= f.label :description %>
-          <%= f.text_field :description, class: "form-control" %>
-        </div> 
+<span id='hideAfter'>
+  <div class="form-group">
+    <%= f.label :image %>
+      <div id="instaject-outer" style="padding: 10px; display: none;"> <!-- style="display: none;"> -->
+    <div id="instaject"></div>
+<!--     <button class = "button btn btn-primary" id="removeButton"
+            onclick = "removePic();">
+            Remove image
+    </button> -->
+  </div>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
 
-        <div class="form-group"> 
-          <%= f.label :price %>
-          <%= f.number_field :price, class: "form-control" %>
-        </div> 
+  <div class="form-group">
+          <span id="spannerbutton">
+        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "or use Instagram!", "onclick" => "snappy('single');" } %> 
+      </span>
+  </div>
+</span>
 
-        <div class="actions"> 
-          <%= f.submit :class => "btn btn-success" %>
-        </div> 
+  <%= f.hidden_field :image_url, :id => "imageURL" %>
+
+  <div class="form-group"> 
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div> 
   
-      <% end %>
+  <div class="form-group"> 
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group"> 
+    <%= f.label :price %>
+    <%= f.number_field :price, class: "form-control" %>
+  </div> 
+
+  <div class="actions"> 
+    <%= f.submit :class => "btn btn-success" %>
+  </div> 
+
+<% end %>

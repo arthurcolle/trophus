@@ -45,6 +45,25 @@ class UsersController < ActionController::Base
         end
 	end
 
+	def user_recent_media_single
+		@client = Instagram.client(:access_token => session[:access_token])
+        response = @client.user_recent_media
+        @user = @client.user
+        album = [].concat(response)
+        max_id = response.pagination.next_max_id
+
+        while !(max_id.to_s.empty?) do
+            response = @client.user_recent_media(:max_id => max_id)
+            max_id = response.pagination.next_max_id
+            album.concat(response)
+        end
+        @album = album
+        
+        respond_to do |format|
+        	format.js
+        end	
+	end
+
 
 	def jsonify
 		respond_to do |format|   
