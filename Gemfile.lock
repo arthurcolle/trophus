@@ -253,7 +253,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-v1
   bootbox-rails (~> 0.4)
-  bootstrap-sass (~> 3.3.4)
+  bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
   elasticsearch-rails

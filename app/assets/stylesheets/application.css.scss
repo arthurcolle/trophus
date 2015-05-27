@@ -13,15 +13,15 @@
  * style scope.
  *
  *= require_tree .
- *= require image-picker
  *= require_self
+ *= require image-picker
  */
 
 $navbar-default-bg: #2ecc71;
 $jumbotron-padding: 15px;
 
-@import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'bootstrap-sprockets';
 
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
