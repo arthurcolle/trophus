@@ -14,8 +14,11 @@
   <%= @dish.price %>
 </p>
 
-<p>
-	<%= link_to image_tag(@dish.image.url(:med)), @dish.image.url %>
+<p>	<% if @dish.image_url != nil %>
+		<%= link_to image_tag(@dish.image_url, height: "200px"), @dish.image_url %>
+	<% else %>
+		<%= link_to image_tag(@dish.image.url(:med)), @dish.image.url %>
+	<% end %>
 </p>
 
 <%= link_to 'Edit', edit_dish_path(@dish) %> |

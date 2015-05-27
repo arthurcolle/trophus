@@ -18,16 +18,23 @@
         <tbody>
           <% @dishes.each do |dish| %>
             <tr>
+              <% if dish.image_url != nil %>
+                <td><img height="75px" src='<%= dish.image_url %>'></td>
+              <% else %>
+                <td>
+                  <img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
+                </td>
+              <% end %>
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
               <td>$<%= dish.price %></td>
               <td><%= link_to 'Show', dish %></td>
               <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-              <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
-
         </tbody>
+
       </table>
     </div>
 
