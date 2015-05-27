@@ -1,6 +1,8 @@
 class OauthController < ActionController::Base
 
 	CALLBACK_URL = "http://127.0.0.1:3000/users/auth/instagram/callbacks"
+	CALLBACK_URL = "http://trophus.herokuapp.com/users/auth/instagram/callbacks"
+	
 	SCOPE = "likes+comments+relationships"
 	
 	def connect
