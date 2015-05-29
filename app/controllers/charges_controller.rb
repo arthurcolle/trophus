@@ -21,10 +21,10 @@ class ChargesController < ApplicationController
 		  }
 		)
 
-		@user.customer_id = customer.id
-		@user.connect_id = connect["id"]
-		@user.secret_id = connect["keys"]["secret"]
-		@user.publishable_id = connect["keys"]["publishable"]
+		@user.customer_id = customer.id 							# STRIPE CUSTOMER ID   -   cus_6Jmvyr3DzPU8P2
+		@user.connect_id = connect["id"] 							# STRIPE CONNECT ID   -   acct_1679LjFP9ocVaMqO
+		@user.secret_id = connect["keys"]["secret"] 				# STRIPE CONNECT SECRET ID   -   sk_test_MVrRKSz1xZM1g2Dwnzxf8x9E
+		@user.publishable_id = connect["keys"]["publishable"]       # STRIPE CONNECT PUBLISHABLE ID   -   pk_test_FDc3ZDS37tv3UPF1Wqfyz2Nf
 		@user.save
 
 		# account = Stripe::Account.retrieve({CONNECTED_STRIPE_ACCOUNT_ID})

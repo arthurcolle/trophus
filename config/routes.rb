@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
   get '/connect' => 'users#connect'
+  post '/accepted_tos' => 'users#accepted_tos'
 
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'

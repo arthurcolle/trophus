@@ -6,6 +6,24 @@ class UsersController < ActionController::Base
 			format.js
 		end
 	end
+
+	def accepted_tos
+		@user = current_user
+		puts @user.name
+		@country = params["country"]
+		@tos = params["tos"]
+
+		if !@user.connect_id.nil?
+			@connect_id = @user.connect_id
+			@secret_key = @user.secret_id
+			@publishable_key = @user.publishable_key
+		end	
+	
+		respond_to do |format|
+			format.js
+		end
+	
+	end
 	
 	def edit_latlong
 		respond_to do |format|   
