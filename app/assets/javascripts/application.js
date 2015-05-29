@@ -18,6 +18,7 @@
 //= require image-picker
 //= require map.js
 //= require custom.js
+//= require materialize.js
 //= require_tree .
 
 

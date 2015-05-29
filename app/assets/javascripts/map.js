@@ -10,6 +10,7 @@ function clicky(number) {
 function initialize(user_id) {
   $('#map-canvas').toggle();
   var geocoder;
+  google.maps.visualRefresh = true;
   var map;
   var address;
   
@@ -148,7 +149,7 @@ function initialize(user_id) {
 
           // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-      this.setZoom(20);
+      this.setZoom(18);
       google.maps.event.removeListener(boundsListener);
   });
 }

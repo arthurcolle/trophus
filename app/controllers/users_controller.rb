@@ -21,6 +21,8 @@ class UsersController < ActionController::Base
 		account.tos_acceptance.date = Time.now.to_i
 		account.tos_acceptance.ip = request.remote_ip
 		account.save
+		@user.transfers_enabled = true
+		@user.save
 
 		respond_to do |format|
 			format.js

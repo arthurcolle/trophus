@@ -1,3 +1,6 @@
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+
 <!-- Fixed navbar -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -9,28 +12,28 @@
         <span class="icon-bar"></span>
       </button>
     </div>
-    
+
+
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-left">
-        <li class="<%= 'active' if current_page?(root_path) %>"><div class="btn navbar-btn" onClick="window.location.href='/'"><span style="color: white" class="fa fa-home fa-x"></span></div></li>
-        <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to "About", about_path %></li>
-        <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to "Contact", contact_path %></li>
+        
       </ul>
 
+
       <ul class="nav navbar-nav navbar-right">
-              <li><button class="btn btn-default navbar-btn" onclick="connect()">Add Bank Info</button></li>
+              <li><button class="btn btn-default navbar-btn btn-xs" onclick="connect()">Add Bank Info</button></li>
 
         <% if current_user.nil? %>
           <li> 
             <%= button_to "Sign up", 
                 new_user_registration_path, 
-                class: "btn btn-default navbar-btn", method: :get %> 
+                class: "btn btn-default navbar-btn btn-xs", method: :get %> 
           </li>  
           
           <li> 
             <%= button_to "Log in",
             new_user_session_path, 
-            class: "btn btn-default navbar-btn", method: :get %> 
+            class: "btn btn-default navbar-btn btn-xs", method: :get %> 
           </li>
         
         <% else %>
@@ -40,17 +43,17 @@
 
 
           <li>
-            <button class="button btn btn-default navbar-btn" id="customButton" 
+            <button class="button btn btn-default navbar-btn btn-xs" id="customButton" 
             onclick="addStripeInformation({name: '<%= current_user.name %>', email: '<%= current_user.email %>'});">Add Payment Information</button>
           </li>          
           <% else %>
           
           <li> 
-            <%= button_to "View dishes", dishes_path, class: "btn btn-default navbar-btn", method: :get%>  
+            <%= button_to "View dishes", dishes_path, class: "btn btn-default navbar-btn btn-xs", method: :get%>  
           </li>   
           
           <li> 
-            <%= button_to "Add dish", new_dish_path, class: "btn btn-primary navbar-btn", method: :get%>  
+            <%= button_to "Add dish", new_dish_path, class: "btn btn-primary navbar-btn btn-xs", method: :get%>  
           </li>   
 
 
@@ -62,7 +65,7 @@
    
           
           <li> 
-            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn", method: :delete %>  
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-default navbar-btn btn-xs", method: :delete %>  
           </li>
         <% end %>
       </ul>  
