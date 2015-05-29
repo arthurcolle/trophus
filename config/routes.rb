@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   get '/connect' => 'users#connect'
   post '/accepted_tos' => 'users#accepted_tos'
+  post '/create_connected' => 'users#create_connected'
 
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'

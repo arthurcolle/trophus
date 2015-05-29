@@ -7,18 +7,50 @@ class UsersController < ActionController::Base
 		end
 	end
 
+	def create_connected
+		puts params
+		@user = current_user
+		account = Stripe::Account.retrieve(@user.connect_id)
+		account.bank_account = params["token"]
+		account.legal_entity.first_name = params["first_name"]
+		account.legal_entity.last_name = params["last_name"]
+		account.legal_entity.dob.year = params["dob1"].to_i
+		account.legal_entity.dob.month = params["dob2"].to_i
+		account.legal_entity.dob.day = params["dob3"].to_i
+		account.legal_entity.type = "sole_prop"
+		account.tos_acceptance.date = Time.now.to_i
+		account.tos_acceptance.ip = request.remote_ip
+		account.save
+
+		respond_to do |format|
+			format.js
+		end
+
+
+	end
+
 	def accepted_tos
 		@user = current_user
 		puts @user.name
 		@country = params["country"]
 		@tos = params["tos"]
 
-		if !@user.connect_id.nil?
-			@connect_id = @user.connect_id
-			@secret_key = @user.secret_id
-			@publishable_key = @user.publishable_key
-		end	
-	
+		if @user.connect_id.nil?
+			connect = Stripe::Account.create({
+			    :country => @country,
+			    :managed => true,
+			    :email => @user.email
+		  	})
+			@user.connect_id = connect["id"] 							# STRIPE CONNECT ID   -   acct_1679LjFP9ocVaMqO
+			@user.secret_id = connect["keys"]["secret"] 				# STRIPE CONNECT SECRET ID   -   sk_test_MVrRKSz1xZM1g2Dwnzxf8x9E
+			@user.publishable_id = connect["keys"]["publishable"]       # STRIPE CONNECT PUBLISHABLE ID   -   pk_test_FDc3ZDS37tv3UPF1Wqfyz2Nf
+			@user.save
+		end
+
+		@connect_id = @user.connect_id
+		@secret_key = @user.secret_id
+		@publishable_key = @user.publishable_key
+
 		respond_to do |format|
 			format.js
 		end

@@ -262,7 +262,20 @@ bootbox.dialog({
                         alert(response.error.message);
                     } else {
                         var token = response.id;
-                        console.log(token);
+                        var dt = {
+                            "token" : token,
+                            "first_name": a,
+                            "last_name": b,
+                            "dob1": c,
+                            "dob2": d,
+                            "dob3": e,
+                            "address1": f,
+                            "address2": g,
+                            "address_city": h,
+                            "address_state": i,
+                            "address_zip": j
+                        };
+                        $.ajax({url: "create_connected", type: "POST", data: dt});
                     }
                 });
             }

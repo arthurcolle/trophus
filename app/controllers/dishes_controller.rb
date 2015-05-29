@@ -45,39 +45,17 @@ class DishesController < ApplicationController
 
 	def order
 		@dish = Dish.find(params["id"])
-		amount = ((@dish.price + 0.3*@dish.price).ceil * 100).to_i
-		charge = Stripe::Charge.create(
-			:customer => current_user.customer_id,
-			:amount => amount,
-			:description => @dish.description,
+		@amount = ((@dish.price + 0.3*@dish.price).ceil * 100).to_i
+		charge = {
+			:customer => current_user.customer_id, 
+			:amount => ((@dish.price + 0.3*@dish.price).ceil * 100).to_i,
+			:destination => User.find(@dish.user_id).connect_id,
+			:application_fee => ((0.3*@dish.price).ceil * 100),
+			:description => "[" + @dish.name + "]: " + "(" + @dish.description + ")",
 			:currency => 'usd'
-		)
+		}
 
-
-		transfer = Stripe::Transfer.create(
-		  :amount => (@dish.price.ceil * 100).to_i, # amount in cents
-		  :currency => "usd",
-		  :recipient => User.find(@dish.user_id).recipient_id,
-		  :statement_descriptor => @dish.name
-		)
-
-		# # STRIPE CONNECT
-		# charge = Stripe::Charge.create({
-		#     :amount => 1000, # amount in cents
-		#     :currency => "usd",
-		#     :source => token,
-		#     :description => "Example charge",
-		#     :application_fee => 123 # amount in cents
-		#   },
-		#   {:stripe_account => CONNECTED_STRIPE_ACCOUNT_ID}
-		# )
-		# recipient = Stripe::Recipient.create(
-		#   :name => "#{User.find(@dish.user_id).name}",
-		#   :type => "individual",
-		#   :email => "#{User.find(@dish.user_id).email}",
-		#   :card => "#{User.find(@dish.user_id).customer_id}"
-		# )
-
+		charge = Stripe::Charge.create(charge)
 
 		num = User.find(@dish.user_id).phone_number
 		str = ""
@@ -85,7 +63,7 @@ class DishesController < ApplicationController
 			str = "Call them at #{num}. "
 		end
 		str << "Email them at #{User.find(@dish.user_id).email}"
-		redirect_to @dish, notice: "(#{amount.fdiv 100}) #{User.find(@dish.user_id).name} is your point of contact! #{str}"
+		redirect_to @dish, notice: "(You were charged $#{@amount.fdiv 100}) #{User.find(@dish.user_id).name} is your point of contact! #{str}"
 	end
 
 	private
