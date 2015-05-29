@@ -27,7 +27,6 @@ class ChargesController < ApplicationController
 		@user.publishable_id = connect["keys"]["publishable"]       # STRIPE CONNECT PUBLISHABLE ID   -   pk_test_FDc3ZDS37tv3UPF1Wqfyz2Nf
 		@user.save
 
-		account = Stripe::Account.retrieve(@user.connect_id)
 
 		# # Create additional owners
 		# account.legal_entity.additional_owners = [
