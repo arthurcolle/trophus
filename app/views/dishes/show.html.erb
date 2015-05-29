@@ -1,25 +1,27 @@
 <p id="notice"></p>
-<p>
-  <strong>Name:</strong>
-  <%= @dish.name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
 
-<p>
-  <strong>Description:</strong>
-  <%= @dish.description %>
-</p>
+  <h1><%= @dish.name %> - $<%= @dish.price %></h1>
 
-<p>
-  <strong>Price:</strong>
-  <%= @dish.price %>
-</p>
+  </div>
 
-<p>	<% if @dish.image_url != "" %>
-		<%= link_to image_tag(@dish.image_url, height: "200px"), @dish.image_url %>
-	<% else %>
-  <img height="200px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
-	<% end %>
-</p>
+    <div class="panel-body">
 
-<%= link_to 'Edit', edit_dish_path(@dish) %> |
-<%= link_to 'Back', dishes_path %>
+        <h2><%= @dish.description %> </h2>
+
+
+          <% if @dish.image_url != "" %>
+          <%= link_to image_tag(@dish.image_url, height: "300px"), @dish.image_url %>
+        <% else %>
+        <img height="300px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
+        <% end %>
+  </div>
+
+<div class="panel-footer">
+  <%= link_to 'Edit', edit_dish_path(@dish), class: "btn-floating btn-large waves-effect waves-light teal" %>
+  <%= link_to 'Back', dishes_path, class: "btn-floating btn-large waves-effect waves-light teal" %>  
+</div>
+
+</div>
+

@@ -1,26 +1,37 @@
-$(function() {
-	<%	str = '' %>
-	<% count = 0 %>
-	var strings = []
-	bootbox.confirm(" ", function(data) { 
-		if (data === true) {
-			imageURL = $("select").val();
-			$('#instaject-outer').show();
-			$('#instaject').empty();
-			$('#instaject').append('<img height="100px" width="100px" src=' + '"' + imageURL + '"' + '>')
-			$('#imageURL').val(imageURL);
-		}
-	});
+// $(function() {
+// 	<%	str = '' %>
+// 	<% count = 0 %>
+// 	var strings = []
+// 	bootbox.confirm(" ", function(data) { 
+// 		if (data === true) {
+// 			imageURL = $("select").val();
+// 			$('#instaject-outer').show();
+// 			$('#instaject').empty();
+// 			$('#instaject').append('<img height="100px" width="100px" src=' + '"' + imageURL + '"' + '>')
+// 			$('#imageURL').val(imageURL);
+// 		}
+// 	});
 	
-	$(".modal-body").append('<div class="picker"> <select class="image-picker show-html"></select> </div>');
+// 	$(".modal-body").append('<div class="picker"> <select class="image-picker show-html"></select> </div>');
+// 	<% @album.each_with_index do |media_item, index| %>
+// 		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.thumbnail.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
+// 		<% if index > 50 then break end %>
+// 	<% end %>
+
+// 	$("select").imagepicker({
+// 		// hide_select : false,
+//   //       show_label  : false
+// 	})
+// });
+
+
+$(function() {
 	<% @album.each_with_index do |media_item, index| %>
 		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.thumbnail.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
 		<% if index > 50 then break end %>
 	<% end %>
 
 	$("select").imagepicker({
-		// hide_select : false,
-  //       show_label  : false
 	})
 });
 

@@ -1,31 +1,10 @@
 $(function() {
-	<%	str = '' %>
-	<% count = 0 %>
-	var strings = []
-	bootbox.confirm(" ", function(data) { 
-		if (data === true) {
-			console.log($("select").val());
-		}
-	});
-	// $(".bootbox-body").css("overflow-y: auto;");
-	
-	$(".modal-body").append('<div class="picker"> <select multiple="multiple" class="image-picker show-html"></select> </div>');
 	<% @album.each_with_index do |media_item, index| %>
-		// console.log('<%= media_item.images %>');
 		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.thumbnail.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
 		<% if index > 50 then break end %>
-		// <%	str << "<div style='float:left;'>" %>
-		// <%	str << "<img src=#{media_item.images.thumbnail.url}><br/>" %>
-		// <%	str << "<a href='/media_like/#{media_item.id}'>Like</a>" %>
-		// <%	str << "<a href='/media_unlike/#{media_item.id}'>Un-Like</a>" %>
-		// <%	str << "<br/>LikesCount=#{media_item.likes[:count]}</div>" %>
 	<% end %>
 
 	$("select").imagepicker({
-		// hide_select : false,
-  //       show_label  : false
 	})
-
-
 });
 

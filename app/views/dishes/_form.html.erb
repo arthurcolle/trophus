@@ -1,6 +1,8 @@
 <%= form_for(@dish, :html => { :multipart => true }) do |f| %> 
 
 <span id='hideAfter'>
+
+
   <div class="form-group">
     <%= f.label :image %>
       <div id="instaject-outer" style="padding: 10px; display: none;"> <!-- style="display: none;"> -->
@@ -14,8 +16,16 @@
   </div>
 
   <div class="form-group">
+          <a href="/oauth/connect">
+          <button class="button btn btn-primary" id="instagram-connect">
+          <i class="fa fa-instagram"></i>
+             Connect to Instagram
+          </button>
+        </a>
+
+
           <span id="spannerbutton">
-        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "or use Instagram!", "onclick" => "snappy('single');" } %> 
+        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Select from Insta", "onclick" => "instaModalSingle();" } %> 
       </span>
   </div>
 </span>

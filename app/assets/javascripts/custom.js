@@ -38,6 +38,16 @@ connect = function() {
   $('#modal1').openModal()
 }
 
+instaModal = function() {
+  $('#modal4').openModal();
+  snappy('multiple');
+}
+
+instaModalSingle = function() {
+  $('#modal5').openModal();
+  snappy('single');
+}
+
 execute = function() {
   var country = $('.country').val();
   var tos = $("input[name='tos']:checked").val();
@@ -102,6 +112,13 @@ execute2 = function() {
           $.ajax({url: "create_connected", type: "POST", data: dt});
       }
   });
+}
+randomFunction = function(val) {
+  var imageURL = $( "#insta_single option:selected" ).val();
+  $('#instaject-outer').show();
+  $('#instaject').empty();
+  $('#instaject').append('<img height="100px" width="100px" src=' + '"' + imageURL + '"' + '>')
+  $('#imageURL').val(imageURL);
 }
 
 snappy = function(selectOptions) {
