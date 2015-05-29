@@ -47,25 +47,38 @@ class DishesController < ApplicationController
 		@dish = Dish.find(params["id"])
 		amount = ((@dish.price + 0.3*@dish.price).ceil * 100).to_i
 		charge = Stripe::Charge.create(
-			:customer => current_user.stripe_id,
+			:customer => current_user.customer_id,
 			:amount => amount,
 			:description => @dish.description,
 			:currency => 'usd'
 		)
 
+
+		transfer = Stripe::Transfer.create(
+		  :amount => (@dish.price.ceil * 100).to_i, # amount in cents
+		  :currency => "usd",
+		  :recipient => User.find(@dish.user_id).recipient_id,
+		  :statement_descriptor => @dish.name
+		)
+
+		# # STRIPE CONNECT
+		# charge = Stripe::Charge.create({
+		#     :amount => 1000, # amount in cents
+		#     :currency => "usd",
+		#     :source => token,
+		#     :description => "Example charge",
+		#     :application_fee => 123 # amount in cents
+		#   },
+		#   {:stripe_account => CONNECTED_STRIPE_ACCOUNT_ID}
+		# )
 		# recipient = Stripe::Recipient.create(
 		#   :name => "#{User.find(@dish.user_id).name}",
 		#   :type => "individual",
 		#   :email => "#{User.find(@dish.user_id).email}",
-		#   :card => "#{User.find(@dish.user_id).stripe_id}"
+		#   :card => "#{User.find(@dish.user_id).customer_id}"
 		# )
 
-		# transfer = Stripe::Transfer.create(
-		#   :amount => (@dish.price.ceil * 100).to_i, # amount in cents
-		#   :currency => "usd",
-		#   :recipient => recipient.id,
-		#   :statement_descriptor => @dish.name
-		# )
+
 		num = User.find(@dish.user_id).phone_number
 		str = ""
 		if num != nil

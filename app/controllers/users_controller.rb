@@ -1,5 +1,11 @@
 class UsersController < ActionController::Base
 	respond_to :html, :json
+
+	def connect
+		respond_to do |format|
+			format.js
+		end
+	end
 	
 	def edit_latlong
 		respond_to do |format|   

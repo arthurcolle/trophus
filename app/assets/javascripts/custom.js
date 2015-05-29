@@ -18,7 +18,7 @@ function addStripeInformation(data) {
     handler.open({
       email: data.email,
       name: data.name,
-      description: 'Adding payment information',
+      description: 'Only debit cards supported',
       zipCode: false,
       panelLabel: "Add Information"
     });
@@ -28,6 +28,13 @@ function addStripeInformation(data) {
   $(window).on('popstate', function() {
     handler.close();
   }); 
+}
+
+connect = function() {
+  $.ajax({
+    url: '/connect',
+    type: "GET"
+  });
 }
 
 snappy = function(selectOptions) {

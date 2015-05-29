@@ -18,9 +18,21 @@ Rails.application.routes.draw do
   match '/oauth/connect', to: 'oauth#connect', via: 'get'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
+  get '/connect' => 'users#connect'
+
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
 
+
+  # Stripe Connect endpoints
+  #  - oauth flow
+  get '/connect/confirm' => 'stripe#confirm', as: 'stripe_confirm'
+  get '/connect/deauthorize' => 'stripe#deauthorize', as: 'stripe_deauthorize'
+  #  - create accounts
+  post '/connect/managed' => 'stripe#managed', as: 'stripe_managed'
+
+  # Stripe webhooks
+  post '/hooks/stripe' => 'hooks#stripe'
 
   post 'dishes/:id/order' => 'dishes#order', :as => "order_dish"
   

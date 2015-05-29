@@ -18,6 +18,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+              <li><button class="btn btn-default navbar-btn" onclick="connect()">Add Bank Info</button></li>
+
         <% if current_user.nil? %>
           <li> 
             <%= button_to "Sign up", 
@@ -33,7 +35,8 @@
         
         <% else %>
 
-          <% if current_user.stripe_id.nil? %>
+
+          <% if current_user.customer_id.nil? %>
 
 
           <li>
