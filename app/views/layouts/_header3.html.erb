@@ -19,13 +19,17 @@
           <li title = "Log in"><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'"><i class="mdi-action-account-box"></i></button></div></li>
       <% else %>
 
-<!-- <li>
-  <%= form_tag '/', id: 'search_form', method: :get, style: "width: 400px" do %>
-    <%= text_field_tag :q, params[:q] %>
+<li>
+<%= form_tag '/', id: 'autocomplete', method: :get, style: "width: 400px" do %>
+    <input type="text" id="q" onKeyUp="myHandler()" />
   <% end %>
-</li> -->
 
-          <li> 
+          <div id="results">
+
+        </div>
+</li>
+
+<!--           <li> 
             <form style="positive: relative; width: 700px" id="search_form">
               <div class="input-field">
                 <input id="search" type="search" required>
@@ -34,7 +38,7 @@
               </div>
             </form>
           </li>
-
+ -->
           
 
         <% if current_user.transfers_enabled == nil %>

@@ -1,14 +1,15 @@
 class SearchController < ApplicationController
+	respond_to :js, :html, :json
 	def search
-		puts params
-	  if params[:query].nil?
-	    @returned = []
+	  puts params
+	  if params["query"].nil?
+	    @using = []
 	  else
-	    @dish_data = Dish.ac_search params[:q]
-	    @user_data = User.ac_search params[:q]
+	    a = User.ac_search(params["query"]).to_json
+	   	d = Dish.ac_search(params["query"]).to_json
+	   	
 	  end
-	  render_to do |format|
-	  	format.js
-	  end
+	  puts @using
+	  render json: {users: a, dishes: d}
 	end
 end

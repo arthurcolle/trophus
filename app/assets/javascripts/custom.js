@@ -31,6 +31,17 @@ function addStripeInformation(data) {
   }); 
 }
 
+  myHandler = function() {
+    console.log($("#q").val());
+    $.ajax({
+      type: "POST",
+      url: "/autocomplete",
+      data: {query: $("#q").val()}
+    }).done(function(data) {
+      console.log(data);
+    });
+  }
+
 connect = function() {
   $.ajax({
     url: '/connect',

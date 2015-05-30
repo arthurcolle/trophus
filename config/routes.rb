@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
 
-  post '/autocomplete/' => 'search#search'
+  post '/autocomplete' => 'search#search'
 
   # Stripe Connect endpoints
   #  - oauth flow

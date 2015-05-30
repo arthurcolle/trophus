@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require image-picker
 //= require map.js
+//= require smart_auto.js
 //= require custom.js
 //= require_tree .
 
