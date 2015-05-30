@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'contact' => 'pages#contact'
   root to: 'pages#home'
 
+  get 'users/:id/show' => 'users#show'
+
   resources :dishes
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'

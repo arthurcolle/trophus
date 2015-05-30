@@ -31,16 +31,27 @@ function addStripeInformation(data) {
   }); 
 }
 
-  myHandler = function() {
-    console.log($("#q").val());
-    $.ajax({
-      type: "POST",
-      url: "/autocomplete",
-      data: {query: $("#q").val()}
-    }).done(function(data) {
-      console.log(data);
-    });
-  }
+myHandler = function() {
+  console.log($("#q").val());
+  $.ajax({
+    type: "POST",
+    url: "/autocomplete",
+    data: {query: $("#q").val()}
+  }).done(function(data) {
+    $('.results_list').toggle();
+    $('.results_list').empty();
+    var sugg = data['suggestions'];
+    sugg.forEach( function (s) {
+        if (s["type"] == "dish") {
+          var link = '/dishes/'+s['id']
+        }
+        else {
+          var link = '/users/'+s['id'] + '/show'
+        }
+        $('.results_list').append('<li><a href="'+link+'">'+ s['name'] +'</a></li>')
+    })
+  });
+}
 
 connect = function() {
   $.ajax({

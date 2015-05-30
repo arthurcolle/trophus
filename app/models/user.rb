@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :dishes
   has_many :residences
+
+  def show
+  @user = User.find(params[:id])
+end
 end	

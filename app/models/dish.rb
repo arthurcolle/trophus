@@ -1,6 +1,5 @@
 class Dish < ActiveRecord::Base
-	ac_field :description
-	ac_field :name
+	ac_field :name, search_fields: [:name, :description, :price]
 
 	belongs_to :chef,
 		:class_name => "User",

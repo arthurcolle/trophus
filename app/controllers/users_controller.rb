@@ -7,6 +7,10 @@ class UsersController < ActionController::Base
 		end
 	end
 
+	def show
+		@user = User.find(params[:id])
+	end
+
 	def create_connected
 		puts params
 		@user = current_user
