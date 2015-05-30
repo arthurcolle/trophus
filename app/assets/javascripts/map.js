@@ -68,7 +68,7 @@ function initialize(user_id) {
     url: '/users/get_ids',
     async: false,
     success: function(data) {
-      console.log(data);
+      // console.log(data);
       users = data;
     }
   });
@@ -84,10 +84,10 @@ function initialize(user_id) {
 
           num = users[u];
           infoWindowContent.push(
-            ['<div class="info_content">'+
-                '<h3>'+
+            ['<div class="info_content"><img src="https://shannonfallon.files.wordpress.com/2013/01/shannon-face-circle1.jpg" height="50px">'+
+                '<h5>'+
                   uj["name"]+
-                '</h3>'+
+                '</h5>'+
                 '<p>'+
                   uj["home"]+
                 '</p>'+
@@ -102,7 +102,7 @@ function initialize(user_id) {
   var me = 0;
   for(i = 0; i < users.length; i++) {
     if (user_id === users[i]) {
-      console.log(user_id);
+      // console.log(user_id);
       me = i;
       break;
     }

@@ -1,7 +1,6 @@
 class Dish < ActiveRecord::Base
-	include Elasticsearch::Model
-	include Elasticsearch::Model::Callbacks
-
+	ac_field :description
+	ac_field :name
 
 	belongs_to :chef,
 		:class_name => "User",

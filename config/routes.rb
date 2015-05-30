@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'contact' => 'pages#contact'
   root to: 'pages#home'
 
-
   resources :dishes
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
 
+  post '/autocomplete/' => 'search#search'
 
   # Stripe Connect endpoints
   #  - oauth flow
