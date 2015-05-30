@@ -153,3 +153,11 @@ function initialize(user_id) {
       google.maps.event.removeListener(boundsListener);
   });
 }
+
+/* This solves the problem of the little home map marker not loading when a user signs in. */
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}

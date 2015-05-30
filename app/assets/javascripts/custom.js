@@ -20,7 +20,8 @@ function addStripeInformation(data) {
       name: data.name,
       description: 'Only debit cards supported',
       zipCode: false,
-      panelLabel: "Add Information"
+      panelLabel: "Add Information",
+      allowRememberMe: false
     });
   });
 

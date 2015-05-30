@@ -1,4 +1,8 @@
 class Dish < ActiveRecord::Base
+	include Elasticsearch::Model
+	include Elasticsearch::Model::Callbacks
+
+
 	belongs_to :chef,
 		:class_name => "User",
 		:primary_key => "user_id"
@@ -10,3 +14,4 @@ class Dish < ActiveRecord::Base
     	self.image = URI.parse(url).open
   	end
 end
+Dish.import

@@ -46,7 +46,10 @@ gem 'image-picker-rails'
 # Mapping gems
 gem 'gmaps4rails'
 gem 'geokit-rails'
+
+gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'elasticsearch_autocomplete'
 
 gem 'stripe'
 

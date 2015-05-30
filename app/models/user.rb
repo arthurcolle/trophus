@@ -6,6 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :dishes
-
-
+  has_many :residences
 end	

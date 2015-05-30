@@ -3,11 +3,11 @@
     <% if !current_user.nil? %>
       <a href="/"><%= image_tag "trophus_dark_teal.png", height: "80px" %></a>
       
-      <div class="btn-floating btn-large waves-effect waves-light teal">
+      <div title="map" class="btn-floating btn-large waves-effect waves-light teal">
         <i class="mdi-action-home" onClick="window.location.href='/'"></i>
       </div>
     
-      <div class="btn-floating btn-large waves-effect waves-light teal">
+      <div title="your profile" class="btn-floating btn-large waves-effect waves-light teal">
         <i class="mdi-image-tag-faces" onClick="window.location.href='/contact'"></i>
       </div>
   <% else %>
@@ -19,36 +19,50 @@
           <li title = "Log in"><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'"><i class="mdi-action-account-box"></i></button></div></li>
       <% else %>
 
+<li>
+  <%= form_tag '/', id: 'search_form', method: :get, style: "width: 400px" do %>
+    <%= text_field_tag :q, params[:q] %>
+  <% end %>
+</li>
 
-
-        <% if current_user.transfers_enabled == nil %>
-
-        <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()"><i class="mdi-action-account-balance"></i></button></div></li>
-          
-        <% else %>
-                      <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='/dishes/new'"><i class="mdi-content-add"></i></button></div></li>
-
-
-        <% end %>
+<!--           <li> 
+            <form style="positive: relative; width: 700px" id="search_form">
+              <div class="input-field">
+                <input id="search" type="search" required>
+                <label for="search"><i class="mdi-action-search"></i></label>
+                <i class="mdi-navigation-close"></i>
+              </div>
+            </form>
+          </li> -->
 
         <% if current_user.customer_id.nil? %>
           <li>
-            <button class="btn-floating btn-large waves-effect waves-light teal" onclick="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
+            <button title="add payment information to buy food" class="btn-floating btn-large waves-effect waves-light teal" onclick="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
             <i class="mdi-action-payment"></i></button>
           </li>
         <% else %>
           <li>
             <div>
-              <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
+              <button title = "view your dishes" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
                 <i class="mdi-action-view-headline"></i>
               </button>
             </div>
           </li>
         <% end %>
 
+                <% if current_user.transfers_enabled == nil %>
+
+        <li title="add bank information to sell food"><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()"><i class="mdi-action-account-balance"></i></button></div></li>
+          
+        <% else %>
+                      <li title="add a dish"><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='/dishes/new'"><i class="mdi-content-add"></i></button></div></li>
+
+
+        <% end %>
+
         <li>
           <div>
-            <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-account-circle"></i></a></div></li>
+            <a title="your account" href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-account-circle"></i></a></div></li>
 
 
         <ul id='dropdown1' style='width: auto !important;' class='dropdown-content'>
@@ -58,24 +72,13 @@
           </li>
         </ul>
 
-          <li> 
-              
-          </li>
         <% end %>
-      </ul>  
+
+        </ul>  
       
 
 
-      <ul class="right hide-on-med-and-down" style="position: relative; right: 80px">
-        <li>
-            <form>
-            <div class="input-field">
-              <input id="search" type="search" required>
-              <label for="search"><i class="mdi-action-search"></i></label>
-              <i class="mdi-navigation-close"></i>
-            </div>
-          </form>
-      </li>
-      </ul>
+
+      
     </div>
   </nav>
