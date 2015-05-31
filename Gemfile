@@ -49,6 +49,7 @@ gem 'gmaps4rails'
 gem 'geokit-rails'
 
 gem 'elasticsearch-rails'
+gem 'elasticsearch-model'
 gem 'bonsai-elasticsearch-rails'
 gem 'elasticsearch_autocomplete'
 
