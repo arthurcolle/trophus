@@ -28,6 +28,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 
 gem 'jsonify'
+gem 'word_count'
 
 # To save the images from people's instagram's and from people uploading pictures of their dishes
 gem 'paperclip', "~> 4.2"
