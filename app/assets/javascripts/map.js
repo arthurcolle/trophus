@@ -84,7 +84,7 @@ function initialize(user_id) {
 
           num = users[u];
           infoWindowContent.push(
-            ['<div class="info_content"><img src="https://shannonfallon.files.wordpress.com/2013/01/shannon-face-circle1.jpg" height="50px">'+
+            ['<div class="info_content"><img src="'+uj["profile_pic"]+'" style="border-radius: 10px 10px 10px 10px" height="50px">'+
                 '<h5>'+
                   uj["name"]+
                 '</h5>'+

@@ -142,6 +142,7 @@ class UsersController < ActionController::Base
 					json.lat @user.lat
 					json.long @user.long
 					json.id @user.id
+					json.profile_pic @user.fb_hd_profile_picture
 				end
 				render :json => json.compile!
 			}
