@@ -63,7 +63,11 @@ p {
 	overflow-y: auto;
 }
 
-panel {
+.panel {
 	position: relative;
-	top: 50px
+	border-radius: 10px
+}
+.panel-footer {
+	position: relative;
+	border-radius: 0 0 10px 10px;
 }

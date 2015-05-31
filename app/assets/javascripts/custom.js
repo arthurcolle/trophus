@@ -42,6 +42,11 @@ $(function() {
   });
 });
 
+$(function() {
+    $( "#eas_upper" ).draggable();
+  });
+
+
 myHandler = function() {
   if ($("#q").val() != "") {
     $.ajax({
@@ -53,7 +58,7 @@ myHandler = function() {
         $('#results').empty();
         $('#results').append('<ul id="results_list"></ul>');
         var x = document.getElementById('results_list');
-        x.style.zIndex = 10;
+        x.style.zIndex = 100000;
         var sugg = data['suggestions'];
         sugg.forEach( function (s) {
             var link = '';
@@ -63,7 +68,7 @@ myHandler = function() {
             else {
               link = '/users/'+s['id'] + '/show';
             }
-            // console.log(link);
+            console.log(link);
 
             $('#results_list').append('<li><a style="text-decoration: none;" href="'+link+'">'+ s['name'] +'</a></li>');
         });

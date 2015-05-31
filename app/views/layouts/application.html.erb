@@ -10,6 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
   <script src="
 https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquery.devbridge-autocomplete.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
   <script src="https://js.stripe.com/v2/"></script>
   <script> 
     Stripe.setPublishableKey("pk_test_k90DPHCGKmfYhYa5anVRrVKy");
@@ -44,18 +46,13 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
         border-radius: 10px;
       }*/
 
-            #map-canvas {
-        margin-top: 0.75%;
-/*        width: 100%;
+      #map-canvas {
+        position: relative;
+        width: 100%;
         height: 100%;
-*/
-        position: absolute;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 75%;
-        height: 85%;
-        right: 10px;
+        left: 5px;
+        right: 5px;
+        bottom: 10px;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px;
@@ -63,10 +60,10 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
       }
 
       #eas_upper {
-        margin-top: 0.75%;
+        margin-top: 10px;
         position: absolute;
-        width: 23%;
-        height: 85%;
+        width: 15%;
+        height: 75%;
         left: 10px;
         z-index: 100;
         background-color: #00BFA5;
@@ -74,6 +71,28 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
         -moz-border-radius: 10px;
         border-radius: 10px;
       }
+
+      #inner_up {
+        height: 30%;
+
+        margin: 3px 3px 3px 3px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        border-radius: 7px;
+        background-color: #e0f2f1;
+      }
+
+      #inner_down {
+        height: 68%;
+        bottom: 0px;
+        margin: 3px 3px 3px 3px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        border-radius: 7px;
+        background-color: #e0f2f1;
+      }
+
+
     </style>
 </head>
 <body>
@@ -96,10 +115,14 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
     </ul>
   </div> -->
 
+  <div id="eas_upper"> 
+<!--     <div id="inner_up"></div>
+    <div id="inner_down"></div> -->
+  </div>
 
-  <div id="eas_upper"> </div>
-  <div id="eas_lower"> </div>
-
+<script>  
+   </script>
+     
 
   <div id="map-canvas" style="display: none"></div>
 
