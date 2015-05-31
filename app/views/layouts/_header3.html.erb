@@ -19,10 +19,11 @@
           <li title = "Log in"><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'"><i class="mdi-action-account-box"></i></button></div></li>
       <% else %>
 
-<style>
-.search input:focus + .results_list { display: block }
 
-.search .results_list {
+<!-- <style>
+.search input:focus + #results_list { display: block }
+
+.search #results_list {
     display: none;
     position: absolute;
     top: 35px;
@@ -49,12 +50,12 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.search .results_list li { display: block }
+.search #results_list li { display: block }
 
 
-.search .results_list li:first-child { margin-top: -1px }
+.search #results_list li:first-child { margin-top: -1px }
 
-.search .results_list li:first-child:before, .search .results_list li:first-child:after {
+.search #results_list li:first-child:before, .search #results_list li:first-child:after {
     display: block;
     content: '';
     width: 0;
@@ -65,21 +66,21 @@
     border: 5px outset transparent;
 }
 
-.search .results_list li:first-child:before {
+.search #results_list li:first-child:before {
     border-bottom: 5px solid #c4c7d7;
     top: -11px;
 }
 
-.search .results_list li:first-child:after {
+.search #results_list li:first-child:after {
     border-bottom: 5px solid #fdfdfd;
     top: -10px;
 }
 
-.search .results_list li:first-child:hover:before, .search .results_list li:first-child:hover:after { display: none }
+.search #results_list li:first-child:hover:before, .search #results_list li:first-child:hover:after { display: none }
 
-.search .results_list li:last-child { margin-bottom: -1px }
+.search #results_list li:last-child { margin-bottom: -1px }
 
-.search .results_list a {
+.search #results_list a {
     display: block;
     position: relative;
     margin: 0 -1px;
@@ -91,9 +92,9 @@
     border-radius: 3px;
 }
 
-.search .results_list a span { font-weight: 200 }
+.search #results_list a span { font-weight: 200 }
 
-.search .results_list a:before {
+.search #results_list a:before {
     content: '';
     width: 18px;
     height: 18px;
@@ -104,7 +105,7 @@
     background: url("http://cssdeck.com/uploads/media/items/7/7BNkBjd.png") 0 0 no-repeat;
 }
 
-.search .results_list a:hover {
+.search #results_list a:hover {
     text-decoration: none;
     color: #fff;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
@@ -122,27 +123,26 @@
     -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
 }
-</style>
 
-<!-- <li>
-    <form class="search" id="autocomplete" method="get" action="index.html" style="width: 500px">
-         <input type="text" autocomplete="off" name="q" id="q" onKeyUp="myHandler();" placeholder="Search..." />
+li > a {
+    display: block;
+}
 
+</style> -->
 
-    </form>
-</li> -->
 
           <li> 
             <form style="positive: relative; width: 700px" class="search" id = "autocomplete">
               <div class="input-field">
-                <input autocomplete="off" name="q" id="q" type="search"  onBlur="destroy();" onKeyUp="myHandler();" placeholder="Search..." required>
+                <input autocomplete="off" name="q" id="q" type="search"  onKeyUp="myHandler();" placeholder="Search..." required>
                 <label for="search"><i class="mdi-action-search"></i></label>
-                <i class="mdi-navigation-close"></i>
-
+                <i class="mdi-navigation-close" onclick="destroy()"></i>
               </div>
-                       <div id="results">
-             <ul class="results_list" style="display:none"></ul>
-          </div>
+
+                <div id="results">
+                  
+                </div>
+
             </form>
           </li>
 

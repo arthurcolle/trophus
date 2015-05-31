@@ -31,6 +31,17 @@ function addStripeInformation(data) {
   }); 
 }
 
+destroy = function() {
+  $('#q').val('');
+  $('#results').empty();
+}
+
+$(function() {
+  $('#results').mouseleave(function() {
+    destroy();
+  });
+});
+
 myHandler = function() {
   if ($("#q").val() != "") {
     $.ajax({
@@ -39,19 +50,22 @@ myHandler = function() {
       data: {query: $("#q").val()}
     }).done(function(data) {
       if (data['suggestions'].length != 0) {
-        $('.results_list').toggle();
-        $('.results_list').empty();
+        $('#results').empty();
+        $('#results').append('<ul id="results_list"></ul>');
+        var x = document.getElementById('results_list');
+        x.style.zIndex = 10;
         var sugg = data['suggestions'];
         sugg.forEach( function (s) {
-            var link = 'http://localhost:3000';
+            var link = '';
             if (s["type"] == "dish") {
-              link += '/dishes/'+s['id']
+              link = '/dishes/'+s['id'];
             }
             else {
-              link += '/users/'+s['id'] + '/show'
+              link = '/users/'+s['id'] + '/show';
             }
-            console.log(link);
-            $('.results_list').append('<li><a href="'+link+'">'+ s['name'] +'</a></li>')
+            // console.log(link);
+
+            $('#results_list').append('<li><a style="text-decoration: none;" href="'+link+'">'+ s['name'] +'</a></li>');
         });
 
       }
