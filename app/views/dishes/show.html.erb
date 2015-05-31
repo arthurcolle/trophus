@@ -2,13 +2,13 @@
 <div class="panel panel-default">
   <div class="panel-heading">
 
-  <h1><%= @dish.name %> - $<%= @dish.price %></h1>
+  <h3><%= @dish.name %> - $<%= @dish.price %></h3>
 
   </div>
 
     <div class="panel-body">
 
-        <h2><%= @dish.description %> </h2>
+        <h5><%= @dish.description %> </h5>
 
 
           <% if @dish.image_url != "" %>

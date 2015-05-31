@@ -51,6 +51,7 @@
 
 .search .results_list li { display: block }
 
+
 .search .results_list li:first-child { margin-top: -1px }
 
 .search .results_list li:first-child:before, .search .results_list li:first-child:after {
@@ -121,35 +122,30 @@
     -o-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px rgba(0, 0, 0, 0.08);
 }
-
-
 </style>
-<li>
-<form class="search" id="autocomplete" method="get" action="index.html" style="width: 500px">
-     <input type="text" autocomplete="off" name="q" id="q" onKeyUp="myHandler();" placeholder="Search..." />
-     <ul class="results_list" style="display:none">
-        <li><a href="index.html">Search Result #1<br /><span>Description...</span></a></li>
-        <li><a href="index.html">Search Result #2<br /><span>Description...</span></a></li>
-        <li><a href="index.html">Search Result #3<br /><span>Description...</span></a></li>
-        <li><a href="index.html">Search Result #4</a></li>
-     </ul>
-   </form>
 
-          <div id="results">
+<!-- <li>
+    <form class="search" id="autocomplete" method="get" action="index.html" style="width: 500px">
+         <input type="text" autocomplete="off" name="q" id="q" onKeyUp="myHandler();" placeholder="Search..." />
 
-        </div>
-</li>
 
-<!--           <li> 
-            <form style="positive: relative; width: 700px" id="search_form">
+    </form>
+</li> -->
+
+          <li> 
+            <form style="positive: relative; width: 700px" class="search" id = "autocomplete">
               <div class="input-field">
-                <input id="search" type="search" required>
+                <input autocomplete="off" name="q" id="q" type="search"  onBlur="destroy();" onKeyUp="myHandler();" placeholder="Search..." required>
                 <label for="search"><i class="mdi-action-search"></i></label>
                 <i class="mdi-navigation-close"></i>
+
               </div>
+                       <div id="results">
+             <ul class="results_list" style="display:none"></ul>
+          </div>
             </form>
           </li>
- -->
+
           
 
         <% if current_user.transfers_enabled == nil %>

@@ -155,9 +155,9 @@ function initialize(user_id) {
 }
 
 /* This solves the problem of the little home map marker not loading when a user signs in. */
-window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}
+// window.onload = function() {
+//     if(!window.location.hash) {
+//         window.location = window.location + '#';
+//         window.location.reload();
+//     }
+// }

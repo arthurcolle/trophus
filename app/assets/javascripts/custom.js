@@ -32,25 +32,31 @@ function addStripeInformation(data) {
 }
 
 myHandler = function() {
-  console.log($("#q").val());
-  $.ajax({
-    type: "POST",
-    url: "/autocomplete",
-    data: {query: $("#q").val()}
-  }).done(function(data) {
-    $('.results_list').toggle();
-    $('.results_list').empty();
-    var sugg = data['suggestions'];
-    sugg.forEach( function (s) {
-        if (s["type"] == "dish") {
-          var link = '/dishes/'+s['id']
-        }
-        else {
-          var link = '/users/'+s['id'] + '/show'
-        }
-        $('.results_list').append('<li><a href="'+link+'">'+ s['name'] +'</a></li>')
-    })
-  });
+  if ($("#q").val() != "") {
+    $.ajax({
+      type: "POST",
+      url: "/autocomplete",
+      data: {query: $("#q").val()}
+    }).done(function(data) {
+      if (data['suggestions'].length != 0) {
+        $('.results_list').toggle();
+        $('.results_list').empty();
+        var sugg = data['suggestions'];
+        sugg.forEach( function (s) {
+            var link = 'http://localhost:3000';
+            if (s["type"] == "dish") {
+              link += '/dishes/'+s['id']
+            }
+            else {
+              link += '/users/'+s['id'] + '/show'
+            }
+            console.log(link);
+            $('.results_list').append('<li><a href="'+link+'">'+ s['name'] +'</a></li>')
+        });
+
+      }
+    });    
+  }
 }
 
 connect = function() {

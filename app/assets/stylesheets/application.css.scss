@@ -54,11 +54,6 @@ p {
 	padding: 10px;
 }
 
-
-
-
-
-
 .navbar-btn {
 	margin-right: 10px;
 }
@@ -66,4 +61,9 @@ p {
 .modal-body {
 	max-height: 600px;
 	overflow-y: auto;
+}
+
+panel {
+	position: relative;
+	top: 50px
 }
