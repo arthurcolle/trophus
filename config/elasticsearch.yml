@@ -1,5 +1,5 @@
 config = {
-  host: "http://localhost:9200/",
+  host: "https://2tm4g8tw:oxmznloz4xuttp4e@ginkgo-2006745.us-east-1.bonsai.io",
   transport_options: {
     request: { timeout: 5 }
   },
