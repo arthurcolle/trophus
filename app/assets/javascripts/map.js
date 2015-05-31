@@ -84,10 +84,10 @@ function initialize(user_id) {
 
           num = users[u];
           infoWindowContent.push(
-            ['<div class="info_content"><img src="'+uj["profile_pic"]+'" style="border-radius: 10px 10px 10px 10px" height="50px">'+
+            ['<div class="info_content">'+
                 '<h5>'+
                   uj["name"]+
-                '</h5>'+
+                '</h5>'+'<a href="users/'+num+'/show"'+'><img src="'+uj["profile_pic"]+'" style="border-radius: 20px 20px 20px 20px" height="150px"></a>'+
                 '<p>'+
                   uj["home"]+
                 '</p>'+
@@ -149,7 +149,7 @@ function initialize(user_id) {
 
           // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-      this.setZoom(18);
+      this.setZoom(20);
       google.maps.event.removeListener(boundsListener);
   });
 }
