@@ -48,6 +48,8 @@ gem 'image-picker-rails'
 gem 'gmaps4rails'
 gem 'geokit-rails'
 
+gem 'elasticsearch-rails'
+gem 'bonsai-elasticsearch-rails'
 gem 'elasticsearch_autocomplete'
 
 gem 'stripe'
