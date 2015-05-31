@@ -12,6 +12,6 @@ class OauthController < ActionController::Base
 	def auth
 		response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
 		session[:access_token] = response.access_token
-		redirect_to "/dishes?"
+		redirect_to "/dishes/new"
 	end
 end

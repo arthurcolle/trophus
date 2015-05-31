@@ -11,6 +11,12 @@ class UsersController < ActionController::Base
 		@user = User.find(params[:id])
 	end
 
+	def login
+	    @user = User.koala(request.env['omniauth.auth']['credentials'], current_user.id)
+	    @user = current_user
+	    render 'users/show'
+    end
+
 	def create_connected
 		puts params
 		@user = current_user

@@ -25,6 +25,7 @@ gem 'guard-puma'
 # Devise, for user auth (NEED TO ADD FACEBOOK, TWITTER, LINKEDIN -- "Chef at Trophus")
 gem 'devise', "~> 3.4.1"
 gem 'omniauth-facebook'
+gem 'koala'
 
 gem 'jsonify'
 

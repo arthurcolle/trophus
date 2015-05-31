@@ -12,20 +12,29 @@
             Remove image
     </button> -->
   </div>
-    <%= f.file_field :image, class: "form-control" %>
+
+
+      <%= f.file_field :image, class: "form-control", style: "width: 25%;" %>
+            <% if session[:access_token].nil? %>
+
+    <a href="/oauth/connect">
+            <button class="button btn btn-primary" id="instagram-connect">
+            <i class="fa fa-instagram"></i>
+               Connect to Instagram
+            </button>
+          </a>
+    
+
+  <% end %>
+
   </div>
 
   <div class="form-group">
-          <a href="/oauth/connect">
-          <button class="button btn btn-primary" id="instagram-connect">
-          <i class="fa fa-instagram"></i>
-             Connect to Instagram
-          </button>
-        </a>
+
 
 
           <span id="spannerbutton">
-        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Select from Insta", "onclick" => "instaModalSingle();" } %> 
+        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Upload from Instagram", "onclick" => "instaModalSingle();" } %> 
       </span>
   </div>
 </span>

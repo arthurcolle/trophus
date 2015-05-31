@@ -38,6 +38,9 @@ Rails.application.routes.draw do
   post '/hooks/stripe' => 'hooks#stripe'
 
   post 'dishes/:id/order' => 'dishes#order', :as => "order_dish"
+
+  get 'auth/facebook', as: "auth_provider"
+  get 'auth/facebook/callback', to: 'users#login'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

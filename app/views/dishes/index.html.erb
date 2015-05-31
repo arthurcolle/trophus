@@ -1,18 +1,21 @@
 
   <div class="panel panel-default" style="margin-top: 10px">
     <div class="panel-header container">
-      <h3 style="text-align: center">Listing your dishes</h3>
-
-      <span id="spannerbutton" style="position: relative; float: right; right: 50px">
- <button class="waves-effect waves-light btn modal-trigger" onclick="instaModal();">Select images</button>
+      <h3 style="text-align: center">Listing your dishes  <button style="margin-top: 5px" class="waves-effect btn-large waves-light btn modal-trigger" onclick="instaModal();">Instagram Multicreate</button></h3>
 
 
+            <% if session[:access_token].nil? %>
         <a href="/oauth/connect">
           <button class="button btn btn-primary" id="instagram-connect">
           <i class="fa fa-instagram"></i>
              Connect to Instagram
           </button>
         </a>
+        <% end %>
+
+              <span id="spannerbutton">
+
+
       </span>
     
     </div>
