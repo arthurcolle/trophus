@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   resources :dishes
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'
-
-  #post 'users#edit_latlong' => 'users#edit_latlong'
+  
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
   match '/users/:id/jsonify', to: 'users#jsonify', via: 'get'
   match '/users/get_ids', to: 'users#get_ids', via: 'get'

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="position: relative; top: 50px">
   <div class="panel panel-default">
     <div class="panel-header container">
       <h4><%= User.find(params["id"]).name %>'s dishes<h4>
@@ -29,7 +29,7 @@
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
               <td>$<%= dish.price %></td>
-              <td><%= button_to 'Order', order_dish_path(dish) %></td>
+              <td><%= link_to 'Order', order_dish_path(dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue" %></td>
 <!--               <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
               <td><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td> -->
             </tr>

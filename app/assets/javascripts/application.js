@@ -17,7 +17,6 @@
 //= require turbolinks
 //= require image-picker
 //= require map.js
-
 //= require custom.js
 //= require_tree .
 
