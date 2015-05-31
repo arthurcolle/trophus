@@ -47,7 +47,7 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
       }*/
 
       #map-canvas {
-        position: relative;
+        z-index: 1;
         width: 100%;
         height: 100%;
         left: 5px;
@@ -65,7 +65,6 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
         width: 15%;
         height: 75%;
         left: 10px;
-        z-index: 100;
         background-color: #00BFA5;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
@@ -98,7 +97,9 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
 <body>
   <script src="https://checkout.stripe.com/checkout.js"></script>
 
+<div class="blah">
 	<%= render('layouts/header3') %>
+</div>
 <style>
 .modal { overflow: visible; }
 .modal-body { overflow-y: visible !important; }
@@ -115,19 +116,22 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
     </ul>
   </div> -->
 
-  <div id="eas_upper"> 
+<% if current_user %>
+<!--   <div id="eas_upper"> 
+ -->
+
 <!--     <div id="inner_up"></div>
     <div id="inner_down"></div> -->
-  </div>
+
+<!--   </div> -->
+<% end %>
 
 <script>  
    </script>
-     
 
   <div id="map-canvas" style="display: none"></div>
-
-
   <div class="container">
+
     <% flash.each { |name, msg| %>
       <%= content_tag(:div, msg, class: "alert alert-info") %>
     <% } %> 
@@ -135,8 +139,6 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
       
 
     <div class="foodstuff"></div>
-
-
   </div>
 
   <div id="modal1" class="modal" aria-hidden="true">

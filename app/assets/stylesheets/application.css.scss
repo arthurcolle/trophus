@@ -54,7 +54,11 @@ p {
 	padding: 10px;
 }
 
-.navbar-btn {
+/* .navbar-btn {
+	margin-right: 10px;
+} */
+
+.btn-large {
 	margin-right: 10px;
 }
 
@@ -63,11 +67,34 @@ p {
 	overflow-y: auto;
 }
 
-.panel {
+.container {
 	position: relative;
-	border-radius: 10px
+	border-radius: 10px;
+	z-index: 1;
 }
+
 .panel-footer {
 	position: relative;
 	border-radius: 0 0 10px 10px;
 }
+
+
+.panel-heading {
+	position: relative;
+	border-radius: 10px 10px 0 0;
+}
+
+.special_a { color: white; } 
+.special_a:hover { color:#00e676; }
+
+
+#results {	
+	display: none;
+	position: absolute;
+/*	max-height: 220px;
+	overflow-y: scroll; */
+	width: 700px;
+	background-color: rgba(37,164,152, 0.95);
+	z-index: 10000;
+}
+

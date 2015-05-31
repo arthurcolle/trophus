@@ -1,16 +1,15 @@
-<p style="position: absolute; top: 50px" id="notice"></p>
-<div class="panel panel-default" style="display: block; margin-top: 10px; margin-left: auto; margin-right: auto; width: 70%;">
+<p d="notice"></p>
+<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto; width: 50%">
   <div class="panel-heading">
 
   <style>
     #foodpic { 
+      z-index: -100;
       height: 300; 
       border-radius:30px; 
       overflow: hidden; 
       box-shadow: 7px 7px 7px rgba(0,0,0,0.3);
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+
     }
 
     #dish_data {
@@ -20,10 +19,14 @@
   </style>
 
   <h4 id="dish_data">
-      <span style="float: right;">   <%= link_to 'Order', order_dish_path(@dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue", style: "font-size: 10px" %>
-      </span>
+
       <span style="float:left"> <%= @dish.name %></span></br>
       <span style="float:left">  $<%= @dish.price %> </span>
+
+      <div style="position: absolute; right: 0px; bottom: 5%">   <%= link_to 'Order', order_dish_path(@dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue", style: "font-size: 10px" %>
+      </div>
+
+
   </h4>
 
   </div>
