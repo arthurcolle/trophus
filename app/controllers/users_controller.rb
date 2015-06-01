@@ -74,6 +74,7 @@ class UsersController < ActionController::Base
 			format.json {      # listen for json post request
 				@user = User.find(params["id"])
 				@user.update(lat: params["lat"], long: params["long"] )
+				@user.update(lat_f: params["lat"].to_f, long_f: params["long"].to_f )
 	        	@user.save
 			    head :no_content # Send a no response to whoever sent the post.
 			}
