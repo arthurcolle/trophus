@@ -54,19 +54,7 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
             </form>
           </li>
 
-            <% if current_user.transfers_enabled == nil %>
-              
-              <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
 
-              <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()"><i class="mdi-action-account-balance"></i></button></div></li>
-                
-            <% else %>
-
-              <!-- THIS IS THE ADD DISH BUTTON -->
-              <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='/dishes/new'"><i class="mdi-content-add"></i></button></div></li>
-
-
-            <% end %>
 
             <% if current_user.customer_id.nil? %>
               <li>
@@ -82,6 +70,21 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
                 </div>
               </li>
             <% end %>
+
+            <% if current_user.transfers_enabled == nil %>
+              
+              <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
+
+              <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()"><i class="mdi-action-account-balance"></i></button></div></li>
+                
+            <% else %>
+
+              <!-- THIS IS THE ADD DISH BUTTON -->
+              <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='/dishes/new'"><i class="mdi-content-add"></i></button></div></li>
+
+
+            <% end %>
+
 
             <li>
               <div>
