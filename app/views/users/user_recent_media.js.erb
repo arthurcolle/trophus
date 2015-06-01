@@ -1,6 +1,6 @@
 $(function() {
 	<% @album.each_with_index do |media_item, index| %>
-		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.thumbnail.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
+		$(".image-picker").append("<option data-img-src='" + '<%= media_item.images.standard_resolution.url  %>' + "'value='<%= media_item.images.standard_resolution.url %>'>Image <%= index %></option>")
 		<% if index > 50 then break end %>
 	<% end %>
 
