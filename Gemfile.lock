@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/arthurcolle/elasticsearch_autocomplete.git
+  revision: 93cc19bc16502f733269dd4af0a11d7ee5c61a5e
+  branch: master
+  specs:
+    elasticsearch_autocomplete (0.1.5)
+      tire (~> 0.6.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -28,7 +36,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    ansi (1.4.3)
+    ansi (1.5.0)
     arel (5.0.1.20140414130214)
     autoprefixer-rails (5.1.11)
       execjs
@@ -65,8 +73,6 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
-    elasticsearch_autocomplete (0.1.4)
-      tire (~> 0.6.0)
     erubis (2.7.0)
     execjs (2.5.2)
     faraday (0.9.1)
@@ -269,7 +275,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
-  elasticsearch_autocomplete
+  elasticsearch_autocomplete!
   geokit
   geokit-rails
   gmaps4rails

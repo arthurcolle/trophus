@@ -6,15 +6,15 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
   protect_from_forgery with: :null_session
 
-  around_filter :set_current_user
+  # around_filter :set_current_user
 
-  def set_current_user
-    User.current_user = User.find_by_id(session[:user_id])
-    yield
-  ensure
-    # to address the thread variable leak issues in Puma/Thin webserver
-    User.current_user = nil
-  end  
+  # def set_current_user
+  #   User.current_user = User.find_by_id(session[:user_id])
+  #   yield
+  # ensure
+  #   # to address the thread variable leak issues in Puma/Thin webserver
+  #   User.current_user = nil
+  # end  
 
   
   protected

@@ -52,7 +52,7 @@ gem 'geokit-rails'
 #gem 'elasticsearch-rails'
 #gem 'elasticsearch-model'
 # gem 'bonsai-elasticsearch-rails'
-gem 'elasticsearch_autocomplete'
+gem 'elasticsearch_autocomplete', github: 'arthurcolle/elasticsearch_autocomplete', branch: 'master'
 
 gem 'stripe'
 
