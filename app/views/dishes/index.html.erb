@@ -38,15 +38,16 @@
               <% if dish.image_url != "" %>
                 <td><a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
               <% else %>
-              <% if ENV["RAILS_ENV"] == "development" %>
-                <td>
-                  <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'></a>
-                </td>
+                  <% if ENV["RAILS_ENV"] == "development" %>
+                    <td>
+                      <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'></a>
+                    </td>
 
-              <% elsif ENV["RAILS_ENV"] == "production" %>
-                <td>
-                  <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes-prod/', 'http://trophus-dishes-prod.s3.amazonaws.com/') %>'></a>
-                </td>
+                  <% elsif ENV["RAILS_ENV"] == "production" %>
+                    <td>
+                      <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes-prod/', 'http://trophus-dishes-prod.s3.amazonaws.com/') %>'></a>
+                    </td>
+                  <% end %>
               <% end %>
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
