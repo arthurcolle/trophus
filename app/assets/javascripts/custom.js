@@ -172,7 +172,7 @@ randomFunction = function(val) {
   var imageURL = $( "#insta_single option:selected" ).val();
   $('#instaject-outer').show();
   $('#instaject').empty();
-  $('#instaject').append('<img height="100px" width="100px" src=' + '"' + imageURL + '"' + '>')
+  $('#instaject').append('<img height="50px" width="50px" src=' + '"' + imageURL + '"' + '>')
   $('#imageURL').val(imageURL);
 }
 
