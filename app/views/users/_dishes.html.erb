@@ -22,9 +22,9 @@
               <% if dish.image_url != "" %>
                 <td><a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
               <% else %>
-                <td>
-                  <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'></a>
-                </td>
+                    <td>
+                      <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/'+ENV['AWS_BUCKET_NAME']+'/', 'http://'+ENV['AWS_BUCKET_NAME']+'.s3.amazonaws.com/') %>'></a>
+                    </td>
               <% end %>
               <td><%= dish.name %></td>
               <td><%= dish.description %></td>
