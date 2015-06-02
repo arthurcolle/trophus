@@ -14,7 +14,6 @@ function goToProfile(number) {
 }
 
 function initialize(user_id) {
-  $('#map-canvas').toggle();
   var geocoder;
   google.maps.visualRefresh = true;
   var map;

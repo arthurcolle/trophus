@@ -7,4 +7,10 @@ class PagesController < ApplicationController
 
   def contact
   end
+
+  def primary
+  end
+
+  def map
+  end
 end

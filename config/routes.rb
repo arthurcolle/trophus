@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   get 'home' => 'pages#home'
   get 'about' => 'pages#about'
   get 'contact' => 'pages#contact'
-  root to: 'pages#home'
+  authenticated :user do
+    root :to => "pages#primary", as: :authenticated_root
+  end
+  root :to => "pages#home"
 
   get 'users/:id/show' => 'users#show'
 
@@ -18,6 +21,8 @@ Rails.application.routes.draw do
   match '/oauth/connect', to: 'oauth#connect', via: 'get'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
+  get '/primary' => 'pages#primary'
+  get '/map' => 'pages#map'
   get '/connect' => 'users#connect'
   post '/accepted_tos' => 'users#accepted_tos'
   post '/create_connected' => 'users#create_connected'

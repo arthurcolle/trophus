@@ -1,0 +1,7 @@
+<div id="map-canvas" style="width: 500px; height: 500px;"></div>
+
+<% if current_user %>
+  <script>
+    initialize(<%= current_user.id %>);
+  </script>
+<% end %>
