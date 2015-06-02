@@ -18,7 +18,7 @@ function addStripeInformation(data) {
     handler.open({
       email: data.email,
       name: data.name,
-      description: 'Only debit cards supported',
+      description: 'You\'ll be eating before you know it',
       zipCode: false,
       panelLabel: "Add Information",
       allowRememberMe: false
@@ -77,7 +77,7 @@ myHandler = function() {
               link = '/users/'+s['id'] + '/show';
             }
             console.log(link);
-            $('#results').append('<a class="special_a" style="text-decoration: none;" href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px;" height="50px" src="'+ face_array[i]+'">' + '</a>');
+            $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px;" height="50px" src="'+ face_array[i]+'">' + '</a>');
             i -= 1;
         });
       }

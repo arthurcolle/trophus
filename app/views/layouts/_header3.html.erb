@@ -59,7 +59,7 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
             <% if current_user.customer_id.nil? %>
 
               <li>
-                <button class="btn-floating btn-large waves-effect waves-light teal" "onclick" => "addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
+                <button class="btn-floating btn-large waves-effect waves-light teal" "onclick" ="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
                 <i class="mdi-action-payment"></i></button>
               </li>
             <% else %>
