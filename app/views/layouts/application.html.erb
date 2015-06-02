@@ -20,6 +20,60 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyDvFI2YD6EH3YePpYr5OmJt_gfNBTDjSYk" %>
 
     <style>
+      html, body {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: #26a69a;
+      }
+
+
+      #map-canvas {
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        left: 5px;
+        right: 5px;
+        bottom: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+
+      }
+
+      #eas_upper {
+        margin-top: 10px;
+        position: absolute;
+        width: 15%;
+        height: 75%;
+        left: 10px;
+        background-color: #00BFA5;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+      }
+
+      #inner_up {
+        height: 30%;
+
+        margin: 3px 3px 3px 3px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        border-radius: 7px;
+        background-color: #e0f2f1;
+      }
+
+      #inner_down {
+        height: 68%;
+        bottom: 0px;
+        margin: 3px 3px 3px 3px;
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        border-radius: 7px;
+        background-color: #e0f2f1;
+      }
+
 
     </style>
 </head>
@@ -56,6 +110,7 @@ https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.7/jquer
 <% end %>
 
   <div id="map-canvas" style="display: none"></div>
+  
   <div class="container">
 
     <% flash.each { |name, msg| %>
