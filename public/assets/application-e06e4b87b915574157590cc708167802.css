@@ -8774,7 +8774,7 @@ p {
 
 /* line 89, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
 .special_a:hover {
-  color: #00e676;
+  color: teal;
 }
 
 /* line 92, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
@@ -8783,9 +8783,69 @@ p {
   position: absolute;
   /*	max-height: 220px;
   	overflow-y: scroll; */
-  width: 600px;
-  background-color: rgba(37, 164, 152, 0.95);
+  width: 400px;
+  background-color: rgba(37, 164, 152, 0.75);
   z-index: 10000;
+}
+
+/* line 103, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+.thumbnails li img {
+  width: 175px;
+}
+
+/* line 107, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #26a69a;
+}
+
+/* line 115, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+#map-canvas {
+  position: relative;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  z-index: 1;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* line 127, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+#eas_upper {
+  margin-top: 10px;
+  position: absolute;
+  width: 15%;
+  height: 75%;
+  left: 10px;
+  background-color: #00BFA5;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* line 139, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+#inner_up {
+  height: 30%;
+  margin: 3px 3px 3px 3px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color: #e0f2f1;
+}
+
+/* line 149, /Users/arthur/Code/Rails/trophus/app/assets/stylesheets/application.css.scss */
+#inner_down {
+  height: 68%;
+  bottom: 0px;
+  margin: 3px 3px 3px 3px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+  background-color: #e0f2f1;
 }
 ul.thumbnails.image_picker_selector {
   overflow: auto;

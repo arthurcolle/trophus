@@ -114,12 +114,12 @@ p {
       #map-canvas {
       position: relative;
 	   	left: 5px;
+      right: 5px;
+      width: 85%;
         z-index: 1;
-        width: 50%;
-        height: 50%;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
-        border-radius: 10px;
+        border-radius: 10px 10px 10px 10px;
 
       }
 

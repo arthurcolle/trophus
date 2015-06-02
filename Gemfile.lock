@@ -175,6 +175,10 @@ GEM
       cocaine (~> 0.5.3)
       mime-types
     pg (0.18.2)
+    piwik_analytics (1.0.2)
+      actionpack
+      activesupport
+      rails (>= 3.0.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -291,6 +295,7 @@ DEPENDENCIES
   omniauth-facebook
   paperclip (~> 4.2)
   pg
+  piwik_analytics
   rails (= 4.1.9)
   rails_12factor
   railties (~> 4.1.9)

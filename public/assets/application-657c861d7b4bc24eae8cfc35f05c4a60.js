@@ -15132,13 +15132,19 @@ return jQuery;
   })();
 
 }).call(this);
-function clicky(number) {
-      document.getElementById("spikey").onclick = function () {
-        $.ajax({
-          url: "users/" + number + "/dishes",
-          type: "GET"
-        })
-    };
+function clicky(number) {     
+  console.log(number);
+  $.ajax({
+    url: "users/" + number + "/dishes",
+    type: "GET"
+  })
+}
+
+function goToProfile(number) {
+  $.ajax({
+    url: "users/" + number + "/show",
+    type: "GET"
+  })
 }
 
 function initialize(user_id) {
@@ -15221,7 +15227,7 @@ function initialize(user_id) {
             ['<div class="info_content">'+
                 '<h5>'+
                   uj["name"]+
-                '</h5>'+'<a href="users/'+num+'/show"'+'><img src="'+uj["profile_pic"]+'" style="border-radius: 20px 20px 20px 20px" height="150px"></a>'+
+                '</h5>'+'<a href ="users/'+num+'/show"'+'><img src="'+uj["profile_pic"]+'" style="border-radius: 20px 20px 20px 20px" height="150px"></a>'+
                 '<p>'+
                   uj["home"]+
                 '</p>'+
@@ -15254,8 +15260,8 @@ function initialize(user_id) {
           map: map,
           title: markers[i][0],
           icon: {
-            url: 'http://trophus.com/current_user.png',
-            scaledSize: new google.maps.Size(55, 45)
+            url: 'http://i.imgur.com/rn8yiF6.png',
+            scaledSize: new google.maps.Size(32, 32)
           }
       });
     }
@@ -15283,7 +15289,7 @@ function initialize(user_id) {
 
           // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
   var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-      this.setZoom(20);
+      this.setZoom(18);
       google.maps.event.removeListener(boundsListener);
   });
 }
@@ -15316,7 +15322,7 @@ function addStripeInformation(data) {
     handler.open({
       email: data.email,
       name: data.name,
-      description: 'Only debit cards supported',
+      description: 'You\'ll be eating before you know it',
       zipCode: false,
       panelLabel: "Add Information",
       allowRememberMe: false
@@ -15375,7 +15381,7 @@ myHandler = function() {
               link = '/users/'+s['id'] + '/show';
             }
             console.log(link);
-            $('#results').append('<a class="special_a" style="text-decoration: none;" href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px;" height="50px" src="'+ face_array[i]+'">' + '</a>');
+            $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px;" height="50px" src="'+ face_array[i]+'">' + '</a>');
             i -= 1;
         });
       }
@@ -15466,11 +15472,12 @@ execute2 = function() {
       }
   });
 }
+
 randomFunction = function(val) {
   var imageURL = $( "#insta_single option:selected" ).val();
   $('#instaject-outer').show();
   $('#instaject').empty();
-  $('#instaject').append('<img height="50px" width="50px" src=' + '"' + imageURL + '"' + '>')
+  $('#instaject').append('<img height="150px" width="150px" src=' + '"' + imageURL + '"' + '>')
   $('#imageURL').val(imageURL);
 }
 

@@ -33,6 +33,8 @@ gem 'jsonify'
 gem 'paperclip', "~> 4.2"
 gem 'aws-sdk-v1'
 
+gem 'piwik_analytics'
+
 gem 'bootstrap-sass'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
