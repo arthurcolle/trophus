@@ -77,6 +77,7 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
               <!-- THIS IS THE ADD DISH BUTTON -->
               <li><div><button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='/dishes/new'"><i class="mdi-content-add"></i></button></div></li>
 
+              <% if current_user.dishes.length > 0 %>
               <li>
                 <div>
                   <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
@@ -84,6 +85,8 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
                   </button>
                 </div>
               </li>
+              <% end %>
+
 
 
             <% end %>
