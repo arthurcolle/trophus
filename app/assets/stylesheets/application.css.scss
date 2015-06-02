@@ -20,6 +20,8 @@
 $navbar-default-bg: #2ecc71;
 $jumbotron-padding: 15px;
 
+@import url("//fonts.googleapis.com/css?family=Circular:400,700");
+
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
 
@@ -155,3 +157,12 @@ p {
         background-color: #e0f2f1;
       }
 
+@font-face {
+  font-family: "Circular";
+  src: url(/assets/lineto-circular-book.ttf) format("truetype");
+}
+
+
+* {
+  font-family: "Circular";
+}
