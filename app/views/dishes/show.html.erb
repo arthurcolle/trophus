@@ -23,8 +23,15 @@
       <span style="float:left"> <%= @dish.name %></span></br>
       <span style="float:left">  $<%= @dish.price %> </span>
 
+      <% if current_user.customer_id != nil %>
+
       <div style="position: absolute; right: 0px; bottom: 5%">   <%= link_to 'Order', order_dish_path(@dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue", style: "font-size: 10px" %>
       </div>
+
+      <% else %>
+
+        <button class=" btn-large waves-effect waves-light red" onclick="addStripeInformation({'name':'<%= current_user.name %>','email':'<%= current_user.email %>'});" style="font-size: 10px; border-radius: 20px 20px 20px 20px; position: absolute; right: 0px; bottom: 5%">Add Card To Order</button>
+      <% end %>
 
 
   </h4>
