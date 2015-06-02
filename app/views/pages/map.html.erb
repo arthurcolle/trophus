@@ -1,5 +1,6 @@
-<div id="map-canvas" style="width: 500px; height: 500px;"></div>
-
+<div id="map-canvas" style="position: absolute; left: 0px; top: 10px; width: 500px; height: 500px;"></div>
+<!-- <div id="multigo" style="position: absolute; right: 0px; top: 10px; width: 400px; height: 400px; color: black;"></div>
+ -->
 <% if current_user %>
   <script>
     initialize(<%= current_user.id %>);

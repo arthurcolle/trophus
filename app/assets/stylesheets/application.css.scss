@@ -114,47 +114,12 @@ p {
       }
 
       #map-canvas {
-      position: relative;
-	   	left: 5px;
-      right: 5px;
       width: 85%;
         z-index: 1;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         border-radius: 10px 10px 10px 10px;
 
-      }
-
-      #eas_upper {
-        margin-top: 10px;
-        position: absolute;
-        width: 15%;
-        height: 75%;
-        left: 10px;
-        background-color: #00BFA5;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-      }
-
-      #inner_up {
-        height: 30%;
-
-        margin: 3px 3px 3px 3px;
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
-        border-radius: 7px;
-        background-color: #e0f2f1;
-      }
-
-      #inner_down {
-        height: 68%;
-        bottom: 0px;
-        margin: 3px 3px 3px 3px;
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
-        border-radius: 7px;
-        background-color: #e0f2f1;
       }
 
 @font-face {
@@ -166,3 +131,6 @@ p {
 * {
   font-family: "Circular";  
 }
+
+.modal { overflow: visible; }
+.modal-body { overflow-y: visible !important; }
