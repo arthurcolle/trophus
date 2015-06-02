@@ -1,0 +1,15 @@
+How it works
+===
+
+
+Alice lists a dish they know they are great at making. Preferably something that tastes truly remarkable! Let's say it's a Steak and salad combo that they list for $20. She's a barista at Starbucks and loves trying new things, so she signs up. She enters her bank account information immediately, but doesn't bother entering her credit card information quite yet as she's first interested in listing her dish. After getting verified (we use Stripe to manage payments and remain PCI compliant!), she lists her Steak and salad combo meal. Recalling that she had made the meal a few weeks earlier and posted a picture to Instagram, she connects with Instagram, adds the photo to the dish, lists the price of $20, and posts it.
+
+Bob, someone close to her in proximity but that she hasn't ever had a chance to meet. He's a software developer for a local startup and wants to meet new people in the city, but in particular - he's starving. He's been coding for two days on a deadline and is famished. He entered his CC information on Trophus a week before and is able to see and order food. On the Local Feed (on the right side of the homepage) he sees that Alice has listed a new dish. He loves steak, coming from Texas, and orders her dish. 
+
+Trophus charges 20%, which is split both ways. That means, the total comes out to $22 for Bob, and Alice gets $18. 
+
+Upon ordering a dish, Trophus sends a notification to Alice saying that someone ordered her dish. We use Twilio to manage notifications (we didn't want to bug users with our own messaging system) and they get in touch. They have dinner later in the evening, and Bob brought over some beers to spice the evening up.
+
+That's it!
+
+We want to cultivate a richer kind of social experience that caters to a wide audience. Everyone loves to eat and meet new people.
