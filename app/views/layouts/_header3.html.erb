@@ -3,12 +3,12 @@
   <div class="nav-wrapper">
     
     <% if !current_user.nil? %>
-        <ul class="left hide-on-med-and-down">
+        <ul class="left">
       
 <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
       
       <li><div class="btn-floating btn-large waves-effect waves-light teal">
-        <i class="mdi-action-home" onClick="window.location.href='/'"></i>
+        <i class="mdi-action-home" onClick="window.location.href='<%= ENV["SITE_URL"] %>'"></i>
       </div></li>
     
       <li><div class="btn-floating btn-large waves-effect waves-light teal">
@@ -22,7 +22,7 @@
 
     
     <% if !current_user %>
-      <ul class="right hide-on-med-and-down" style="position:relative; right: 30px">
+      <ul class="right" style="position:relative; right: 30px">
 <!--       
 
 LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
@@ -37,7 +37,7 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
       <% else %>
 
 
-        <ul class="right hide-on-med-and-down">
+        <ul class="right">
 
           <li> 
             <form style="positive: relative; width: 600px" class="search" id = "autocomplete">

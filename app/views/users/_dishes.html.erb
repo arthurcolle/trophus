@@ -1,7 +1,7 @@
 <div class="container" style="position: relative; top: 50px">
   <div class="panel panel-default">
     <div class="panel-header container">
-      <h4><%= User.find(params["id"]).name %>'s dishes<h4>
+      <h4><a href="users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a>'s dishes<h4>
     </div>
 
     <div class="panel-body">

@@ -1,7 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>trophus</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-<%= link_to "Home", root_path %>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 
-<%= @user.name %> </br>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    <style>
+      html, body {
+        background-color: #26a69a;
+      }
+    </style>
+</head>
+<body>
+
+<div class="blah">
+	<%= render('layouts/header3') %>
+</div>
+
+<div class = "container" style="width: 30%">
+
+  <div class="panel panel-default" style="margin-top: 10%">
+    <div class="panel-header container">
+      <h4><%= @user.name %> </h4>
+    </div>
+
+    <div class="panel-body">
+
 <%= image_tag @user.fb_hd_profile_picture, style: "border-radius: 10px 10px 10px 10px;" %>
 
 </br>
@@ -12,4 +42,16 @@
 
 
 <%= @user.phone_number %>
+
+
+    </div>
+    
+    <div class="panel-footer">
+      <%= link_to 'Back', root_path %>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
 

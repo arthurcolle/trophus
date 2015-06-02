@@ -1,10 +1,15 @@
-function clicky(number) {
-      document.getElementById("spikey").onclick = function () {
+function clicky(number) {     
+  $.ajax({
+    url: "users/" + number + "/dishes",
+    type: "GET"
+  })
+}
+
+function goToProfile(number) {
         $.ajax({
-          url: "users/" + number + "/dishes",
+          url: "users/" + number + "/show",
           type: "GET"
         })
-    };
 }
 
 function initialize(user_id) {
@@ -87,7 +92,7 @@ function initialize(user_id) {
             ['<div class="info_content">'+
                 '<h5>'+
                   uj["name"]+
-                '</h5>'+'<a href="users/'+num+'/show"'+'><img src="'+uj["profile_pic"]+'" style="border-radius: 20px 20px 20px 20px" height="150px"></a>'+
+                '</h5>'+'<a href ="users/'+num+'/show"'+'><img src="'+uj["profile_pic"]+'" style="border-radius: 20px 20px 20px 20px" height="150px"></a>'+
                 '<p>'+
                   uj["home"]+
                 '</p>'+
