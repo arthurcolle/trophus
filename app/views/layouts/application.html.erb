@@ -89,7 +89,10 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
 </head>
 <body>
   <script src="https://checkout.stripe.com/checkout.js"></script>
-
+  <script>
+  mixpanel.track("User here");
+  </script>
+  
 <div class="blah">
 	<%= render('layouts/header3') %>
 </div>
