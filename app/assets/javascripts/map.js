@@ -125,8 +125,8 @@ function initialize(user_id) {
           map: map,
           title: markers[i][0],
           icon: {
-            url: 'http://trophus.com/current_user.png',
-            scaledSize: new google.maps.Size(55, 45)
+            url: 'http://i.imgur.com/rn8yiF6.png',
+            scaledSize: new google.maps.Size(32, 32)
           }
       });
     }
