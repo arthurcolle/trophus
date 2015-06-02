@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   match '/oauth/connect', to: 'oauth#connect', via: 'get'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
+  get '/careers' => 'pages#careers'
   get '/primary' => 'pages#primary'
   get '/map' => 'pages#map'
   get '/connect' => 'users#connect'
