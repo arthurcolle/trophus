@@ -8,14 +8,14 @@
 <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
       
       <li><div class="btn-floating btn-large waves-effect waves-light teal">
-        <i class="mdi-action-home" onClick="window.location.href='<%= ENV["SITE_URL"] %>'"></i>
+        <i class="mdi-maps-layers" onClick="window.location.href='<%= ENV["SITE_URL"] %>'"></i>
       </div></li>
     
       <li><div class="btn-floating btn-large waves-effect waves-light teal">
         <i class="mdi-action-account-circle" onClick="/users/"+'<%= current_user.id %>'+"show"></i>
       </div></li>
 
-<li style=" bottom: 10px;"><a href='/auth/facebook' class="btn-large waves-effect waves-light blue", style="text-decoration: none; width: 20px; border-radius: 8px 8px 8px 8px;  margin-right: 0px"><img height="100%;" style="position: relative; right: 25px" src="facebook.png"></a></li>
+<li style=" bottom: 10px;"><a href='/auth/facebook' class="btn-large waves-effect waves-light blue", style="text-decoration: none; width: 20px; border-radius: 8px 8px 8px 8px;  margin-right: 0px"><img height="100%;" style="position: relative; right: 25px" src="https://trophus.herokuapp.com/facebook.png"></a></li>
 
         </ul>
   <% end %>
@@ -88,7 +88,9 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
 
             <li>
               <div>
-                <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-settings"></i></a></div></li>
+                <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-settings"></i></a>
+              </div>
+              </li>
 
         </ul> <!-- CLOSE OF RIGHT NAVBAR VIA MATERIALIZECSS-->
 
