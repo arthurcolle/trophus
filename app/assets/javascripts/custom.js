@@ -1,4 +1,5 @@
 function addStripeInformation(data) {
+  alert("FUCK");
   var handler = StripeCheckout.configure({
     key: 'pk_test_k90DPHCGKmfYhYa5anVRrVKy',
     token: function(token) {
