@@ -55,10 +55,6 @@ p {
 	padding: 10px;
 }
 
-/* .navbar-btn {
-	margin-right: 10px;
-} */
-
 .btn-large {
 	margin-right: 10px;
 }
@@ -133,3 +129,15 @@ p {
 
 .modal { overflow: visible; }
 .modal-body { overflow-y: visible !important; }
+
+.alert {
+	position: relative; 
+	width: 90%;
+	margin-top: 20px;
+}
+
+.panel {
+	width: 90%;
+	position: relative;
+	margin-top: 20px;
+}
