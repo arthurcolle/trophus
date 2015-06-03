@@ -1,7 +1,7 @@
 function clicky(number) {     
   console.log(number);
   $.ajax({
-    url: "http://localhost:3000/" + "users/" + number + "/dishes",
+    url: "/users/" + number + "/dishes",
     type: "GET"
   })
 }
