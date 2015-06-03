@@ -89,6 +89,7 @@ class UsersController < ActionController::Base
 		@dishes = @user.dishes
 		respond_to do |format|
 	    	format.js
+	    	format.html
 	  	end
 	end
 

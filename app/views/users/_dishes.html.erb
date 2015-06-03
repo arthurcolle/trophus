@@ -1,10 +1,10 @@
-<div class="container" style="position: relative; top: 50px">
+<div class="container" style="position: relative; top: 20px">
   <div class="panel panel-default">
     <div class="panel-header container">
-      <h4><a href="users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a>'s dishes<h4>
+      <h4><a href="http://localhost:3000/users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a>'s dishes<h4>
     </div>
 
-    <div class="panel-body">
+    <div class="panel-body" style="height: 400px; overflow-y: scroll;">
       <table class="table">
         <thead>
           <tr>

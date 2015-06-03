@@ -36,44 +36,15 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
 <body>
 
 <script>
-mixpanel.track("Account was viewed");
+mixpanel.track("User <%= current_user.id %> was viewed");
 </script>
 
 <div class="blah">
-	<%= render('layouts/header3') %>
+  <%= render('layouts/header3') %>
 </div>
 
-<div class = "container" style="width: 30%">
+<%= render(partial: 'users/dishes') %>
 
-  <div class="panel panel-default" style="margin-top: 10%">
-    <div class="panel-header container">
-      <h5><%= @user.name %> </h5>
-    </div>
-
-    <div class="panel-body">
-
-<%= image_tag @user.fb_hd_profile_picture, style: "border-radius: 10px 10px 10px 10px;" %>
-
-</br>
-
-<%= @user.email %>
-
-</br>
-
-<!-- 
-<%= @user.phone_number %>
- -->
-
- <a href="/users/<%= @user.id %>/dishes">View dishes</a>
-
-    </div>
-    
-    <div class="panel-footer">
-      <%= link_to 'Back', root_path %>
-    </div>
-  </div>
-
-</div>
 </body>
 </html>
 
