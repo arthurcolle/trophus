@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   authenticated :user do
     root :to => "pages#primary", as: :authenticated_root
   end
-  root :to => "pages#home"
+  root :to => "pages#primary"
 
   get 'users/:id/show' => 'users#show'
 

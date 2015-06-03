@@ -16,6 +16,7 @@ class PagesController < ApplicationController
   end
 
   def how_it_works
+    @show_logo = true
   end
   
 end

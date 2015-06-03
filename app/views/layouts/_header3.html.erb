@@ -1,5 +1,11 @@
 <nav class="teal accent-4">
   <div class="nav-wrapper">
+    <% if current_user.nil? and @show_logo %>
+    <ul class="left">
+      <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
+      </ul>
+    <% end %>
+
     <% if !current_user.nil? %>
       <ul class="left">
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
