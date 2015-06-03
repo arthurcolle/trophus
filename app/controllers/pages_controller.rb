@@ -14,4 +14,8 @@ class PagesController < ApplicationController
   def map
     @map_route = true
   end
+
+  def how_it_works
+  end
+  
 end

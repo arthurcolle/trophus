@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
   post '/autocomplete' => 'search#search'
 
+  get '/how-it-works' => 'pages#how_it_works'
+  get '/getting-started' => 'pages#getting_started'
+
   # Stripe Connect endpoints
   #  - oauth flow
   get '/connect/confirm' => 'stripe#confirm', as: 'stripe_confirm'
