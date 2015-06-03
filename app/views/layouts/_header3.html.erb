@@ -5,7 +5,7 @@
     <% if !current_user.nil? %>
         <ul class="left">
       
-<li><a href="/primary"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
+<li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
       
       <li><div class="btn-floating btn-large waves-effect waves-light teal">
         <a href="/map" style="text-decoration: none;"><i class="mdi-maps-layers"></i></a>
@@ -16,10 +16,6 @@
       </div></li>
 
 <li style=" bottom: 10px;"><a href='/auth/facebook' class="btn-large waves-effect waves-light blue", style="text-decoration: none; width: 20px; border-radius: 8px 8px 8px 8px;  margin-right: 0px"><img height="100%;" style="position: relative; right: 25px" src="https://trophus.herokuapp.com/facebook.png"></a></li>
-
-<!-- <li style=" bottom: 10px;"><a href='/primary' class="btn-large waves-effect waves-light blue", style="text-decoration: none; width: 20px; border-radius: 8px 8px 8px 8px;  margin-right: 0px"><img height="100%;" style="position: relative; right: 25px" src="https://trophus.herokuapp.com/facebook.png"></a></li>
-
- -->
 
         </ul>
   <% end %>
@@ -105,14 +101,16 @@ LOGIN/SIGNUP WITH MATERIALIZE CSS ICONS...
               </div>
               </li>
 
-        </ul> <!-- CLOSE OF RIGHT NAVBAR VIA MATERIALIZECSS-->
-
-        <ul id='dropdown1' style='width: auto !important; z-index: 140' class='dropdown-content'>
+                      <ul id='dropdown1' style='width: auto !important; z-index: 140' class='dropdown-content'>
           <li><h4><%= current_user.name %></h4></li>
 
           <li><%= button_to "Log out", destroy_user_session_path, style: "position: relative; left: 17.5%;", method: :delete, class: "btn btn-default navbar-btn btn-xs", method: :delete %>
           </li>
         </ul>
+
+
+        </ul> <!-- CLOSE OF RIGHT NAVBAR VIA MATERIALIZECSS-->
+
 
         <% end %>
 

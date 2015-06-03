@@ -1,5 +1,5 @@
 <p d="notice"></p>
-<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto; width: 50%">
+<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto;">
   <div class="panel-heading">
 
   <style>
@@ -25,7 +25,7 @@
 
       <% if current_user.customer_id != nil %>
 
-      <div style="position: absolute; right: 0px; bottom: 5%">   <%= link_to 'Order', order_dish_path(@dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue", style: "font-size: 10px" %>
+      <div style="position: absolute; right: 0px; bottom: 5%">   <%= link_to 'Order', order_dish_path(@dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue", style: "font-size: 15px; bottom: 10px" %>
       </div>
 
       <% else %>
@@ -48,18 +48,23 @@
         <img height="300px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
         <% end %>
 
+        <div style="text-align: center; float: right; height: 200px; width: 400px;"><h5><%= @dish.description %> </h5> </div>
+
 
 
           </div>
-                <h5 style="text-align: center;"><%= @dish.description %> </h5>
-                  <p style="margin: 0px; font-weight: normal; font-size: 12px; float: right"> Made with love by <%= User.find(@dish.user_id).name %> </p>  
+
+
+<h5 style="text-align: center;"></h5>
+
+                
 
   </div>
 
 <div class="panel-footer">
   <%= link_to 'Edit', edit_dish_path(@dish), class: "btn-floating btn-large waves-effect waves-light teal" %>
   <%= link_to 'Back', dishes_path, class: "btn-floating btn-large waves-effect waves-light teal" %>
-
+  <span style="float: right;"><p style="margin: 0px; font-weight: normal; font-size: 12px; float: right"> Listed by <p> <a href='/users/<%= User.find(@dish.user_id).id %>/show'> <%= User.find(@dish.user_id).name %></a> </p>  </span>
 </div>
 
 </div>
