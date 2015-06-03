@@ -41,6 +41,7 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'jquery-ui-rails'
 
 gem 'instagram'
 gem 'bootbox-rails', '~>0.4'
