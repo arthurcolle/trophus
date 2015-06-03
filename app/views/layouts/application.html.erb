@@ -65,8 +65,17 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
     <%= yield %>
     
     <div class="foodstuff"></div>
-<!--       <div id="multigo" style="position: absolute; right: 0px; top: 10px; width: 40%; height: 500px; background-color: teal; border-radius: 10px 10px 10px 10px"></div>
- -->
+<!--     <% if @map_route %>
+      <div id="multigo" style="position: absolute; right: 0px; top: 10px; width: 20%; height: 150px; background-color: teal; border-radius: 10px 10px 10px 10px">
+          <div id="upperpart" style="position: relative; background-color: white; width: 100%; height: 40px; border-radius: 10px 10px 0 0;">
+            <span style="text-align: center"><p> People Around You</p></span>
+            <% users = User.within(1, :origin => current_user) %>
+            <% users.each {|user| %>
+              <a style="margin: 5px 5px 5px 5px; text-decoration: none;" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
+            <% } %>
+          </div>
+      </div>
+    <% end %> -->
   </div>
 
 

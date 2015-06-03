@@ -12,5 +12,6 @@ class PagesController < ApplicationController
   end
 
   def map
+    @map_route = true
   end
 end
