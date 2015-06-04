@@ -1,9 +1,15 @@
 
 <style>
   .btn-large {
-    height: 50px;
+    height: 40px;
     width:  200px;
   }
+
+  .icon-text {
+    position: relative;
+    bottom: 10px;
+  }
+
 </style>
 <% if current_user.nil? and @show_logo %>
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
@@ -13,17 +19,17 @@
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
         <li>
           <div class="btn-large teal"> 
-            <a href="/map" style="text-decoration: none;"> <i class="mdi-maps-layers" style="color: white; position: absolute; left: 30px;"></i> <span style="margin-left: 5px; color: white;">LOCAL</span></a>
+            <a href="/map" style="text-decoration: none;"> <span class="icon-text"> <i class="xy mdi-maps-layers" style="color: white;"></i> <span style="margin-left: 5px; color: white;">LOCAL</span> </span> </a>
           </div>
         </li>
         <li>
           <div class="btn-large teal"> 
-            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <i class="mdi-action-account-circle" style="color: white; position: absolute; left: 30px;"></i> <span style="margin-left: 5px; color: white;">PROFILE</span></a>
+            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <span class="icon-text">  <i class="xy mdi-action-account-circle" style="color: white;"></i> <span style="margin-left: 5px; color: white;">PROFILE</span> </span> </a>
           </div>
         </li>
         <li>
           <div class="btn-large blue">
-            <a href='/auth/facebook'> <i class="fa fa-facebook-official" style="color: white; position: absolute; left: 30px;"> </i> <span style="margin-left: 5px; color: white;">FRIENDS</span></a></li>  
+            <a href='/auth/facebook'> <span class="icon-text"> <i class="xy fa fa-facebook-official" style="color: white;"> </i> <span style="margin-left: 5px; color: white;">FRIENDS</span> </span> </a></li>  
           </div>
           
     <% end %>
