@@ -16,6 +16,7 @@
  *= require_self
  *= require jquery-ui
  *= require image-picker
+ *= require materialize
  */
 
 $navbar-default-bg: #2ecc71;
@@ -140,4 +141,15 @@ p {
 	width: 90%;
 	position: relative;
 	margin-top: 20px;
+}
+
+#sidenav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 997;
+  will-change: opacity; 
 }
