@@ -157,6 +157,14 @@ function initialize(user_id) {
       this.setZoom(18);
       google.maps.event.removeListener(boundsListener);
   });
+
+  google.maps.event.addDomListener(window, "resize", function() {
+   var center = map.getCenter();
+   google.maps.event.trigger(map, "resize");
+   map.setCenter(center); 
+});
+
+  
 }
 
 /* This solves the problem of the little home map marker not loading when a user signs in. */
