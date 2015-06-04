@@ -16,14 +16,7 @@
 
 </style>
 
-<% if current_user.nil? and @show_logo %>
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
-<% end %>
-
-
-
-    <% if !current_user.nil? %>
-        <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 
 
     
@@ -43,16 +36,13 @@
 
     <% else %>
 
-      <% if current_user.customer_id.nil? %>
-        <li>
-          <button class="btn-large waves-effect waves-light teal" onclick="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
-               <span class="icon-text" style="color: white;"> ADD PAYMENT METHOD </span>
-          </button>
-        </li>
-      
-      <% else %>
-      
-      <% end %>
+          <% if current_user.customer_id.nil? %>
+            <li>
+              <button class="btn-large waves-effect waves-light teal" onclick="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
+                   <span class="icon-text" style="color: white;"> ADD PAYMENT METHOD </span>
+              </button>
+            </li>
+          <% end %>
 
       <% if current_user.transfers_enabled == nil %>
         <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
@@ -68,26 +58,23 @@
         <!-- THIS IS THE ADD DISH BUTTON -->
         <li>
           <div>
-            <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'">
-              <i class="mdi-content-add"></i>
+         <!-- btn-floating -->
+            <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'">
+              <span class="icon-text" style="color: white;"> ADD DISH</span>
             </button>
           </div>
         </li>
 
           <% if current_user.dishes.length > 0 %> <!-- IF USER HAS MADE AT LEAST ONE DISH, SHOW BUTTON THAT LETS THEM SEE IT -->
-            <li>
-              <div>
-                <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
-                  <span class="icon-text" style="color: white;"> SEE YOUR DISHES</span>
-                </button>
-              </div>
-            </li>
+                    <li>
+                      <div>
+                        <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
+                          <span class="icon-text" style="color: white;"> SEE YOUR DISHES</span>
+                        </button>
+                      </div>
+                    </li>
           <% end %> <!-- IF THEY HAVE NOT MADE MORE THAN 1 DISH, THEN DON'T SHOW THEM -->
       <% end %> <!-- end of transfers_enabled block -->
-
-
-
-    <% end %> <!-- end of current user block -->
 
 
         <li>
@@ -115,7 +102,7 @@
 
                   <div>
 
-<button class="btn-large waves-effect waves-light teal" data-method="delete" href="/users/sign_out" rel="nofollow" style="height: 40px; width:  200px; text-decoration: none; font-size: x-small;"> <span style="position: relative; bottom: 10px;"> LOG OUT </span> </button>
+<a class="btn-large waves-effect waves-light teal" data-method="delete" href="/users/sign_out" rel="nofollow" style="height: 40px; width:  200px; text-decoration: none; font-size: x-small;"> <span style="position: relative; color: white; bottom: 10px;"> LOG OUT </span> </a>
 
 
 <!--                     <button formmethod="delete" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= destroy_user_session_path %>'">
