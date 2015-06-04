@@ -1,27 +1,122 @@
 
+<style>
+.rwd-table {
+  margin: 1em 0;
+  min-width: 300px;
+  border-collapse:collapse;
+}
+
+.rwd-table th {
+  display: none;
+}
+.rwd-table td {
+  display: block;
+}
+.rwd-table td:first-child {
+  padding-top: .5em;
+}
+.rwd-table td:last-child {
+  padding-bottom: .5em;
+}
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  width: 6.5em;
+  display: inline-block;
+}
+@media (min-width: 480px) {
+  .rwd-table td:before {
+    display: none;
+  }
+}
+.rwd-table th, .rwd-table td {
+  text-align: left;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child, .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child, .rwd-table td:last-child {
+    padding-right: 0;
+  }
+}
+
+
+h1 {
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+
+.rwd-table {
+/*  background: #34495E;
+  color: #fff;*/
+  border-radius: .4em;
+  overflow: hidden;
+}
+.rwd-table tr {
+/*  border-color: #46627f;*/
+}
+.rwd-table th, .rwd-table td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .rwd-table th, .rwd-table td {
+    padding: 1em !important;
+  }
+}
+.rwd-table th, .rwd-table td:before {
+/*  color: #dd5;*/
+}
+
+.table th, .table td, thead { 
+     border-top: none !important; 
+ }
+
+thead {
+  border-bottom: 0px;
+}
+
+ .adjusting-instagram {
+  display: block;
+  margin: 0 auto;
+ }
+
+ .dish_item {
+    border:1px solid #26A69A;
+    border-width: 1px;
+ }
+
+</style>
+
+
   <div class="panel panel-default" style="margin-top: 10px">
     <div class="panel-header container">
-      <h3 style="text-align: center">Listing your dishes  <button style="margin-top: 5px" class="waves-effect btn-large waves-light btn modal-trigger" onclick="instaModal();">Instagram Multicreate</button></h3>
+      <h3 style="text-align: center">Listing your dishes</h3>
+
+    <div class="adjusting-instagram">
+      <button class="button btn btn-primary modal-trigger" onclick="instaModal();" style="margin-bottom: 10px; width: 170px;">
+        <i class="fa fa-instagram" style="margin-right: 10px;"></i>MULTICREATE
+      </button> 
 
 
-            <% if session[:access_token].nil? %>
-        <a href="/oauth/connect">
-          <button class="button btn btn-primary" id="instagram-connect" style="position: relative; left: 20%;">
-          <i class="fa fa-instagram"></i>
-             Connect to Instagram
+      <% if session[:access_token].nil? %>
+        <a href="/oauth/connect" style="width: 150px;">
+          <button class="button btn btn-primary" id="instagram-connect" style="margin-bottom: 10px; width: 170px;">
+            <i class="fa fa-instagram" style="margin-right: 10px;"></i>
+               SIGN IN
           </button>
         </a>
-        <% end %>
-
-              <span id="spannerbutton">
-
-
-      </span>
+      <% end %>
+    </div>
+              <span id="spannerbutton"></span>
     
     </div>
 
     <div class="panel-body">
-      <table class="table">
+      <table class="table rwd-table">
         <thead>
           <tr>
             <th>Image</th>
@@ -34,20 +129,20 @@
 
         <tbody>
           <% @dishes.each do |dish| %>
-            <tr>
+            <tr class="dish_item">
               <% if dish.image_url != "" %>
-                <td><a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
+                <td data-th="Image"><a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
               <% else %>
                     <td>
                       <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image.to_s.gsub('http://s3.amazonaws.com/'+ENV['AWS_BUCKET_NAME']+'/', 'http://'+ENV['AWS_BUCKET_NAME']+'.s3.amazonaws.com/') %>'></a>
                     </td>
               <% end %>
-              <td><%= dish.name %></td>
-              <td><%= dish.description %></td>
-              <td>$<%= dish.price %></td>
-              <td><%= link_to 'Show', dish %></td>
-              <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-              <td><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td data-th="Name"><%= dish.name %></td>
+              <td data-th="Description"><%= dish.description %></td>
+              <td data-th="Price">$<%= dish.price %></td>
+              <td data-th="See More"><%= link_to 'Show', dish %></td>
+              <td data-th="Change Dish"><%= link_to 'Edit', edit_dish_path(dish) %></td>
+              <td data-th="Delete Dish"><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
