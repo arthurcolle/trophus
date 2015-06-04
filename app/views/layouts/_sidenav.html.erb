@@ -2,17 +2,13 @@
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 <% end %>
 
-
-
-<% if !current_user.nil? %>
-
+    <% if !current_user.nil? %>
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
         <li>
           <div class="btn-floating btn-large waves-effect waves-light teal">
             <a href="/map" style="text-decoration: none;"><i class="mdi-maps-layers"></i></a>
           </div>
         </li>
-              <li><a href="/careers" >Careers</a></li>
         <li>
           <div class="btn-floating btn-large waves-effect waves-light teal">
             <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <i class="mdi-action-account-circle"></i></a>
@@ -37,7 +33,7 @@
         </li> <!-- end of 'Log in' -->
 
     <% else %>
-
+      <li><a href="/careers">Careers</a></li>
 
       <% if current_user.customer_id.nil? %>
         <li>
