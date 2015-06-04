@@ -1,3 +1,10 @@
+
+<style>
+  .btn-large {
+    height: 50px;
+    width:  200px;
+  }
+</style>
 <% if current_user.nil? and @show_logo %>
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 <% end %>
@@ -5,16 +12,20 @@
     <% if !current_user.nil? %>
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
         <li>
-          <div class="btn-floating btn-large waves-effect waves-light teal">
-            <a href="/map" style="text-decoration: none;"><i class="mdi-maps-layers"></i></a>
+          <div class="btn-large teal"> 
+            <a href="/map" style="text-decoration: none;"> <i class="mdi-maps-layers" style="color: white; position: absolute; left: 30px;"></i> <span style="margin-left: 5px; color: white;">LOCAL</span></a>
           </div>
         </li>
         <li>
-          <div class="btn-floating btn-large waves-effect waves-light teal">
-            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <i class="mdi-action-account-circle"></i></a>
+          <div class="btn-large teal"> 
+            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <i class="mdi-action-account-circle" style="color: white; position: absolute; left: 30px;"></i> <span style="margin-left: 5px; color: white;">PROFILE</span></a>
           </div>
         </li>
-        <li style=" bottom: 10px;"><a href='/auth/facebook' class="btn-large waves-effect waves-light blue", style="text-decoration: none; width: 20px; border-radius: 8px 8px 8px 8px;  margin-right: 0px"><img height="100%;" style="position: relative; right: 25px" src="https://trophus.herokuapp.com/facebook.png"></a></li>
+        <li>
+          <div class="btn-large blue">
+            <a href='/auth/facebook'> <i class="fa fa-facebook-official" style="color: white; position: absolute; left: 30px;"> </i> <span style="margin-left: 5px; color: white;">FRIENDS</span></a></li>  
+          </div>
+          
     <% end %>
 
     
