@@ -39,10 +39,7 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
 mixpanel.track("User <%= current_user.id %> was viewed");
 </script>
 
-<div class="blah">
-  <%= render('layouts/header3') %>
-</div>
-
+<%= render('layouts/header3') %>
 <%= render(partial: 'users/dishes') %>
 
 </body>

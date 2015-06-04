@@ -10,7 +10,12 @@
     bottom: 10px;
   }
 
+  span {
+    font-size: x-small;
+  }
+
 </style>
+
 <% if current_user.nil? and @show_logo %>
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 <% end %>
@@ -19,19 +24,21 @@
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
         <li>
           <div class="btn-large teal"> 
-            <a href="/map" style="text-decoration: none;"> <span class="icon-text"> <i class="xy mdi-maps-layers" style="color: white;"></i> <span style="margin-left: 5px; color: white;">LOCAL</span> </span> </a>
+            <a href="/map" style="text-decoration: none;"> <span class="icon-text"> <!-- <i class="xy mdi-maps-layers" style="color: white;"></i>  --><span style="margin-left: 10px; color: white;">AROUND YOU</span> </span> </a>
           </div>
         </li>
         <li>
           <div class="btn-large teal"> 
-            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <span class="icon-text">  <i class="xy mdi-action-account-circle" style="color: white;"></i> <span style="margin-left: 5px; color: white;">PROFILE</span> </span> </a>
+            <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <span class="icon-text">  <!-- <i class="xy mdi-action-account-circle" style="color: white;"></i> --> <span style="margin-left: 10px; color: white;">YOUR PROFILE</span> </span> </a>
           </div>
         </li>
         <li>
-          <div class="btn-large blue">
-            <a href='/auth/facebook'> <span class="icon-text"> <i class="xy fa fa-facebook-official" style="color: white;"> </i> <span style="margin-left: 5px; color: white;">FRIENDS</span> </span> </a></li>  
-          </div>
-          
+          <% if current_user.fb_hd_profile_picture.nil? %>
+            <div class="btn-large blue">
+              <a href='/auth/facebook'> <span class="icon-text"> <i class="xy fa fa-facebook-official" style="color: white;"> </i> <span style="margin-left: 10px; color: white;">Connect</span> </span> </a>
+            </div>
+          <% end %>
+        </li>  
     <% end %>
 
     
@@ -39,18 +46,17 @@
 
         <li title = "Sign up">
           <div>
-            <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_registration_path %>'">Sign up</button>
+            <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_registration_path %>'"><span class="icon-text">Sign up</span></button>
           </div>
         </li> <!-- end of 'Sign up' -->
 
         <li title = "Log in">
           <div>
-            <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'">Log In</button>
+            <button class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'"><span class="icon-text">Log In</span></button>
           </div>
         </li> <!-- end of 'Log in' -->
 
     <% else %>
-      <li><a href="/careers">Careers</a></li>
 
       <% if current_user.customer_id.nil? %>
         <li>
@@ -67,8 +73,8 @@
         <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
         <li>
           <div>
-            <button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()">
-              <i class="mdi-action-account-balance"></i>
+            <button class="btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()">
+              <span class="icon-text" style="color: white;"> ADD BANK ACCOUNT </span>
             </button>
           </div>
         </li>
@@ -87,32 +93,35 @@
             <li>
               <div>
                 <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
-                  <i class="mdi-action-view-headline"></i>
+                  <span class="icon-text" style="color: white;"> SEE YOUR DISHES</span>
                 </button>
               </div>
             </li>
           <% end %> <!-- IF THEY HAVE NOT MADE MORE THAN 1 DISH, THEN DON'T SHOW THEM -->
       <% end %> <!-- end of transfers_enabled block -->
 
+                <li>
 
-      <script>
-        $(".dropdown-button").dropdown();
-      </script>
+                  <div>
 
-            <li>
-              <div>
-                <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-settings"></i></a>
-              </div>
-            </li>
+<button class="btn-large waves-effect waves-light teal" data-method="delete" href="/users/sign_out" rel="nofollow" style="height: 40px; width:  200px; text-decoration: none; font-size: x-small;"> <span style="position: relative; bottom: 10px;"> LOG OUT </span> </button>
 
-            <ul id='dropdown1' style='width: auto !important; z-index: 140' class='dropdown-content'>
-                <li><h4><%= current_user.name %></h4></li>
 
-                <li><%= button_to "Log out", destroy_user_session_path, style: "position: relative; left: 17.5%;", method: :delete, class: "btn btn-default navbar-btn btn-xs", method: :delete %>
+<!--                     <button formmethod="delete" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= destroy_user_session_path %>'">
+                      <span class="icon-text" style="color: white;"> LOG OUT </span>
+                    </button>
+ -->                  </div>
+
+
                 </li>
-              </ul>
 
 
+    <% end %> <!-- end of current user block -->
+      <li> 
+        <div class="btn-large waves-effect waves-light teal">
+          <a href="/careers"><span class="icon-text" style="color: white; text-decoration: none;">Careers</span></a>
+        </div>
+      </li>
 
-    <% end %>
+
   </ul>

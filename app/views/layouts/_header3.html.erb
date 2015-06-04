@@ -3,8 +3,7 @@
       <ul id="nav-mobile" class="side-nav">
         <%= render('layouts/sidenav')%>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
+      <a style="text-decoration: none;" href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
   <div class="nav-wrapper">
     <% if current_user.nil? and @show_logo %>
@@ -14,7 +13,7 @@
     <% end %>
 
     <% if !current_user.nil? %>
-      <%= render('layouts/not_logged_in') %>
+      <%= render('layouts/logged_in') %>
     <% end %>
 
     
