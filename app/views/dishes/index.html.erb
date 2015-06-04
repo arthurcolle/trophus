@@ -96,7 +96,8 @@ thead {
     <div class="panel-header container">
       <h3 style="text-align: center">Listing your dishes</h3>
 
-    <div class="adjusting-instagram">
+    <div class="adjusting-instagram" style="padding-left: 50px;">
+      <div style="width: 30px"></div>
       <button class="button btn btn-primary modal-trigger" onclick="instaModal();" style="margin-bottom: 10px; width: 170px;">
         <i class="fa fa-instagram" style="margin-right: 10px;"></i>MULTICREATE
       </button> 
@@ -104,7 +105,7 @@ thead {
 
       <% if session[:access_token].nil? %>
         <a href="/oauth/connect" style="width: 150px;">
-          <button class="button btn btn-primary" id="instagram-connect" style="margin-bottom: 10px; width: 170px;">
+          <button class="button btn btn-primary" id="instagram-connect" style="margin: auto; margin-bottom: 10px; width: 170px;">
             <i class="fa fa-instagram" style="margin-right: 10px;"></i>
                SIGN IN
           </button>
