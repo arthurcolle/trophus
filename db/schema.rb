@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605004143) do
+ActiveRecord::Schema.define(version: 20150605044919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,11 @@ ActiveRecord::Schema.define(version: 20150605004143) do
 
   create_table "users", force: true do |t|
     t.string   "email"
-    t.string   "encrypted_password",                             default: "", null: false
+    t.string   "encrypted_password",                                   default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                  default: 0,  null: false
+    t.integer  "sign_in_count",                                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -74,13 +74,18 @@ ActiveRecord::Schema.define(version: 20150605004143) do
     t.string   "stripe_account_status"
     t.boolean  "transfers_enabled"
     t.string   "fb_hd_profile_picture"
-    t.decimal  "lat_f",                  precision: 9, scale: 6
-    t.decimal  "long_f",                 precision: 9, scale: 6
+    t.decimal  "lat_f",                        precision: 9, scale: 6
+    t.decimal  "long_f",                       precision: 9, scale: 6
     t.string   "address_line_1"
     t.string   "address_line_2"
     t.string   "address_city"
     t.string   "address_state"
     t.string   "address_zip"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
+    t.integer  "profile_picture_file_size"
+    t.datetime "profile_picture_updated_at"
+    t.string   "prof_pic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

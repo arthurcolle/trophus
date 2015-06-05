@@ -23,6 +23,11 @@
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 
 
+
+
+
+
+
   <div class="sidenav_bar">
     <% if !current_user %>
 
@@ -39,6 +44,36 @@
         </li> <!-- end of 'Log in' -->
 
     <% else %>
+
+
+            <% if session[:access_token].nil? %>
+
+                <li ><a href="/oauth/connect">
+                        <div class="userx" id="instagram-connect">
+                           Instagram Login
+                        </div>
+                      </a></li>
+              <% else %>
+
+                    <% if current_user.prof_pic.nil? %>
+                                                      <li>
+              <button class="btn-large waves-effect waves-light teal" onclick="instaModalSingleProfilePic();">
+                   <span class="icon-text" style="color: white;"> Add Profile Picture </span>
+              </button>
+            </li>
+
+
+                    <% else %>
+                               <li>
+              <button class="btn-large waves-effect waves-light teal" onclick="instaModalSingleProfilePic();">
+                   <span class="icon-text" style="color: white;"> Change Profile Picture </span>
+              </button>
+            </li>
+
+
+                    <% end %>
+
+              <% end %>
 
           <% if current_user.customer_id.nil? %>
             <li>
@@ -91,13 +126,6 @@
             <a style="text-decoration: none" href="/users/<%= current_user.id %>/show"> <span class="icon-text">  <!-- <i class="xy mdi-action-account-circle" style="color: white;"></i> --> <span style="margin-left: 10px; color: white;">YOUR PROFILE</span> </span> </a>
           </div>
         </li>
-        <li>
-          <% if current_user.fb_hd_profile_picture.nil? %>
-            <div class="btn-large blue">
-              <a href='/auth/facebook'> <span class="icon-text"> <i class="xy fa fa-facebook-official" style="color: white;"> </i> <span style="margin-left: 10px; color: white;">Connect</span> </span> </a>
-            </div>
-          <% end %>
-        </li>  
     <% end %>
 
 

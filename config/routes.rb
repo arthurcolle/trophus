@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   get "/user_recent_media" => 'users#user_recent_media'
   get "/user_recent_media_single" => 'users#user_recent_media_single'
+  get "/user_recent_media_single_prof" => 'users#user_recent_media_single_prof'
+  post '/change_profile_pic' => 'users#change_profile_pic'
 
   post '/autocomplete' => 'search#search'
 
@@ -49,7 +51,7 @@ Rails.application.routes.draw do
   post 'dishes/:id/order' => 'dishes#order', :as => "order_dish"
 
   get 'auth/facebook', as: "auth_provider"
-  get 'auth/facebook/callback', to: 'users#login'
+  get 'cb', to: 'users#login'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

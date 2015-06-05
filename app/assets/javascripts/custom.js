@@ -103,6 +103,12 @@ instaModalSingle = function() {
   snappy('single');
 }
 
+instaModalSingleProfilePic = function() {
+  $('#modalProfile').openModal();
+  snappy('single_prof');
+}
+
+
 execute = function() {
   var country = $('.country').val();
   var tos = $("input[name='tos']:checked").val();
@@ -169,6 +175,12 @@ execute2 = function() {
   });
 }
 
+changeProfile = function() {
+  var imageURL = $( "#insta_prof option:selected" ).val();
+  console.log("123");
+  console.log(imageURL);
+}
+
 randomFunction = function(val) {
   var imageURL = $( "#insta_single option:selected" ).val();
   $('#instaject-outer').show();
@@ -189,6 +201,13 @@ snappy = function(selectOptions) {
     case 'single':
         $.ajax({
           url: "/user_recent_media_single", 
+          type: "GET"
+        });  
+      break;
+
+    case 'single_prof':
+      $.ajax({
+          url: "/user_recent_media_single_prof", 
           type: "GET"
         });  
       break;

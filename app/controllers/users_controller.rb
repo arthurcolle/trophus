@@ -37,8 +37,6 @@ class UsersController < ActionController::Base
 		respond_to do |format|
 			format.js
 		end
-
-
 	end
 
 	def accepted_tos
@@ -131,6 +129,35 @@ class UsersController < ActionController::Base
         end	
 	end
 
+	def change_profile_pic
+		puts "FUCK FACEBOOK"
+		current_user.prof_pic = params['imageURL']
+		if current_user.save 
+			redirect_to root_path, notice: "Image uploaded!"
+		else
+			redirect_to root_path, notice: "Upload failed!"
+		end
+	end
+
+	def user_recent_media_single_prof
+		@client = Instagram.client(:access_token => session[:access_token])
+        response = @client.user_recent_media
+        @user = @client.user
+        album = [].concat(response)
+        max_id = response.pagination.next_max_id
+
+        while !(max_id.to_s.empty?) do
+            response = @client.user_recent_media(:max_id => max_id)
+            max_id = response.pagination.next_max_id
+            album.concat(response)
+        end
+        @album = album
+        
+        respond_to do |format|
+        	format.js
+        end	
+	end
+
 
 	def jsonify
 		respond_to do |format|   
@@ -144,7 +171,7 @@ class UsersController < ActionController::Base
 					json.lat @user.lat
 					json.long @user.long
 					json.id @user.id
-					json.profile_pic @user.fb_hd_profile_picture
+					json.prof_pic @user.prof_pic
 				end
 				render :json => json.compile!
 			}

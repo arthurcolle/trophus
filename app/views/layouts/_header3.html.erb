@@ -7,14 +7,57 @@
 
   <div class="nav-wrapper">
     <% if current_user.nil? and @show_logo %>
-      <ul class="left">
+      <ul style="list-style-type: none;" class="left">
         <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
+
       </ul>
     <% end %>
+
+
+<style>
+.userx {
+  font-size: xx-small;
+}
+</style>
+
 
     <% if !current_user.nil? %>
       <%= render('layouts/logged_in') %>
     <% end %>
+
+      <% if current_user %>
+
+      <ul style="list-style-type: none;" class="left hide-on-med-and-down">
+
+            <% if session[:access_token].nil? %>
+
+                <li ><a href="/oauth/connect">
+                        <div class="userx" id="instagram-connect">
+                           Instagram Login
+                        </div>
+                      </a></li>
+              <% else %>
+
+                    <% if current_user.prof_pic.nil? %>
+                        <li><span id="spannerbutton">
+                    <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Add Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
+                  </span></li>
+
+                    <% else %>
+                        <li><span id="spannerbutton">
+                    <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Change Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
+                  </span></li>
+
+
+                    <% end %>
+
+              <% end %>
+
+      <% end %>
+
+</ul>
+
+
 
     
     <% if !current_user %>
