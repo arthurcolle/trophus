@@ -96,7 +96,8 @@ function initialize(user_id) {
                 '<p>'+
                   uj["home"]+
                 '</p>'+
-                  '<div class="btn btn-success"' + 'id="spikey"' + 'onclick="clicky(' + num + ');"> View dishes </div>'+
+                  // '<div class="btn btn-success"' + 'id="spikey"' + 'onclick="clicky(' + num + ');"> View dishes </div>'+
+                  '<a style="text-decoration: none" href="/users/' + num + '/dishes"> View Dishes </a>' +
               '</div>']);
           markers.push([uj["home"], parseFloat(uj["lat"]), parseFloat(uj["long"])]);
         }
