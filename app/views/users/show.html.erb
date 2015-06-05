@@ -41,7 +41,6 @@ mixpanel.track("Account was viewed");
 
 	<%= render('layouts/header3') %>
 
-
 <div class = "container">
 
   <div class="panel panel-default" style="margin-top: 10%">
@@ -55,21 +54,22 @@ mixpanel.track("Account was viewed");
 
 </br>
 
-<p style="text-align: center;"> <%= @user.email %> </p>
-
-</br>
+<div style="float: left;">
+<p> <%= @user.email %> </p>
 
 <!-- 
 <%= @user.phone_number %>
  -->
 
 <% if User.find(@user.id).dishes.length > 0 %>
-   <a href="/users/<%= @user.id %>/dishes">View dishes</button>
+   <a style="padding-left: 10px" href="/users/<%= @user.id %>/dishes">View dishes</button>
 <% else %>
   <p> <%= User.find(@user.id).name.split(" ")[0] %> hasn't added any dishes yet. </p>
 <% end %>
 
     </div>
+
+</div>
     
     <div class="panel-footer">
       <%= link_to 'Back', root_path %>
