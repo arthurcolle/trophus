@@ -171,6 +171,6 @@ class UsersController < ActionController::Base
 	
     private
    		def user_params
-      		params.require(:user).permit(:id, :name, :email, :home, :password, :lat, :long)
+      		params.require(:user).permit(:id, :name, :email, :phone_number, :home, :password, :lat, :long, :address_line_1, :address_line_2, :address_zip, :address_city, :address_state)
       	end
 end

@@ -13,8 +13,12 @@
     </button> -->
   </div>
 
-
+<!-- 
       <%= f.file_field :image, class: "form-control", style: "width: 40%;" %> </br>
+
+      <input class="form-control" id="dish_image" name="dish[image]" style="width: 40%;" type="file" /> </br>
+
+ -->
             <% if session[:access_token].nil? %>
 
     <a href="/oauth/connect">
@@ -26,6 +30,17 @@
     
 
   <% end %>
+
+
+    <div class="file-field input-field">
+      <input class="file-path form-control" type="text"/>
+      <div class="btn">
+        <span style="padding-right: 10px">File</span>
+        <input id="dish_image" name="dish[image]" type="file" />
+      </div>
+    </div>
+
+
 
   </div>
 

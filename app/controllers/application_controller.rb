@@ -35,7 +35,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| 
-      u.permit(:name, :home, :email, :password, :remember_me) 
+      u.permit(:name, :home, :email, :phone_number, :lat, :long, :address_line_1, :address_line_2, :address_zip, :address_city, :address_state, :password, :remember_me) 
     }
     
     devise_parameter_sanitizer.for(:sign_in) { |u| 

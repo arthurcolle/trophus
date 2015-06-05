@@ -96,13 +96,30 @@ margin-right: 5px; /* 2% margin after first column */
           </div>
         </div>
 
+        <%= hidden_field(:user, :address_city) %>
+        <%= hidden_field(:user, :address_state) %>
+        <%= hidden_field(:user, :home) %>
       </div>
       <script>
+      $('#special').on('change', function(data) {
+          var value = $('#special').val();
+          console.log(value);
+          var arr = value.split(", ");
+          var city = arr[0];
+          var state = arr[1];
+          $("#user_address_city").val(city);
+          $("#user_address_state").val(state);
+      });
+
       console.log("Hello");
       $('#user_address_zip').ziptastic().on('zipChange', function(evt, country, state, state_short, city, zip) {
         console.log(city + ", " + state_short);
         if (city !== undefined && state_short !== undefined) {
           $("#special").val(city + ", " + state_short);
+          $("#user_address_state").val(state_short);
+          $("#user_address_city").val(city);
+         $("#user_address_city").val(city);
+           
         }
         else {
           if ($('#user_address_zip').val().length !== 0)  {
@@ -110,8 +127,16 @@ margin-right: 5px; /* 2% margin after first column */
           }
         }
       });
+
+      function runner() {
+          line_a = $("#user_address_line_1").val();
+          var home = line_a + ", " + $("#user_address_city").val() + " " + $("#user_address_state").val() + " " + $("#user_address_zip").val();
+          $("#user_home").val(home);
+          console.log(home);     
+      }
+
       </script>
-      <div><%= f.submit "Sign up", :class => "btn btn-success" %></div>
+      <div><%= f.submit "Sign up", :class => "btn btn-success", onclick: "runner();" %></div>
   
     <% end %>
     </div>

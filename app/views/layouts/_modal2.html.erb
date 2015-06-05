@@ -1,10 +1,11 @@
-  <div id="modal2" class="modal" aria-hidden="true" style="overflow-y: auto">
-    <div class="modal-content">
+<% if current_user %>  
+  <div id="modal2" class="modal modal-fixed-footer" aria-hidden="true">
+    <div class="modal-content" style="overflow-y: scroll;">
       <div class="needed">
       <form class="form-horizontal" id="edit_user_3" action="/users/3" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="EtysMgzGVxRBTE5bY8B7Ds40nAgUfQq00i7Anzv/WquZiCq8Y/bDjGR7IOFdMMzqm6QxFCdrmvqZIK7BEW4Gg==" />
       <ul class="list-group">
       <li class="list-group-item" data-publishable="<%= Stripe.api_key %>" id="bank-account">
-      <h3>Bank Account</h3>
+      <h5>Bank Account Information</h5>
       <input type="hidden" name="bank_account_token" id="bank_account_token" />
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">Country:</label>
@@ -28,12 +29,12 @@
       </div>
       </li>
       <li class="list-group-item">
-      <h3>Legal Entity</h3>
+      <h5>Legal Information</h5>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">First Name:</label>
       <div class="col-xs-12 col-sm-9">
       <% if current_user %>
-            <input class="form-control" name="legal_entity[first_name]" placeholder="<%= current_user.name.split(" ")[0] %>" type="text">
+            <input class="form-control" name="legal_entity[first_name]" value="<%= current_user.name.split(" ")[0] %>" type="text">
       <% else %>
             <input class="form-control" name="legal_entity[first_name]" type="text">
       <% end %>
@@ -43,7 +44,7 @@
       <label class="control-label col-xs-12 col-sm-3">Last Name:</label>
       <div class="col-xs-12 col-sm-9">
       <% if current_user %>
-            <input class="form-control" name="legal_entity[last_name]" placeholder="<%= current_user.name.split(" ")[1] %>" type="text">
+            <input class="form-control" name="legal_entity[last_name]" value="<%= current_user.name.split(" ")[1] %>" type="text">
       <% else %>
             <input class="form-control" name="legal_entity[last_name]" type="text">
       <% end %>
@@ -187,31 +188,31 @@
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">Address Line 1:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[address][line1]" type="text">
+      <input class="form-control" name="legal_entity[address][line1]" value="<%= current_user.address_line_1 %>" type="text">
       </div>
       </div>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">Address Line 2:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[address][line2]" type="text">
+      <input class="form-control" name="legal_entity[address][line2]" value="<%= current_user.address_line_2 %>" type="text">
       </div>
       </div>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">City:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[address][city]" type="text">
+      <input class="form-control" name="legal_entity[address][city]" value="<%= current_user.address_city %>"type="text">
       </div>
       </div>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">State/Province:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[address][state]" type="text">
+      <input class="form-control" name="legal_entity[address][state]" value="<%= current_user.address_state %>" type="text">
       </div>
       </div>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">ZIP/Postal Code:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[address][postal_code]" type="text">
+      <input class="form-control" name="legal_entity[address][postal_code]" value="<%= current_user.address_zip %>"type="text">
       </div>
       </div>
       </li>
@@ -223,3 +224,5 @@
         <div class="modal-footer">
       <div href="#!" class="modal-action modal-close waves-effect waves-green blue btn-flat" onclick="execute2();">Submit</a>
   </div>
+
+<% end %>
