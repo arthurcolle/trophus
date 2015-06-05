@@ -7,19 +7,23 @@
 
   .icon-text {
     position: relative;
-    bottom: 10px;
   }
 
-  span {
+  div span {
     font-size: x-small;
+    bottom: 10px;
   }
+/*
+  .sidenav_bar span {
+    line-height: 10px;
+  }*/
 
 </style>
 
   <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
 
 
-    
+  <div class="sidenav_bar">
     <% if !current_user %>
 
         <li title = "Sign up">
@@ -102,7 +106,7 @@
 
                   <div class="btn-large teal" style="text-align: center;">
 
-<a data-method="delete" href="/users/sign_out" rel="nofollow"> <span style="position: relative; color: white; bottom: 10px;"> LOG OUT </span> </a>
+<a data-method="delete" href="/users/sign_out" rel="nofollow"> <span style="position: relative; color: white;"> LOG OUT </span> </a>
 
 
 <!--                     <button formmethod="delete" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= destroy_user_session_path %>'">
@@ -124,3 +128,5 @@
 
 
   </ul>
+
+  </div>
