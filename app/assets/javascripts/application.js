@@ -19,6 +19,7 @@
 //= require image-picker
 //= require map.js
 //= require custom.js
+//= require zip.js
 //= require_tree .
 
 

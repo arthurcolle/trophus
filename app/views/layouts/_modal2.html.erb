@@ -32,13 +32,21 @@
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">First Name:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[first_name]" type="text">
+      <% if current_user %>
+            <input class="form-control" name="legal_entity[first_name]" placeholder="<%= current_user.name.split(" ")[0] %>" type="text">
+      <% else %>
+            <input class="form-control" name="legal_entity[first_name]" type="text">
+      <% end %>
       </div>
       </div>
       <div class="form-group">
       <label class="control-label col-xs-12 col-sm-3">Last Name:</label>
       <div class="col-xs-12 col-sm-9">
-      <input class="form-control" name="legal_entity[last_name]" type="text">
+      <% if current_user %>
+            <input class="form-control" name="legal_entity[last_name]" placeholder="<%= current_user.name.split(" ")[1] %>" type="text">
+      <% else %>
+            <input class="form-control" name="legal_entity[last_name]" type="text">
+      <% end %>
       </div>
       </div>
       <div class="form-group">

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604231936) do
+ActiveRecord::Schema.define(version: 20150605004143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dishes", force: true do |t|
-    t.string   "name",               limit: 20
+    t.string   "name"
     t.integer  "user_id"
-    t.decimal  "price",                          precision: 10, scale: 2
+    t.decimal  "price",              precision: 10, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description",        limit: 150
+    t.text     "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -76,6 +76,11 @@ ActiveRecord::Schema.define(version: 20150604231936) do
     t.string   "fb_hd_profile_picture"
     t.decimal  "lat_f",                  precision: 9, scale: 6
     t.decimal  "long_f",                 precision: 9, scale: 6
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
