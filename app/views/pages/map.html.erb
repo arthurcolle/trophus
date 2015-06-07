@@ -95,14 +95,14 @@ p {
 	      </div>
 
 
- <div id="map-canvas" style="position: relative; left: 0px; top: 15px; width: 315px; height: 500px;"></div>
+ <div id="map-canvas" style="position: relative; left: 10px; width: 60%; height: 500px;"></div>
 
 <% if current_user %>
   <script>
     initialize(<%= current_user.id %>);
     $("#multigo").draggable();
     $("#livefeed").draggable();
-    $("#map-canvas").draggable();
+    // $("#map-canvas").draggable();
   </script>
 <% end %>
 
