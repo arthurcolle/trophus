@@ -1,3 +1,5 @@
+
+
     <% if @map_route %>
     	      <style>
 			a:link {
@@ -64,6 +66,8 @@ p {
 
 
 
+
+
 		<div id="feeds" style="float: right; width: 100%; margin-top: 10px;">
 	    	<div id="livefeed" style="position: relative; float: left; z-index: 390; height: 200px; width: 140px; background-color: teal; border-radius: 10px 10px 10px 10px">
 	        	<div class="upperpart">
@@ -94,8 +98,20 @@ p {
 	          </div>
 	      </div>
 
+<style>
+@media screen and (max-width: 480px){ 
+	#map-canvas {
+		width: 75%;
+	}
+}
 
- <div id="map-canvas" style="position: relative; left: 10px; width: 60%; height: 500px;"></div>
+#map-canvas {
+	width: 600px;
+}
+</style>
+
+
+ <div id="map-canvas" style="position: relative; left: 10px; height: 500px;"></div>
 
 <% if current_user %>
   <script>
