@@ -118,7 +118,7 @@ myHandler = function() {
   if ($("#q").val() != "") {
     $.ajax({
       type: "POST",
-      url: "/autocomplete",
+      url: "https://trophus.herokuapp.com/autocomplete",
       data: {query: $("#q").val()}
     }).done(function(data) {
       if (data['suggestions'].length != 0) {

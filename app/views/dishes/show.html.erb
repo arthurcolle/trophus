@@ -77,8 +77,9 @@
   <% if current_user.id == @dish.user_id %>
     <%= link_to 'Edit', edit_dish_path(@dish), class: "btn-floating btn-large waves-effect waves-light teal" %>
     <%= link_to 'Back', dishes_path, class: "btn-floating btn-large waves-effect waves-light teal" %>
-  <% end %>
+  <% else %>
   <div style="float:right;"> Listed by <a style="font-size: small;" href='/users/<%= User.find(@dish.user_id).id %>/show'> <%= User.find(@dish.user_id).name %></a> </div>
+  <% end %>
 </div>
 
 </div>
