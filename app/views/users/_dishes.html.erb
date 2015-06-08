@@ -4,7 +4,7 @@
       <h4><a href="http://localhost:3000/users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a>'s dishes<h4>
     </div>
 
-    <div class="panel-body" style="height: 400px; overflow-y: scroll;">
+    <div class="panel-body" style="max-height: 400px; overflow-y: scroll;">
       <table class="table">
         <thead>
           <tr>

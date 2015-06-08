@@ -14,8 +14,9 @@ function buildMultiple() {
       $.post(form.attr('action'), form.serialize(), function(r) {
         // `form` is still the particular form submitted,
         // and `r` will be the results of posting that form.
-        alert("Dishes were created!");
+        
       });
+      $('#alertModal').openModal();
   });
 }
 
