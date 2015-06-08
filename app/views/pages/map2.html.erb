@@ -3,22 +3,22 @@
     <% if @map_route %>
 
 <style>
-	a:link {
-		color: #84ffff;	
-	}
+			a:link {
+				color: #84ffff;	
+			}
 
-	a:hover {
-		color: #e1f5fe;	
-	}
+			a:hover {
+				color: #e1f5fe;	
+			}
 
-	a:visited {
-		color: #1a237e;
-	}
+			a:visited {
+				color: #1a237e;
+			}
 
-	#feeds {
-		width: 100%;
-		float: right;
-	}
+			#feeds {
+				width: 100%;
+				float: right;
+			}
 
 
 p {
@@ -40,28 +40,33 @@ p {
 }
 	      </style>
 
+	      <style>
+@media screen and (max-width: 480px){ 
+	#map-canvas {
+		width: 300px;
+	}
+}
+</style>
 
 
 
 
-		<div id="feeds" style="float: right; width: 100%; margin-top: 10px;">
-	    	<div id="livefeed" style="position: relative; float: left; z-index: 390; height: 200px; width: 140px; background-color: teal; border-radius: 10px 10px 10px 10px">
+
+		<div id="feeds" style="width: 100%; margin-top: 10px;">
+	    	<div id="livefeed" style="position: relative; z-index: 390; height: 200px; width: 140px; background-color: teal; border-radius: 10px 10px 10px 10px">
 	        	<div class="upperpart">
 	            	<span style="text-align: center"><p> Dishes Around You </p></span>
 		            <div class="lowerpart">
 			            <% users = User.within(1, :origin => current_user) %>
 			            <% users.each {|user| %>
-			            <% if user.id != current_user.id %>
 			            <% dishes = user.dishes %>
 				            <% dishes.each { |dish| %>
 				            	<a style="margin: 5px 5px 5px 5px; text-decoration: none;" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
 				           	<% } %>
-			           	<% end %>
 			           	<% } %>
 			        </div>
 				</div>
 			</div>
-
 
 
 
@@ -71,34 +76,16 @@ p {
 		      	<div class="lowerpart">
 		            <% users = User.within(1, :origin => current_user) %>
 		            <% users.each {|user| %>
-		            <%   if user.dishes.length > 0 and user.id != current_user.id %>
-		             		<a class="users" style="margin: 5px 5px 5px 5px; text-decoration: none;" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
-		            <% end %>
+		              <a class="users" style="margin: 5px 5px 5px 5px; text-decoration: none;" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
 		            <% } %>
 		      	</div>
 	          </div>
 	      </div>
-	    </div>
-
- <div id="map-canvas" style="position: relative; height: 500px;"></div>
-
-<style>
-@media screen and (max-width: 480px){ 
-	#map-canvas {
-		width: 100%;
-		top: 10px;
-	}
-}
-
-@media screen and (min-width: 480px){ 
-	#map-canvas {
-		width: 500px;
-	}
-}
-
-</style>
 
 
+
+
+ <div id="map-canvas" style="position: absolute; right: 0; height: 500px;"></div>
 
 <% if current_user %>
   <script>
@@ -111,3 +98,4 @@ p {
 
 
     <% end %>
+
