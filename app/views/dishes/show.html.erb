@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto; width: 100%">
+<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto;">
   <div class="panel-heading">
 
   <style>
@@ -15,7 +15,7 @@
       margin-top:0px;
       padding-bottom: 15px;
     }
-
+  
 
 #desc {
   float: right;
@@ -32,8 +32,8 @@
 
   <h4 id="dish_data">
 
-      <span style="float:left; font-weight: bold; font-size: xx-large;"> <%= @dish.name %></span></br>
-      <span style="float:left; font-weight: bold; font-size: x-large;">  $<%= @dish.price %> </span>
+      <span style="float:left; font-size: x-large;"> <%= @dish.name %></span></br>
+      <span style="float:left; font-size: large;">  $<%= @dish.price %> </span>
 
       <% if current_user.customer_id != nil %>
 
@@ -73,10 +73,12 @@
 
   </div>
 
-<div class="panel-footer">
-  <%= link_to 'Edit', edit_dish_path(@dish), class: "btn-floating btn-large waves-effect waves-light teal" %>
-  <%= link_to 'Back', dishes_path, class: "btn-floating btn-large waves-effect waves-light teal" %>
-  <span style="float: right;"><p style="margin: 0px; font-weight: normal; font-size: small; float: right"> Listed by <p> <a style="font-size: large;" href='/users/<%= User.find(@dish.user_id).id %>/show'> <%= User.find(@dish.user_id).name %></a> </p>  </span>
+<div class="panel-footer" style="min-height: 50px">
+  <% if current_user.id == @dish.user_id %>
+    <%= link_to 'Edit', edit_dish_path(@dish), class: "btn-floating btn-large waves-effect waves-light teal" %>
+    <%= link_to 'Back', dishes_path, class: "btn-floating btn-large waves-effect waves-light teal" %>
+  <% end %>
+  <div style="float:right;"> Listed by <a style="font-size: small;" href='/users/<%= User.find(@dish.user_id).id %>/show'> <%= User.find(@dish.user_id).name %></a> </div>
 </div>
 
 </div>
