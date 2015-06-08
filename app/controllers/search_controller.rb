@@ -55,7 +55,6 @@ class SearchController < ApplicationController
 	   		listx.push(item)
 	   	}
 
-
 	   	listy = listx.sort_by{|h| h["score"]}
 		puts listy
 	   	

@@ -118,7 +118,7 @@ myHandler = function() {
   if ($("#q").val() != "") {
     $.ajax({
       type: "POST",
-      url: "https://trophus.herokuapp.com/autocomplete",
+      url: "autocomplete",
       data: {query: $("#q").val()}
     }).done(function(data) {
       if (data['suggestions'].length != 0) {
@@ -136,7 +136,7 @@ myHandler = function() {
               link = '/users/'+s['id'] + '/show';
             }
             console.log(link);
-            $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ s['pic'] +'">' + '</a>');              
+            $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img alt="" style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ s['pic'] +'">' + '</a>');              
             i -= 1;
         });
       }
