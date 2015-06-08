@@ -11,3 +11,6 @@ Copyright (C) Arthur Colle - All Rights Reserved
 
 
 Run `. ./happy.sh` to set environment variables
+
+Imgur album for tutorial: 
+http://imgur.com/a/KDiMG
