@@ -53,12 +53,11 @@
     <div class="panel-body" style="width: 100%">
 
   <div id="food_image">
-
-          <% if @dish.image_url != "" %>
-          <%= image_tag(@dish.image_url, height: "250px", id: "foodpic")%>
-        <% else %>
-        <img height="250px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/trophus-dishes/', 'http://trophus-dishes.s3.amazonaws.com/') %>'>
-        <% end %>
+              <% if @dish.image_url != "" %>
+                <img height="250px" src='<%= @dish.image_url %>'>
+              <% else %>
+                 <img height="250px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/'+ENV['AWS_BUCKET_NAME']+'/', 'http://'+ENV['AWS_BUCKET_NAME']+'.s3.amazonaws.com/') %>'>
+              <% end %>
 
         <div id="desc" style="text-align: center;"><h5><%= @dish.description %> </h5> </div>
 
