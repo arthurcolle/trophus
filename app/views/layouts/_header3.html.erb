@@ -111,7 +111,7 @@
         <!-- THIS IS THE ADD DISH BUTTON -->
         <li>
           <div>
-            <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'">
+            <button title="Add Dish" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'">
               <i class="mdi-content-add"></i>
             </button>
           </div>
@@ -120,7 +120,7 @@
           <% if current_user.dishes.length > 0 %> <!-- IF USER HAS MADE AT LEAST ONE DISH, SHOW BUTTON THAT LETS THEM SEE IT -->
             <li>
               <div>
-                <button class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
+                <button title="See Dishes" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
                   <i class="mdi-action-view-headline"></i>
                 </button>
               </div>

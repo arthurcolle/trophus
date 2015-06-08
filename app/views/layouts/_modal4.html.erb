@@ -23,7 +23,6 @@
 <script>
 changeProfile = function() {
   var imageURL = $( "#insta_prof option:selected" ).val();
-  console.log("123");
   $.ajax({
     type: "POST",
     url: '/change_profile_pic',
