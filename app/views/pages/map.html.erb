@@ -9,14 +9,14 @@
 
 	#livefeed {
 		background-color: #bdc3c7;
-		opacity: 0.9;
+/*		opacity: 0.9;*/
 		position: relative;
 		float: left;
 	}
 
 	#multigo {
 		background-color: #bdc3c7;
-		opacity: 0.9;
+/*		opacity: 0.9;*/
 		position: relative;
 		float: right;
 	}
@@ -46,7 +46,7 @@
 	  left: 100px;
 	  top: 20px;
 	  display: block;
-	  opacity: 0.85
+	  opacity: 0.90
 	}
 
 }
@@ -64,7 +64,7 @@
 		            <% users = User.within(1, :origin => current_user) %>
 		            <% users.each {|user| %>
 		            <%   if user.dishes.length > 0 and user.id != current_user.id %>
-		             		<a class="users" style="margin: 5px 5px 5px 5px; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
+		             		<a class="users" style="margin: 5px 5px 5px 5px; color: #1565c0; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
 		            <% end %>
 		            <% } %>
 		      	</div>
@@ -80,7 +80,7 @@
 			            <% if user.id != current_user.id %>
 			            <% dishes = user.dishes %>
 				            <% dishes.each { |dish| %>
-				            	<a style="margin: 5px 5px 5px 5px; text-decoration: none; opacity: 1.0" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
+				            	<a style="margin: 5px 5px 5px 5px; text-decoration: none; color: #1565c0; opacity: 1.0" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
 				           	<% } %>
 			           	<% end %>
 			           	<% } %>
