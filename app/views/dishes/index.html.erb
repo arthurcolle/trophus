@@ -19,7 +19,7 @@
   padding-bottom: .5em;
 }
 .rwd-table td:before {
-  content: attr(data-th) ": ";
+  content: attr(data-th) "";
   width: 6.5em;
   display: inline-block;
 }
@@ -141,9 +141,10 @@ thead {
               <td data-th="Name"><%= dish.name %></td>
               <td data-th="Description"><%= dish.description %></td>
               <td data-th="Price">$<%= dish.price %></td>
-              <td data-th="See More"><%= link_to 'Show', dish %></td>
+<!--               <td data-th="See More"><%= link_to 'Show', dish %></td>
               <td data-th="Change Dish"><%= link_to 'Edit', edit_dish_path(dish) %></td>
-              <td data-th="Delete Dish"><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td data-th="Delete Dish"><%= link_to 'Destroy', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></td> -->
+              <td> <button><a href="<%= dish %>">View</a></button> <button><a href="<%= edit_dish_path(dish) %>">Edit</a></button> <button><%= link_to 'Delete', dish, :method => :delete, data: { confirm: 'Are you sure?' } %></button> </td>
             </tr>
           <% end %>
         </tbody>
