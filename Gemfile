@@ -43,7 +43,6 @@ gem 'turbolinks'
 
 gem 'jquery-ui-rails'
 
-
 gem 'instagram'
 gem 'bootbox-rails', '~>0.4'
 gem 'image-picker-rails'

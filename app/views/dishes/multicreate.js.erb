@@ -1,0 +1,6 @@
+$('#modal-multicreate').openModal();
+<% @dishes.each {|dish| %>
+	$("#modal-multicreate .modal-content").append("<%= j render(partial: 'dishes/multicreate_form', :locals => {:dish => dish }) %>");
+<% } %>
+
+

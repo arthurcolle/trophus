@@ -36,7 +36,8 @@ class SearchController < ApplicationController
 	   		uid = u["id"]
 	   		uscore = u["_score"]
 	   		uname = u["name"]
-	   		item = {:type=>"user", :id => uid, :score => uscore, :name => uname}
+	   		pic = User.find(u["id"]).prof_pic
+	   		item = {:type=>"user", :id => uid, :score => uscore, :name => uname, :pic => pic}
 	   		ulist.push(item)
 	   		listx.push(item)
 	   	}
@@ -48,7 +49,8 @@ class SearchController < ApplicationController
 	   		ddesc = di["description"]
 	   		dscore = di["_score"]
 	   		dp = di["price"]
-	   		item = {:type=> "dish", :id => did, :score => dscore, :name => dname, :description => ddesc, :price => dp}
+	   		pic = Dish.find(di["id"]).image_url
+	   		item = {:type=> "dish", :id => did, :score => dscore, :name => dname, :description => ddesc, :price => dp, :pic => pic}
 	   		dlist.push(item)
 	   		listx.push(item)
 	   	}

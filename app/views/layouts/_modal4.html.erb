@@ -1,20 +1,20 @@
 
         <div id="modal4" class="modal" aria-hidden="true">
           <div class="modal-content"  style="overflow-y: auto; height: 400px">
-<div class="picker"> <select multiple="multiple" class="image-picker show-html"></select> </div>
+<div class="picker"> <select multiple="multiple" class="image-picker show-html" id="insta_multiple"></select> </div>
           </div>
           <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Disagree</a>
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+            <button onclick="createMultiple()" class="modal-action modal-close waves-effect waves-green btn-flat modal-trigger">Create Multiple</button>
+            <button onclick="$('#modal4').toggle()" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</button>
+
           </div>
-        </div>
+        </div>  
 
         <div id="modal5" class="modal" aria-hidden="true" style="position: fixed;">
           <div class="modal-content"  style="overflow-y: auto; height: 400px;">
 <div class="picker"> <select class="image-picker show-html" id="insta_single"></select> </div>
           </div>
           <div class="modal-footer">
-
             <button class="modal-action modal-close waves-effect waves-green btn-flat " onclick='randomFunction()'>SELECT</button>
             <button class="modal-action modal-close waves-effect waves-red btn-flat" >CANCEL</button>
           </div>
@@ -38,6 +38,15 @@ changeProfile = function() {
           <div class="modal-footer">
 
             <button class="modal-action modal-close waves-effect waves-green btn-flat " onclick='changeProfile()'>SELECT</button>
+            <button class="modal-action modal-close waves-effect waves-red btn-flat" >CANCEL</button>
+          </div>
+        </div>
+
+        <div id="modal-multicreate" class="modal" aria-hidden="true" style="position: fixed;">
+          <div class="modal-content"  id="mycontent" style="overflow-y: auto; height: 400px;">
+          </div>
+          <div class="modal-footer">
+            <button class="modal-action modal-close waves-effect waves-green btn-flat" class="multicreate-submission" onclick="buildMultiple()">SELECT</button>
             <button class="modal-action modal-close waves-effect waves-red btn-flat" >CANCEL</button>
           </div>
         </div>

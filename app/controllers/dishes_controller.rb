@@ -1,7 +1,18 @@
 class DishesController < ApplicationController
 	before_action :authenticate_user!
+	respond_to :html, :json, :js
+
 	def new
 		@dish = Dish.new
+	end
+
+	def multicreate
+		puts "testing multicreate"
+		urls = params['urls']
+	    @dishes = urls.map { |url| Dish.create(:image_url => url, :user_id => current_user.id) }
+	    respond_to do |format|
+	    	format.js
+	    end
 	end
 
 	def show
@@ -37,7 +48,7 @@ class DishesController < ApplicationController
 	def update
 		@dish = Dish.find(params["id"])
 	  	if @dish.update(dish_params)
-	    	redirect_to @dish, notice: 'Dish was successfully updated.'
+	    	redirect_to dishes_path, notice: 'Dish was successfully updated.'
 	    else
 	      render :edit
 	    end

@@ -130,7 +130,6 @@ class UsersController < ActionController::Base
 	end
 
 	def change_profile_pic
-		puts "FUCK FACEBOOK"
 		current_user.prof_pic = params['imageURL']
 		if current_user.save 
 			redirect_to root_path, notice: "Image uploaded!"

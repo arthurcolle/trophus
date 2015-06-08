@@ -1,0 +1,23 @@
+<%= form_for(dish, :html => { :multipart => true}) do |f| %> 
+  <img height="100px" src="<%= dish.image_url %>">
+  <%= f.hidden_field :image_url, :id => "imageURL" %>
+  <div class="form-group"> 
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div> 
+  
+  <div class="form-group"> 
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group"> 
+    <%= f.label :price %>
+    <%= f.number_field :price, class: "form-control" %>
+  </div> 
+
+  <div class="actions"> 
+    <%= f.submit :class => "btn btn-success", :style => "display: none" %>
+  </div> 
+
+<% end %>

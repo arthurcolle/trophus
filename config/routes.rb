@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'users/:id/show' => 'users#show'
 
   resources :dishes
+  post 'create_multiple' => 'dishes#multicreate'
+  get 'multicreate' => 'dishes#multicreate', as: 'multicreate_url'
+
+
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'
   
