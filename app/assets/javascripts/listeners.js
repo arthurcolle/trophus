@@ -15,5 +15,6 @@ $(function() {
 	$('#change-prof-pic').click(function() {
 		profChanger();
 	});
+	
 });
 
