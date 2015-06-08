@@ -128,8 +128,9 @@ class UsersController < ActionController::Base
         	format.js
         end	
 	end
-
-	def change_profile_pic
+	
+	def prof_pic_change
+		puts "Checking profile picture change and create"
 		current_user.prof_pic = params['imageURL']
 		if current_user.save 
 			redirect_to root_path, notice: "Image uploaded!"
@@ -137,6 +138,7 @@ class UsersController < ActionController::Base
 			redirect_to root_path, notice: "Upload failed!"
 		end
 	end
+
 
 	def user_recent_media_single_prof
 		@client = Instagram.client(:access_token => session[:access_token])

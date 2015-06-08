@@ -1,6 +1,9 @@
               <ul id='dropdown1' style='width: auto !important; z-index: 140' class='dropdown-content'>
                 <li><h4><%= current_user.name %></h4></li>
 
+				<li><%= button_to "Careers", "/careers", style: "position: relative; left: 17.5%;", method: :delete, class: "btn btn-default navbar-btn btn-xs", method: :get %>
+                </li>
+
                 <li><%= button_to "Log out", destroy_user_session_path, style: "position: relative; left: 17.5%;", method: :delete, class: "btn btn-default navbar-btn btn-xs", method: :delete %>
                 </li>
               </ul>

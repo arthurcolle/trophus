@@ -23,27 +23,7 @@
         <% if current_user %>
             <% if current_page?(root_url) %>
                 <ul style="list-style-type: none;" class="left hide-on-med-and-down">
-                    <% if session[:access_token].nil? %>
-                        <li>
-                            <a href="/oauth/connect">
-                                <div class="userx" id="instagram-connect">Instagram Login</div>
-                            </a>
-                        </li>
-                    <% else %>
-
-                        <% if current_user.prof_pic.nil? %>
-                            <li><span id="spannerbutton">
-                                <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Add Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
-                                </span>
-                            </li>
-                        <% else %>
-                            <li>
-                                <span id="spannerbutton">
-                                    <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Change Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
-                                </span>
-                            </li>
-                        <% end %>
-                    <% end %>
+                    
                 </ul>
             <% end %>
         <% end %>
@@ -68,7 +48,7 @@
             
         <% else %>
             <ul class="right hide-on-med-and-down">
-                <li><a style="text-decoration:none; position: relative;" href="/careers">Careers</a></li>
+                
         
                 <li>
                     <%= render('layouts/autocomplete_form') %>

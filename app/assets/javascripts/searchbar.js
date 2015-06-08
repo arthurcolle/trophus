@@ -16,10 +16,9 @@ myHandler = function() {
       url: "/autocomplete",
       data: {query: $("#q").val()}
     }).done(function(data) {
+      $('#results').show();
       if (data['suggestions'].length != 0) {
-        $('#results').toggle();
         $('#results').empty();
-
         var sugg = data['suggestions'];
         sugg.forEach( function (s) {
             var link = '';

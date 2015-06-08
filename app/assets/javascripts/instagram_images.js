@@ -8,6 +8,17 @@ function createMultiple() {
   })
 }
 
+profChanger = function() {
+  var imageURL = $( "#insta_prof option:selected" ).val();
+  console.log(imageURL);
+  $.ajax({
+    type: "POST",
+    url: '/prof_pic_change',
+    data: {imageURL: imageURL}
+  });
+}
+
+
 function buildMultiple() {
   $('#modal-multicreate form').each(function() {
     var form = $(this);

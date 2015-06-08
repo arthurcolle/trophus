@@ -11,5 +11,9 @@ $(function() {
 	$('#addbank').on("click", function() {
 		$('#modal1').openModal();
 	});
+
+	$('#change-prof-pic').on('click', function() {
+		profChanger();
+	});
 });
 
