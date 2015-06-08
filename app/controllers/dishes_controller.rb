@@ -15,6 +15,15 @@ class DishesController < ApplicationController
 	    end
 	end
 
+	def delete_unfinished
+		Dish.all.each {|dish|
+			if dish.name.nil? 
+				dish.delete
+			end
+		}
+		
+	end
+
 	def show
 		@dish = Dish.find(params["id"])
 	end

@@ -48,17 +48,6 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
 
 	<%= render('layouts/header3') %>
 
-<!--   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-    <a class="btn-floating btn-large red">
-      <i class="large mdi-alert-error"></i>
-    </a>
-    <ul>
-      <li><a class="btn-floating green"><i class="large mdi-action-payment"></i></a></li>
-      <li><a class="btn-floating blue darken-1"><i class="large mdi-action-account-balance"></i></a></li>
-
-    </ul>
-  </div> -->
-
   <div class="container">
 
     <% flash.each { |name, msg| %>
@@ -67,11 +56,16 @@ mixpanel.init("8350f02b620a775db28749ea0fa75e54");</script><!-- end Mixpanel -->
     <%= yield %>
     
     <div class="foodstuff"></div>
+
   </div>
 
-  <%= render('layouts/modal1') %>
-  <%= render('layouts/modal4') %>
-  <%= render('layouts/modal2') %>
-
+<%= render('layouts/modal_tos') %>
+<%= render('layouts/modal_profile') %>
+<%= render('layouts/modal_multiple') %>
+<%= render('layouts/modal_multicreate') %>
+<%= render('layouts/modal_single') %>
+<%= render('layouts/modal_profile') %>
+<%= render('layouts/modal_banking_info') %>
+<%= render('layouts/modal_alert') %>
 </body>
 </html>

@@ -1,0 +1,48 @@
+
+  <div id="modal1" class="modal" aria-hidden="true" style="overflow-y: scroll;">
+    <div class="modal-content">
+      <div class="panel panel-primary">
+      <div class="panel-body"> 
+      <h3>Get Connected</h3>
+      <p>You need a Stripe account to sell your food on Trophus.</p>
+      <!-- <p>We have made it super easy to get started, and we will handle the account completely!</p>  -->
+      <ul class="list-group">
+      <li class="list-group-item" id="stripe-managed">
+      <small>Specify your country</small>
+      <select class="country browser-default" name="country">
+<option value=US>United States</option><option value=CA>Canada</option><option value=AU>Australia</option><option value=UK>United Kingdom</option><option value=IE>Ireland</option>
+      </select>
+      <br/>
+      
+<!-- 
+  I accept the 
+      <a href="https://stripe.com/us/terms" target="_blank">Stripe Terms of Service</a>
+  
+  <div class="switch">
+
+    <label class="tos">
+      No
+      <input name="tos" type="checkbox" checked="checked">
+      <span class="lever"></span>
+      Yes
+    </label>
+    
+  </div>
+ -->
+  
+      <input name="tos" type="checkbox" class="filled-in" id="filled-in-box" checked="checked"> </input>
+      <label class="tos">
+
+
+      I accept the 
+      <a href="https://stripe.com/us/terms" target="_blank">Stripe Terms of Service</a>
+      </label>
+      </li>
+      </ul>
+      </div>
+      </div>
+    </div>
+    <div class="modal-footer" style="height: 100%">
+      <button class="modal-action modal-trigger waves-effect waves-green btn-flat" data-target="modal2" onclick="execute();">Agree</a>
+    </div>
+  </div>

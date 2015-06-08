@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :dishes
   post 'create_multiple' => 'dishes#multicreate'
   get 'multicreate' => 'dishes#multicreate', as: 'multicreate_url'
-
+  post 'delete_unfinished' => 'dishes#delete_unfinished'
 
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'

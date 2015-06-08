@@ -1,153 +1,131 @@
 <nav class="teal accent-4">
-
-      <ul id="nav-mobile" class="side-nav">
+    <ul id="nav-mobile" class="side-nav">
         <%= render('layouts/sidenav')%>
-      </ul>
-      <a style="text-decoration: none;" href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-
-  <div class="nav-wrapper">
-    <% if current_user.nil? and @show_logo %>
-      <ul style="list-style-type: none;" class="left">
-        <li><a href="/"><%= image_tag "trophus_dark_teal.png", height: "70px" %></a></li>
-
-      </ul>
-    <% end %>
-
-
-
-    <% if !current_user.nil? %>
-      <%= render('layouts/logged_in') %>
-    <% end %>
-
-      <% if current_user %>
-
-
-      <% if current_page?(root_url) %>
-                    <ul style="list-style-type: none;" class="left hide-on-med-and-down">
-
-                          <% if session[:access_token].nil? %>
-
-                              <li ><a href="/oauth/connect">
-                                      <div class="userx" id="instagram-connect">
-                                         Instagram Login
-                                      </div>
-                                    </a></li>
-                            <% else %>
-
-                                  <% if current_user.prof_pic.nil? %>
-                                      <li><span id="spannerbutton">
-                                  <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Add Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
-                                </span></li>
-
-                                  <% else %>
-                                      <li><span id="spannerbutton">
-                                  <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Change Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
-                                </span></li>
-
-
-                                  <% end %>
-
-                            <% end %>
-
-                    <% end %>
-
-              </ul>
-      <% end %>
-
-
+    </ul>
     
-    <% if !current_user %>
-      <ul class="right hide-on-med-and-down" style="position:relative; right: 30px">
+    <a style="text-decoration: none;" href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
-        <li title = "Sign up">
-          <div>
-            <button style="line-height: 10px" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_registration_path %>'">Sign up</button>
-          </div>
-        </li> <!-- end of 'Sign up' -->
+    <div class="nav-wrapper">
+        <% if current_user.nil? and @show_logo %>
+            <ul style="list-style-type: none;" class="left">
+                <li>
+                    <a href="/">
+                        <%= image_tag "trophus_dark_teal.png", height: "70px" %>
+                    </a>
+                </li>
+            </ul>
+        <% end %>
 
-        <li title = "Log in">
-          <div>
-            <button style="line-height: 10px" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'">Log In</button>
-          </div>
-        </li> <!-- end of 'Log in' -->
+        <% if !current_user.nil? %>
+            <%= render('layouts/logged_in') %>
+        <% end %>
 
-      </ul>
-    <% else %>
-      <ul class="right hide-on-med-and-down">
-        <li><a style="text-decoration:none; position: relative;" href="/careers">Careers</a></li>
-        <li> 
-          <form style="positive: relative; width: 400px" class="search" id = "autocomplete">
-            <div class="input-field">
-              <input autocomplete="off" name="q" id="q" type="search"  onKeyUp="myHandler();" placeholder="Search..." required>
-              <label for="search"><i class="mdi-action-search"></i></label>
-                <i class="mdi-navigation-close" onclick="destroy()"></i>
-            </div>
-            <div id="results"></div>
-          </form>
-        </li>
+        <% if current_user %>
+            <% if current_page?(root_url) %>
+                <ul style="list-style-type: none;" class="left hide-on-med-and-down">
+                    <% if session[:access_token].nil? %>
+                        <li>
+                            <a href="/oauth/connect">
+                                <div class="userx" id="instagram-connect">Instagram Login</div>
+                            </a>
+                        </li>
+                    <% else %>
 
-      <% if current_user.customer_id.nil? %>
-        <li>
-          <button class="btn-floating btn-large waves-effect waves-light teal" onclick="addStripeInformation({'name': '<%= current_user.name %>', 'email': '<%= current_user.email %>'});">
-                <i class="mdi-action-payment"></i>
-          </button>
-        </li>
-      
-      <% else %>
-      
-      <% end %>
+                        <% if current_user.prof_pic.nil? %>
+                            <li><span id="spannerbutton">
+                                <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Add Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
+                                </span>
+                            </li>
+                        <% else %>
+                            <li>
+                                <span id="spannerbutton">
+                                    <%= tag "input", { "type" => "button", class: "userx btn btn-success", "value" => "Change Profile Picture", "onclick" => "instaModalSingleProfilePic();" } %> 
+                                </span>
+                            </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            <% end %>
+        <% end %>
 
-      <% if current_user.transfers_enabled == nil %>
-        <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
-        <li>
-          <div>
-            <button class="btn-floating btn-large waves-effect waves-light teal" onclick=" $('#modal1').openModal()">
-              <i class="mdi-action-account-balance"></i>
-            </button>
-          </div>
-        </li>
-      <% else %> <!-- if current_user.transfers_enabled != nil -->
+        <% if !current_user %>
+            <ul class="right hide-on-med-and-down" style="position:relative; right: 30px">
+                <li title = "Sign up"> <!-- beginning of 'Sign up' -->
+                    <div>
+                        <button style="line-height: 10px" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_registration_path %>'">
+                            Sign up
+                        </button>
+                    </div>
+                </li> <!-- end of 'Sign up' -->
 
-        <!-- THIS IS THE ADD DISH BUTTON -->
-        <li>
-          <div>
-            <button title="Add Dish" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'">
-              <i class="mdi-content-add"></i>
-            </button>
-          </div>
-        </li>
+                <li title = "Log in"> <!-- beginning of 'Log in' -->
+                  <div>
+                    <button style="line-height: 10px" class="btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_user_session_path %>'">Log In</button>
+                  </div>
+                </li> <!-- end of 'Log in' -->
 
-          <% if current_user.dishes.length > 0 %> <!-- IF USER HAS MADE AT LEAST ONE DISH, SHOW BUTTON THAT LETS THEM SEE IT -->
-            <li>
-              <div>
-                <button title="See Dishes" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'">
-                  <i class="mdi-action-view-headline"></i>
-                </button>
-              </div>
-            </li>
-          <% end %> <!-- IF THEY HAVE NOT MADE MORE THAN 1 DISH, THEN DON'T SHOW THEM -->
-      <% end %> <!-- end of transfers_enabled block -->
+            </ul>
+            
+        <% else %>
+            <ul class="right hide-on-med-and-down">
+                <li><a style="text-decoration:none; position: relative;" href="/careers">Careers</a></li>
+        
+                <li>
+                    <%= render('layouts/autocomplete_form') %>
+                </li>
 
+                <% if current_user.customer_id.nil? %>
+                
+                <li>
+                  <button id="addcard" title="Add payment information" data-name="<%= current_user.name %>" data-email="<%= current_user.email %>" class="btn-floating btn-large waves-effect waves-light teal">
+                        <i class="mdi-action-payment"></i>
+                  </button>
+                </li>
 
-      <script>
-        $(".dropdown-button").dropdown();
-      </script>
+                <% end %>
 
-            <li>
-              <div>
-                <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1"><i class="mdi-action-settings"></i></a>
-              </div>
-            </li>
+                    <% if current_user.transfers_enabled == nil %>
+                    <!-- THIS IS TO ADD BANK ACCOUNT INFORMATION TO SELL FOOD -->
+                    <li>
+                      <div>
+                        <button id="addbank" title="Add bank account to receive payments" class="btn-floating btn-large waves-effect waves-light teal">
+                          <i class="mdi-action-account-balance"></i>
+                        </button>
+                      </div>
+                    </li>
 
-            <%= render('layouts/logout') %>
+                    <% else %> <!-- if current_user.transfers_enabled != nil -->
 
-      </ul> <!-- CLOSE OF RIGHT NAVBAR VIA MATERIALIZECSS-->
+                        <!-- THIS IS THE ADD DISH BUTTON -->
+                        <li>
+                            <div>
+                                <button title="Add Dish" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= new_dish_path %>'"> <i class="mdi-content-add"></i>
+                                </button>
+                            </div>
+                        </li>
 
+                        <% if current_user.dishes.length > 0 %> <!-- IF USER HAS MADE AT LEAST ONE DISH, SHOW BUTTON -->
+                            <li>
+                                <div>
+                                    <button title="See Dishes" class="btn-floating btn-large waves-effect waves-light teal" onclick="window.location.href='<%= dishes_path %>'"> <i class="mdi-action-view-headline"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        <% end %> <!-- IF THEY HAVE NOT MADE MORE THAN 1 DISH, THEN DON'T SHOW THEM -->
+                    <% end %> <!-- end of transfers_enabled block -->
 
-    <% end %>
-  </ul>  
-</div>
+                <li>
+                    <div>
+                        <a href="" class="dropdown-button btn btn-floating btn-large waves-effect waves-light teal" data-activates="dropdown1">
+                            <i class="mdi-action-settings"></i>
+                        </a>
+                        <script> $(".dropdown-button").dropdown(); </script>
+                  </div>
+                </li>
+
+                <%= render('layouts/logout') %>
+
+            </ul> <!-- CLOSE OF RIGHT NAVBAR VIA MATERIALIZECSS-->
+        <% end %> 
+    </div>
 </nav>
-
-
-<script>$('.button-collapse').sideNav();</script>

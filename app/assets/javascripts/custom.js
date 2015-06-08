@@ -12,45 +12,16 @@ function buildMultiple() {
   $('#modal-multicreate form').each(function() {
     var form = $(this);
       $.post(form.attr('action'), form.serialize(), function(r) {
-        // `form` is still the particular form submitted,
-        // and `r` will be the results of posting that form.
-        
       });
       $('#alertModal').openModal();
   });
 }
 
-function addStripeInformation(data) {
-  var handler = StripeCheckout.configure({
-    key: 'pk_test_k90DPHCGKmfYhYa5anVRrVKy',
-    token: function(token) {
-      $.ajax({
-        url: '/charges/create',
-        type: "POST",
-        data: {
-          "token" : token.id,
-          "email" : data.email
-        }
-      });
-    }
-  });
-
-  $(function(){
-    // Open Checkout with further options
-    handler.open({
-      email: data.email,
-      name: data.name,
-      description: 'You\'ll be eating before you know it',
-      zipCode: false,
-      panelLabel: "Add Information",
-      allowRememberMe: false
-    });
-  });
-
-  // Close Checkout on page navigation
-  $(window).on('popstate', function() {
-    handler.close();
-  });
+function destroyUnfinished() {
+    $.ajax({
+      type: "POST",
+      url: "delete_unfinished"
+    })
 }
 
 destroy = function() {
@@ -64,61 +35,11 @@ $(function() {
   });
 });
 
-var piccy = "http://img2.wikia.nocookie.net/__cb20140118173446/wiisportsresortwalkthrough/images/6/60/No_Image_Available.png";
-
-
-// myHandler = function() {
-//   if ($("#q").val() != "") {
-//     $.ajax({
-//       type: "POST",
-//       url: "/autocomplete",
-//       data: {query: $("#q").val()}
-//     }).done(function(data) {
-//       if (data['suggestions'].length != 0) {
-//         $('#results').toggle();
-//         $('#results').empty();
-
-//         var sugg = data['suggestions'];
-//         sugg.forEach( function (s) {
-//             var link = '';
-//             if (s["type"] == "dish") {
-//               link = '/dishes/'+s['id'];
-//             }
-//             else {
-//               link = '/users/'+s['id'] + '/show';
-//             }
-//             console.log(link);
-
-//             // if (s['pic'] === null) {
-//             //   $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ piccy +'">' + '</a>');              
-//             // }
-//             // else {
-//             $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ s['pic'] +'">' + '</a>');              
-//             // }
-//             i -= 1;
-//         });
-//       }
-//     });    
-//   }
-// }
-
-var face_array = [
-'http://becomingthebboss.com/wp-content/uploads/2014/03/circle-brigid-professional.jpg',
-'http://procopyservices.com/wp-content/uploads/2015/02/profile-circle.png',
-'http://www.makesomethingdaily.com/wp-content/uploads/2015/02/profile-picture-circle.png',
-'http://static1.squarespace.com/static/5491d7aae4b0d06755583522/t/54af31ffe4b0ce916d639133/1420767744829/Laura+Farrelly+Profile+Photo+Circle.png',
-'http://ryan-brogan.com/wp-content/uploads/2014/03/Profile-circle.png',
-'http://www.noviventure.com/wp-content/uploads/2014/08/Profile-Picture-Circle-Transparent.png',
-'http://www.thingsworthdescribing.com/wp-content/uploads/2014/06/edited-profile-pic-circle.png',
-'http://shaunkutch.com/wp-content/uploads/2015/02/circle_profile_photo.png'
-];
-
-
 myHandler = function() {
   if ($("#q").val() != "") {
     $.ajax({
       type: "POST",
-      url: "autocomplete",
+      url: "/autocomplete",
       data: {query: $("#q").val()}
     }).done(function(data) {
       if (data['suggestions'].length != 0) {
@@ -126,7 +47,6 @@ myHandler = function() {
         $('#results').empty();
 
         var sugg = data['suggestions'];
-        var i = face_array.length - 1;
         sugg.forEach( function (s) {
             var link = '';
             if (s["type"] == "dish") {
@@ -137,7 +57,6 @@ myHandler = function() {
             }
             console.log(link);
             $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img alt="" style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ s['pic'] +'">' + '</a>');              
-            i -= 1;
         });
       }
     });    

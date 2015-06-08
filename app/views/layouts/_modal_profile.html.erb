@@ -1,0 +1,20 @@
+<script>
+changeProfile = function() {
+  var imageURL = $( "#insta_prof option:selected" ).val();
+  $.ajax({
+    type: "POST",
+    url: '/change_profile_pic',
+    data: {imageURL: imageURL}
+  });
+}
+</script>
+                <div id="modalProfile" class="modal" aria-hidden="true" style="position: fixed;">
+          <div class="modal-content"  style="overflow-y: auto; height: 400px;">
+<div class="picker"> <select class="image-picker show-html" id="insta_prof"></select> </div>
+          </div>
+          <div class="modal-footer">
+
+            <button class="modal-action modal-close waves-effect waves-green btn-flat " onclick='changeProfile()'>SELECT</button>
+            <button class="modal-action modal-close waves-effect waves-red btn-flat" >CANCEL</button>
+          </div>
+        </div>
