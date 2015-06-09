@@ -13,7 +13,9 @@ class ConversationsController < ApplicationController
 			@conversations = @mailbox.trash
 		end
 		@conversations = @conversations.paginate(page: params[:page], per_page: 10)
+		User.find(current_user.id).mailbox.notifications.all.each {|notification| notification.mark_as_read(User.find(current_user.id)) }
 	end
+
 	def mark_as_read
 	  @conversation.mark_as_read(current_user)
 	  flash[:success] = 'The conversation was marked as read.'
@@ -46,6 +48,11 @@ class ConversationsController < ApplicationController
  
  	def reply
   		current_user.reply_to_conversation(@conversation, params[:body])
+  		@conversation.participants.each {|p|
+  			if p.id != current_user.id
+		  		p.notify("#{current_user.name} sent you a message!", "xyz")
+  			end
+  		}
   		flash[:success] = 'Reply sent'
   		redirect_to conversation_path(@conversation)
   	end

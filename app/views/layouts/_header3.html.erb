@@ -46,16 +46,8 @@
       </ul>
     <% else %>
       <ul class="right hide-on-med-and-down">   
-        <% notifs = User.find(current_user.id).mailbox.notifications.length %>
                 <li> <a title="Messages" class="btn-floating btn-large waves-effect waves-light teal"
         href="/conversations"><i class="mdi-communication-forum"></i></a> </li> 
-        <% if notifs != 0 %>
-          <script>
-          $('.mdi-communication-forum').css({"color":"red"});
-          $('.mdi-communication-forum').append('<%= notifs %>');
-          // User.find(22).mailbox.notifications.clear
-          </script>
-        <% end %>
 
         <li> <!--   SEARCH  -->
             <%= render('layouts/autocomplete_form') %>

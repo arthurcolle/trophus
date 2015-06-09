@@ -1,0 +1,12 @@
+result = parseInt('<%= @notifs %>');
+console.log(result);
+var currNotifCount = $('.mdi-communication-forum').val();
+if (result !== currNotifCount) {
+	if (result === 0) {
+		$('.mdi-communication-forum').empty();
+	}
+	else {
+		$('.mdi-communication-forum').empty();
+		$('.mdi-communication-forum').append(result);
+	}
+}

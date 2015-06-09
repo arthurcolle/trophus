@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:new, :create]
 
   get 'inbox' => 'users#inbox'
+  get 'get_user_notif_count' => 'users#get_notif_count'
   
   resources :conversations, only: [:index, :show, :destroy] do
     member do

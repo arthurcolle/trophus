@@ -17,7 +17,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   # end  
 
   rescue_from ActiveRecord::RecordNotFound do
-    flash[:warning] = 'Resource not found.'
+    # flash[:warning] = 'Resource not found.'
     redirect_back_or root_path
   end
  

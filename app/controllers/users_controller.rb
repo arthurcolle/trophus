@@ -20,6 +20,14 @@ class UsersController < ActionController::Base
 	    render 'users/show'
     end
 
+    def get_notif_count
+    	@notifs = User.find(current_user.id).mailbox.notifications(:read => false).length
+    	puts @notifs
+    	respond_to do |format|
+    		format.js
+    	end
+    end
+
 	def create_connected
 		puts params
 		@user = current_user
