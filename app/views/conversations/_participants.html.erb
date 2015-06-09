@@ -1,5 +1,8 @@
 <% conversation.participants.each do |participant| %>
   <% unless participant == current_user %>
-  	<img src="<%= participant.prof_pic %>" height="50px">
+  	<div class="parti" style="border:1px solid white; border-radius: 5px 5px 5px 5px; width: 120px; height: 120px; background-color: white;">
+  	<p style="text-align: center;"> <%= participant.name %> </p>
+  	<img src="<%= participant.prof_pic %>" height="75px" style="border-radius: 5px 5px 5px 5px; display: block; position: relative; margin-left: auto; margin-right: auto; bottom: 10px;">
+  	</div>
   <% end %>
 <% end %>
