@@ -5,7 +5,7 @@ class SearchController < ApplicationController
 	  if params["query"].nil?
 	    @using = []
 	  else
-	  	beyond = User.beyond(15, :origin => current_user)
+	  	beyond = User.beyond(3, :origin => current_user)
 	  	puts "Beyond #{current_user.name}"
 	  	puts beyond
 	  	ids_not = []
@@ -57,7 +57,6 @@ class SearchController < ApplicationController
 
 	   	listy = listx.sort_by{|h| h["score"]}
 		puts listy
-	   	
 	  end
 	  puts @using
 	  render json: {suggestions: listy}
