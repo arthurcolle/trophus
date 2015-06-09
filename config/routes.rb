@@ -9,8 +9,38 @@ Rails.application.routes.draw do
   root :to => "pages#primary"
 
   get 'users/:id/show' => 'users#show'
-
+  
   resources :dishes
+  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+
+  get 'inbox' => 'users#inbox'
+  
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+    end
+  end
+
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :restore
+    end
+  end
+  
+  resources :conversations, only: [:index, :show, :destroy] do
+    collection do
+      delete :empty_trash
+    end
+  end
+
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :mark_as_read
+    end
+  end
+
+
   post 'create_multiple' => 'dishes#multicreate'
   get 'multicreate' => 'dishes#multicreate', as: 'multicreate_url'
   post 'delete_unfinished' => 'dishes#delete_unfinished'

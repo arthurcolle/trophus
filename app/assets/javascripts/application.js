@@ -13,14 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require turbolinks
+//= require chosen-jquery
 //= require bootstrap-sprockets
 //= require bootbox
-//= require turbolinks
 //= require image-picker
 //= require map.js
 //= require custom.js
 //= require zip.js
 //= require gmaps/google
+//= require messages
 //= require_tree .
 
 

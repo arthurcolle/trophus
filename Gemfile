@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'haml'
+gem 'chosen-rails'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -21,6 +22,12 @@ gem 'rails_12factor'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'guard-puma'
+
+gem "mailboxer"
+
+gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 
 # Devise, for user auth (NEED TO ADD FACEBOOK, TWITTER, LINKEDIN -- "Chef at Trophus")
 gem 'devise', "~> 3.4.1"

@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
 	ac_field :name
+  acts_as_messageable
   acts_as_mappable :default_units => :miles,
                  :default_formula => :sphere,
                  :distance_field_name => :distance,
                  :lat_column_name => :lat_f,
                  :lng_column_name => :long_f
-
 
   def self.current_user
     Thread.current[:current_user]
@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   def self.current_user=(usr)
     Thread.current[:current_user] = usr
+  end
+
+  def mailboxer_email(object)
+    return email
   end
 
   # Include default devise modules. Others available are:

@@ -9,4 +9,5 @@ class Order < ActiveRecord::Base
 
 	has_many :reviews,
 		:class_name => "OrderReview"
+	
 end

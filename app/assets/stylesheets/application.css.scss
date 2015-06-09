@@ -24,6 +24,7 @@ $jumbotron-padding: 15px;
 
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
+@import 'chosen';
 
 .navbar-default .navbar-nav > li > a {
 	color: #fff;
@@ -196,3 +197,10 @@ span p {
   filter: blur(1px);
 }
 
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
