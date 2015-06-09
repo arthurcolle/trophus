@@ -1,8 +1,9 @@
 <div class="container" style="position: relative;">
   <div class="panel panel-default">
     <div class="panel-header container">
-      <h4><a href="http://localhost:3000/users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a>'s dishes<h4>
+      <h4 style="text-align: center">Dishes by <a href="http://localhost:3000/users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a> </h4>
     </div>
+
 
     <div class="panel-body" style="max-height: 400px; overflow-y: scroll;">
       <table class="table">
@@ -40,14 +41,20 @@
                   <% end %>
 
             </tr>
+
           <% end %>
         </tbody>
 
       </table>
     </div>
 
-        <div class="panel-footer">
-      <%= button_to 'Back', root_path, method: :get, class: "btn btn-success" %>
+    <div class="panel-footer" style="text-align: center;">
+      <%= link_to 'Back', root_path, method: :get, class: "btn btn-success"%>
+    <% if @dishes.length > 0 %>
+        <% if @dishes.first.user_id != current_user.id %>
+          <%= link_to 'Send message', new_message_path(:user => User.find(@dishes.first.user_id)), class: 'btn btn-success'%>
+        <% end %>
+      <% end %>
     </div>
 
     
