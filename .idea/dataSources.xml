@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1111594485">
+    <data-source source="LOCAL" name="Rails trophus: development" uuid="42e80f16-89b4-46e0-a9af-9609af7ae0d5">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/trophus_development</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails trophus: test" uuid="a41b3b1f-99e4-4383-ba8d-92fd8036411e">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/trophus_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails trophus: production" uuid="3b99dc25-570a-4da6-89bd-483e69c33b6c">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:db/trophus_production</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
