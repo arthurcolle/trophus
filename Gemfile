@@ -1,27 +1,20 @@
 source 'https://rubygems.org'
-ruby "2.1.0", engine: 'rbx', engine_version: '2.5.5'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby "2.1.0", engine: 'rbx', engine_version: '2.5.5'
 gem 'rails', '4.1.9'
 
-# Use pg as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'haml'
 gem 'chosen-rails'
 
 gem "psych"
 
-# Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'rails_12factor'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
 
 gem 'guard-puma'
 
