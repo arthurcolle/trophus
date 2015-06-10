@@ -211,6 +211,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    psych (2.0.10)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
     rack (1.5.3)
@@ -329,6 +330,7 @@ DEPENDENCIES
   paperclip (~> 4.2)
   pg
   piwik_analytics
+  psych
   rails (= 4.1.9)
   rails_12factor
   railties (~> 4.1.9)
