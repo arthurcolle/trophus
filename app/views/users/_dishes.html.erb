@@ -1,3 +1,4 @@
+<% if current_user %>
 <div class="container" style="position: relative;">
   <div class="panel panel-default">
     <div class="panel-header container">
@@ -60,3 +61,16 @@
     
   </div>
 </div>
+
+<% else %>
+<script>
+  if (confirm('You must be signed in to view this page', "OK")) {
+    window.location.href = "https://www.trophus.com";
+  }
+  else {
+    window.location.href = "https://www.trophus.com";
+  }
+
+
+</script>
+<% end %>

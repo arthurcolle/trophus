@@ -63,15 +63,16 @@ mixpanel.track("Account was viewed");
   <p> <%= User.find(@user.id).name.split(" ")[0] %> hasn't added any dishes yet. </p>
 <% end %>
 
-
+<% if current_user %>
 <% if current_user.id == @user.id %>
-<% if session[:access_token].nil? %>
-                            <a href="/oauth/connect">
-                                <div class="userx" id="instagram-connect">Instagram Login</div>
-                            </a>
-                    <% else %>
-                        <% if current_user.prof_pic.nil? %>
-                                <span id="spannerbutton">
+  <% if session[:access_token].nil? %>
+    <a href="/oauth/connect">
+      <div class="userx" id="instagram-connect">Instagram Login</div>
+    </a>
+
+  <% else %>
+    <% if current_user.prof_pic.nil? %>
+    <span id="spannerbutton">
                                     <%= tag "input", 
                                         { "type" => "button", 
                                             class: "userx btn btn-success", 
@@ -97,6 +98,7 @@ mixpanel.track("Account was viewed");
         <%= link_to 'Send message', new_message_path(:user => @user.id), class: 'btn btn-default btn-sm' %>
       <% end %>
 
+<% end %>
 <% end %>
     </div>
 
