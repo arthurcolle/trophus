@@ -218,6 +218,7 @@
     <orderEntry type="library" scope="PROVIDED" name="pg (v0.18.2, ruby-2.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="piwik_analytics (v1.0.2, ruby-2.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pry (v0.10.1, ruby-2.1.0-p0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="psych (v2.0.10, ruby-2.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v2.11.3, ruby-2.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.3, ruby-2.1.0-p0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.6.3, ruby-2.1.0-p0) [gem]" level="application" />
