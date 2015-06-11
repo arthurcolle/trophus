@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58920e19-97c3-44d3-9d11-3f4932c25ba5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/pages/_map.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/pages/_map2.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/users/temp_location.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/how_it_works.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/how_it_works.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/map.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/map.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/map2.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/map2.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/pages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/primary.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/primary.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="trophus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,28 +58,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp_location.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="temp_location.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/temp_location.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="599">
-              <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="23" />
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="84">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="map.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/pages/map.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.173913" vertical-offset="1332" max-vertical-offset="2002">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6894198" vertical-offset="1332" max-vertical-offset="2016">
+              <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="53" />
               <folding>
-                <marker date="1434048375000" expanded="true" signature="297:3073" placeholder="if ... end" />
-                <marker date="1434048375000" expanded="true" signature="347:367" placeholder="{ ... }" />
-                <marker date="1434048375000" expanded="true" signature="354:359" placeholder="if ... end" />
-                <marker date="1434048375000" expanded="true" signature="495:587" placeholder="{ ... }" />
-                <marker date="1434048375000" expanded="true" signature="497:577" placeholder="if ... end" />
-                <marker date="1434048375000" expanded="true" signature="562:575" placeholder="{ ... }" />
+                <marker date="1434053443000" expanded="true" signature="297:3126" placeholder="if ... end" />
+                <marker date="1434053443000" expanded="true" signature="347:367" placeholder="{ ... }" />
+                <marker date="1434053443000" expanded="true" signature="354:359" placeholder="if ... end" />
+                <marker date="1434053443000" expanded="true" signature="495:587" placeholder="{ ... }" />
+                <marker date="1434053443000" expanded="true" signature="497:577" placeholder="if ... end" />
+                <marker date="1434053443000" expanded="true" signature="562:575" placeholder="{ ... }" />
               </folding>
             </state>
           </provider>
@@ -162,11 +151,11 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/pages/_map.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/pages/map.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/temp_location.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/pages/map2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/_map2.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/pages/map.html.erb" />
       </list>
     </option>
   </component>
@@ -922,21 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/map.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.173913" vertical-offset="1332" max-vertical-offset="2002">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding>
-            <marker date="1434048375000" expanded="true" signature="297:3073" placeholder="if ... end" />
-            <marker date="1434048375000" expanded="true" signature="347:367" placeholder="{ ... }" />
-            <marker date="1434048375000" expanded="true" signature="354:359" placeholder="if ... end" />
-            <marker date="1434048375000" expanded="true" signature="495:587" placeholder="{ ... }" />
-            <marker date="1434048375000" expanded="true" signature="497:577" placeholder="if ... end" />
-            <marker date="1434048375000" expanded="true" signature="562:575" placeholder="{ ... }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.652174" vertical-offset="0" max-vertical-offset="1302">
@@ -973,6 +947,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/temp_location.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="84">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.826087" vertical-offset="0" max-vertical-offset="630">
@@ -981,11 +963,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/temp_location.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/pages/map.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="599">
-          <caret line="0" column="11" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="23" />
-          <folding />
+        <state vertical-scroll-proportion="0.6894198" vertical-offset="1332" max-vertical-offset="2016">
+          <caret line="124" column="35" selection-start-line="124" selection-start-column="35" selection-end-line="124" selection-end-column="53" />
+          <folding>
+            <marker date="1434053443000" expanded="true" signature="297:3126" placeholder="if ... end" />
+            <marker date="1434053443000" expanded="true" signature="347:367" placeholder="{ ... }" />
+            <marker date="1434053443000" expanded="true" signature="354:359" placeholder="if ... end" />
+            <marker date="1434053443000" expanded="true" signature="495:587" placeholder="{ ... }" />
+            <marker date="1434053443000" expanded="true" signature="497:577" placeholder="if ... end" />
+            <marker date="1434053443000" expanded="true" signature="562:575" placeholder="{ ... }" />
+          </folding>
         </state>
       </provider>
     </entry>
