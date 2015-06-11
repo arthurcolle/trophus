@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58920e19-97c3-44d3-9d11-3f4932c25ba5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/custom.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/map.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/map.html.erb" />
     </list>
     <ignored path="trophus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,21 +31,19 @@
       <file leaf-file-name="_map2.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.434783" vertical-offset="1105" max-vertical-offset="1498">
+            <state vertical-scroll-proportion="-21.347826" vertical-offset="923" max-vertical-offset="1498">
               <caret line="101" column="2" selection-start-line="101" selection-start-column="2" selection-end-line="101" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="custom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45687646" vertical-offset="0" max-vertical-offset="429">
-              <caret line="14" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
-              <folding>
-                <marker date="1434061623000" expanded="true" signature="0:316" placeholder="//..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="280">
+              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,29 +58,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="map.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="map.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/pages/map.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.73913" vertical-offset="1568" max-vertical-offset="2156">
-              <caret line="128" column="25" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.64122134" vertical-offset="1638" max-vertical-offset="2156">
+              <caret line="135" column="22" selection-start-line="135" selection-start-column="22" selection-end-line="135" selection-end-column="22" />
               <folding>
-                <marker date="1434061383000" expanded="true" signature="7:775" placeholder="..." />
-                <marker date="1434061383000" expanded="true" signature="45:373" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="61:109" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="122:223" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="235:337" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="347:371" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="411:766" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="427:464" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="477:554" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="566:643" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="653:763" placeholder="{...}" />
-                <marker date="1434061383000" expanded="true" signature="297:3614" placeholder="if ... end" />
-                <marker date="1434061383000" expanded="true" signature="347:367" placeholder="{ ... }" />
-                <marker date="1434061383000" expanded="true" signature="354:359" placeholder="if ... end" />
-                <marker date="1434061383000" expanded="true" signature="495:587" placeholder="{ ... }" />
-                <marker date="1434061383000" expanded="true" signature="497:577" placeholder="if ... end" />
-                <marker date="1434061383000" expanded="true" signature="562:575" placeholder="{ ... }" />
+                <marker date="1434061790000" expanded="true" signature="7:775" placeholder="..." />
+                <marker date="1434061790000" expanded="true" signature="45:373" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="61:109" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="122:223" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="235:337" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="347:371" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="411:766" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="427:464" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="477:554" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="566:643" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="653:763" placeholder="{...}" />
+                <marker date="1434061790000" expanded="true" signature="297:3615" placeholder="if ... end" />
+                <marker date="1434061790000" expanded="true" signature="347:367" placeholder="{ ... }" />
+                <marker date="1434061790000" expanded="true" signature="354:359" placeholder="if ... end" />
+                <marker date="1434061790000" expanded="true" signature="495:587" placeholder="{ ... }" />
+                <marker date="1434061790000" expanded="true" signature="497:577" placeholder="if ... end" />
+                <marker date="1434061790000" expanded="true" signature="562:575" placeholder="{ ... }" />
               </folding>
             </state>
           </provider>
@@ -186,9 +184,9 @@
         <option value="$PROJECT_DIR$/app/views/users/temp_location.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/_map2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/pages/map.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
+        <option value="$PROJECT_DIR$/app/views/pages/map.html.erb" />
       </list>
     </option>
   </component>
@@ -1011,6 +1009,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="3206">
+          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.347826" vertical-offset="923" max-vertical-offset="1498">
+          <caret line="101" column="2" selection-start-line="101" selection-start-column="2" selection-end-line="101" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="280">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/map.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1693" max-vertical-offset="2562">
@@ -1021,52 +1043,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/map.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.73913" vertical-offset="1568" max-vertical-offset="2156">
-          <caret line="128" column="25" selection-start-line="128" selection-start-column="25" selection-end-line="128" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.64122134" vertical-offset="1638" max-vertical-offset="2156">
+          <caret line="135" column="22" selection-start-line="135" selection-start-column="22" selection-end-line="135" selection-end-column="22" />
           <folding>
-            <marker date="1434061383000" expanded="true" signature="7:775" placeholder="..." />
-            <marker date="1434061383000" expanded="true" signature="45:373" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="61:109" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="122:223" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="235:337" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="347:371" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="411:766" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="427:464" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="477:554" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="566:643" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="653:763" placeholder="{...}" />
-            <marker date="1434061383000" expanded="true" signature="297:3614" placeholder="if ... end" />
-            <marker date="1434061383000" expanded="true" signature="347:367" placeholder="{ ... }" />
-            <marker date="1434061383000" expanded="true" signature="354:359" placeholder="if ... end" />
-            <marker date="1434061383000" expanded="true" signature="495:587" placeholder="{ ... }" />
-            <marker date="1434061383000" expanded="true" signature="497:577" placeholder="if ... end" />
-            <marker date="1434061383000" expanded="true" signature="562:575" placeholder="{ ... }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.434783" vertical-offset="1105" max-vertical-offset="1498">
-          <caret line="101" column="2" selection-start-line="101" selection-start-column="2" selection-end-line="101" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="3206">
-          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45687646" vertical-offset="0" max-vertical-offset="429">
-          <caret line="14" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
-          <folding>
-            <marker date="1434061623000" expanded="true" signature="0:316" placeholder="//..." />
+            <marker date="1434061790000" expanded="true" signature="7:775" placeholder="..." />
+            <marker date="1434061790000" expanded="true" signature="45:373" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="61:109" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="122:223" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="235:337" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="347:371" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="411:766" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="427:464" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="477:554" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="566:643" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="653:763" placeholder="{...}" />
+            <marker date="1434061790000" expanded="true" signature="297:3615" placeholder="if ... end" />
+            <marker date="1434061790000" expanded="true" signature="347:367" placeholder="{ ... }" />
+            <marker date="1434061790000" expanded="true" signature="354:359" placeholder="if ... end" />
+            <marker date="1434061790000" expanded="true" signature="495:587" placeholder="{ ... }" />
+            <marker date="1434061790000" expanded="true" signature="497:577" placeholder="if ... end" />
+            <marker date="1434061790000" expanded="true" signature="562:575" placeholder="{ ... }" />
           </folding>
         </state>
       </provider>
