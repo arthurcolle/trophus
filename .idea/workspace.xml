@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58920e19-97c3-44d3-9d11-3f4932c25ba5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/pages/_map2.html.erb" afterPath="$PROJECT_DIR$/app/views/pages/_map2.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/custom.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
     </list>
     <ignored path="trophus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,12 +28,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_map2.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_map2.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8561644" vertical-offset="914" max-vertical-offset="1498">
+            <state vertical-scroll-proportion="-21.73913" vertical-offset="914" max-vertical-offset="1498">
               <caret line="101" column="2" selection-start-line="101" selection-start-column="2" selection-end-line="101" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.31612903" vertical-offset="0" max-vertical-offset="620">
+              <caret line="14" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
+              <folding>
+                <marker date="1434059146000" expanded="true" signature="0:316" placeholder="//..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,7 +155,6 @@
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_modal_profile.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/stripe_related.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
         <option value="$PROJECT_DIR$/app/views/pages/how_it_works.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/primary.html.erb" />
@@ -156,6 +167,7 @@
         <option value="$PROJECT_DIR$/app/views/users/temp_location.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/map.html.erb" />
         <option value="$PROJECT_DIR$/app/views/pages/_map2.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/custom.js" />
       </list>
     </option>
   </component>
@@ -850,19 +862,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31511253" vertical-offset="0" max-vertical-offset="622">
-          <caret line="14" column="4" selection-start-line="0" selection-start-column="2" selection-end-line="14" selection-end-column="4" />
-          <folding>
-            <marker date="1434034669000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1434034669000" expanded="true" signature="-1:-1" placeholder="{&quot;type&quot;: &quot;GET&quot;...}" />
-            <marker date="1434034669000" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1434034669000" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20257235" vertical-offset="0" max-vertical-offset="622">
@@ -1025,9 +1024,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pages/_map2.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8561644" vertical-offset="914" max-vertical-offset="1498">
+        <state vertical-scroll-proportion="-21.73913" vertical-offset="914" max-vertical-offset="1498">
           <caret line="101" column="2" selection-start-line="101" selection-start-column="2" selection-end-line="101" selection-end-column="2" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31612903" vertical-offset="0" max-vertical-offset="620">
+          <caret line="14" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <marker date="1434059146000" expanded="true" signature="0:316" placeholder="//..." />
+          </folding>
         </state>
       </provider>
     </entry>
