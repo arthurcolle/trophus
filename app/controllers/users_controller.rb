@@ -1,4 +1,4 @@
-class UsersController < ActionController::Base
+class UsersController < ApplicationController
 	respond_to :html, :json
 
 	def connect

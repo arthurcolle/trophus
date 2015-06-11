@@ -1,0 +1,66 @@
+
+  <div class="panel panel-default" style="margin-top: 10%">
+    <div class="panel-header container">
+      <h5 style="text-align: center;"><%= @user.name %> </h5>
+    </div>
+
+    <div class="panel-body">
+
+      <%= image_tag @user.prof_pic, style: "max-height: 200px; border-radius: 10px 10px 10px 10px;" %>
+
+      </br>
+
+      <div style="float: left;">
+        <p> <%= @user.email %> </p>
+
+        <% if User.find(@user.id).dishes.length > 0 %>
+            <%= button_to "View dishes", "/users/" + @user.id.to_s + "/dishes", style: "margin-bottom: 5px;", class: "btn btn-success", method: :get %>
+        <% else %>
+            <p> <%= User.find(@user.id).name.split(" ")[0] %> hasn't added any dishes yet. </p>
+        <% end %>
+
+        <% if current_user %>
+            <% if current_user.id == @user.id %>
+                <% if session[:access_token].nil? %>
+                    <a href="/oauth/connect">
+                      <div class="userx" id="instagram-connect">Instagram Login</div>
+                    </a>
+
+                <% else %>
+                    <% if current_user.prof_pic.nil? %>
+    <span id="spannerbutton">
+                                    <%= tag "input",
+                                            { "type" => "button",
+                                              class: "userx btn btn-success",
+                                              "value" => "Add Profile Picture",
+                                              "onclick" => "instaModalSingleProfilePic();"
+                                            } %>
+                                </span>
+                    <% else %>
+                                <span id="spannerbutton">
+                                    <%= tag "input",
+                                            { "type" => "button",
+                                              class: "userx btn btn-success",
+                                              "value" => "Change Profile Picture",
+                                              "onclick" => "instaModalSingleProfilePic();"
+                                            } %>
+                                </span>
+                    <% end %>
+                <% end %>
+
+            <% else %>
+
+                <% unless current_user == @user %>
+                    <%= link_to 'Send message', new_message_path(:user => @user.id), class: 'btn btn-default btn-sm' %>
+                <% end %>
+
+            <% end %>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to 'Back', root_path %>
+    </div>
+  </div>
