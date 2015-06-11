@@ -50,10 +50,12 @@
 </style>
 <footer class="page-footer" style="position: fixed; bottom: 0; width: 100%; height: 40px; background-color: teal; color: white">
   <span style="float: left">
-      <a class="fotter" style="position: relative; bottom: 10px" href="/conversations"> conversations </a>
+      <% if current_user %>
+        <a class="fotter" style="position: relative; bottom: 10px" href="/conversations"> conversations </a>
+      <% end %>
       <a class="fotter" style="position: relative; bottom: 10px" href="/map"> around you </a>
       <% if current_user %>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/users/<%= current_user.id %>/show"> profile </a>
+        <a class="fotter" style="position: relative; bottom: 10px" href="/users/<%= current_user.id %>/show"> profile </a>
       <% end %>
   </span>
 
