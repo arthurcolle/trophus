@@ -104,10 +104,8 @@ class UsersController < ApplicationController
 
   def temp_location
     puts "testing location"
-    a = params["location"].split(",")
-    @location = a.map {|x| x.to_f}
+    @location = params["location"]
     puts @location
-    @ip = params["ip"]
     respond_to do |format|
       format.html
     end

@@ -111,24 +111,32 @@
     </script>
 
 <% else %>
-    <script>
-        $.get("https://ipinfo.io", function(response) {
-            //console.log(response.loc);
-            console.log(response.ip);
-            var loc = response.loc;
-            console.log(response);
-            console.log(loc);
-            $.ajax({
-                url: 'store_temporary_user_location',
-                data: {"location": "39.0526,-77.1210", "ip": response.ip},
-                type: "POST",
+    <script type="application/javascript">
+//      var userid = "arthurcolle";
+//      var key = "XG4yddTMWKuo4Hc1WmUxEZ2J6HQqdZtBIQJuAf69dpe7A9PO";
+//      https://freegeoip.net/json/108.56.79.244
+              function getIP(json) {
+                  var site = "https://freegeoip.net/json/"+ json.ip;
+                  console.log(site);
+                  $.get(site, function(response) {
+                      console.log(response);
+                      $.ajax({
+                          url: 'store_temporary_user_location',
+                          data: {"location": [response.latitude, response.longitude], "ip": response.ip},
+                          type: "POST"
+                      }).done(function( html ) {
+                          document.write(html);
+                      });
+                  }, "json");
+              }
 
-            }).done(function( html ) {
-                document.write(html);
-//                $( '.container' ).append( html );
-            });
-        }, "jsonp");
     </script>
+
+    <script type="application/javascript"
+            src="http://api.ipify.org?format=jsonp&callback=getIP">
+
+    </script>
+
 
 
 <% end %>
