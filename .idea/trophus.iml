@@ -5,8 +5,8 @@
     <option name="compassSupportEnabled" value="true" />
     <option name="importPaths">
       <list>
-        <option value="$USER_HOME$/.rubies/rbx-2.5.5/lib/rubinius/2.5.5/gems/gems/compass-0.12.7/frameworks/compass/stylesheets" />
-        <option value="$USER_HOME$/.rubies/rbx-2.5.5/lib/rubinius/2.5.5/gems/gems/compass-0.12.7/frameworks/blueprint/stylesheets" />
+        <option value="$USER_HOME$/.rubies/ruby-2.2.2/lib/ruby/gems/2.2.0/gems/compass-0.12.7/frameworks/compass/stylesheets" />
+        <option value="$USER_HOME$/.rubies/ruby-2.2.2/lib/ruby/gems/2.2.0/gems/compass-0.12.7/frameworks/blueprint/stylesheets" />
       </list>
     </option>
   </component>
@@ -52,7 +52,7 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="rbenv: 2.2.0-dev" />
+      <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
       <envs />
       <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
@@ -73,7 +73,9 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="true" />
       <RunnerSettings RunnerId="RubyRunner" />
       <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
+      <method>
+        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_sh" />
+      </method>
     </configuration>
     <configuration default="false" name="test: trophus" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="trophus" />

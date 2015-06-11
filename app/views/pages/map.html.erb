@@ -58,6 +58,7 @@
 }
 
 </style>
+<span data-id="<%= current_user.id %>"></span>
 
 
 <% if current_user %>
@@ -99,11 +100,18 @@
 		<div id="map-canvas"></div>
 
 
-	<script>
-    initialize(<%= current_user.id %>);
-    $("#multigo").draggable();
-    $("#livefeed").draggable();
-    // $("#map-canvas").draggable();
-  </script>
+    <script>
+        $("#multigo").draggable();
+        $("#livefeed").draggable();
+
+        var item = $('[data-id]')[0]
+        var num = item.getAttribute('data-id');
+        var numba = parseInt(num);
+        initialize(numba);
+    </script>
+
 
 <% end %>
+
+
+
