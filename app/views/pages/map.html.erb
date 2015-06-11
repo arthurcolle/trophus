@@ -58,60 +58,80 @@
 }
 
 </style>
+
+<% if current_user %>
 <span data-id="<%= current_user.id %>"></span>
 
 
-<% if current_user %>
+    <div class="feeds">
+      <div id="multigo" style="z-index: 400; border-radius: 10px 10px 10px 10px">
+        <div class="upperpart">
+          <span style="text-align: center"><p> People Around You</p></span>
+          <div class="lowerpart">
+            <% users = User.within(1, :origin => current_user) %>
+            <% users.each {|user| %>
+                <%   if user.dishes.length > 0 and user.id != current_user.id %>
+                    <a class="users" style="margin: 5px 5px 5px 5px; color: #1565c0; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
+                <% end %>
+            <% } %>
+          </div>
+        </div>
+      </div>
 
-<div class="feeds">
-		  <div id="multigo" style="z-index: 400; border-radius: 10px 10px 10px 10px">
-	          <div class="upperpart">
-	          <span style="text-align: center"><p> People Around You</p></span>
-		      	<div class="lowerpart">
-		            <% users = User.within(1, :origin => current_user) %>
-		            <% users.each {|user| %>
-		            <%   if user.dishes.length > 0 and user.id != current_user.id %>
-		             		<a class="users" style="margin: 5px 5px 5px 5px; color: #1565c0; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
-		            <% end %>
-		            <% } %>
-		      	</div>
-	          </div>
-	      </div>
+      <div id="livefeed" style="z-index: 390; border-radius: 10px 10px 10px 10px">
+        <div class="upperpart">
+          <span style="text-align: center"><p> Dishes Around You </p></span>
+          <div class="lowerpart">
+            <% users = User.within(1, :origin => current_user) %>
+            <% users.each {|user| %>
+                <% if user.id != current_user.id %>
+                    <% dishes = user.dishes %>
+                    <% dishes.each { |dish| %>
+                        <a style="margin: 5px 5px 5px 5px; text-decoration: none; color: #1565c0; opacity: 1.0" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
+                    <% } %>
+                <% end %>
+            <% } %>
+          </div>
+        </div>
+      </div>
 
-	      <div id="livefeed" style="z-index: 390; border-radius: 10px 10px 10px 10px">
-	        	<div class="upperpart">
-	            	<span style="text-align: center"><p> Dishes Around You </p></span>
-		            <div class="lowerpart">
-			            <% users = User.within(1, :origin => current_user) %>
-			            <% users.each {|user| %>
-			            <% if user.id != current_user.id %>
-			            <% dishes = user.dishes %>
-				            <% dishes.each { |dish| %>
-				            	<a style="margin: 5px 5px 5px 5px; text-decoration: none; color: #1565c0; opacity: 1.0" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
-				           	<% } %>
-			           	<% end %>
-			           	<% } %>
-			        </div>
-				</div>
-			</div>
+    </div>
 
-</div>
-
-		<div id="map-canvas"></div>
+    <div id="map-canvas"></div>
 
 
     <script>
         $("#multigo").draggable();
         $("#livefeed").draggable();
 
-        var item = $('[data-id]')[0]
+        var item = $('[data-id]')[0];
+        if item === undefined
+            alert("hey!");
         var num = item.getAttribute('data-id');
         var numba = parseInt(num);
         initialize(numba);
     </script>
 
+<% else %>
+    <script>
+        $.get("http://ipinfo.io", function(response) {
+            //console.log(response.loc);
+            var loc = response.loc;
+            console.log(response);
+            console.log(loc);
+            $.ajax({
+                url: 'store_temporary_user_location',
+                data: {"location": loc, "ip": response.ip},
+                type: "POST"
+            })
+        }, "jsonp");
+    </script>
+
 
 <% end %>
+
+
+
 
 
 

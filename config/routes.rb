@@ -40,7 +40,7 @@ Rails.application.routes.draw do
       post :mark_as_read
     end
   end
-
+  post 'store_temporary_user_location' => 'users#temp_location'
 
   post 'create_multiple' => 'dishes#multicreate'
   get 'multicreate' => 'dishes#multicreate', as: 'multicreate_url'
@@ -59,6 +59,7 @@ Rails.application.routes.draw do
   get '/careers' => 'pages#careers'
   get '/primary' => 'pages#primary'
   get '/map' => 'pages#map'
+  get '/map2' => 'pages#map2'
   get '/connect' => 'users#connect'
   post '/accepted_tos' => 'users#accepted_tos'
   post '/create_connected' => 'users#create_connected'

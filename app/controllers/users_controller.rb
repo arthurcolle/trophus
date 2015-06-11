@@ -100,7 +100,18 @@ class UsersController < ApplicationController
 	    	format.js
 	    	format.html
 	  	end
-	end
+  end
+
+  def temp_location
+    puts "testing location"
+    a = params["location"].split(",")
+    @location = a.map {|x| x.to_f}
+    puts @location
+    @ip = params["ip"]
+    respond_to do |format|
+      format.html
+    end
+  end
 
 	def user_recent_media
 		@client = Instagram.client(:access_token => session[:access_token])

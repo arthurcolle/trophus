@@ -1,5 +1,5 @@
 <script>
-    alert("hello");
+  alert("hello");
 </script>
 
 <div class="panel panel-default">
@@ -8,7 +8,7 @@
       <div class="upperpart">
         <span style="text-align: center"><p> People Around You</p></span>
         <div class="lowerpart">
-          <% puts "CHECKPOINT2" %>
+          <% puts "CHECKPOINT"*20 %>
           <% puts @location %>
           <% users = User.within(1, :origin => @location) %>
           <% users.each {|user| %>
