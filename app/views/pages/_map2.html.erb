@@ -1,6 +1,63 @@
-<script>
-  alert("hello");
-</script>
+
+<style>
+    @media screen and (max-width: 480px){
+        #map-canvas {
+            height: 350px;
+            width: 100%;
+            top: 7px;
+        }
+
+        #livefeed {
+            background-color: #bdc3c7;
+            width: 45%;
+            height: 200px;
+            position: relative;
+            float: left;
+        }
+
+        #multigo {
+            background-color: #bdc3c7;
+            width: 45%;
+            height: 200px;
+            position: relative;
+            float: right;
+        }
+
+        .feeds {
+            margin-top: 10px;
+        }
+    }
+
+    @media screen and (min-width: 480px){
+        #map-canvas {
+            height: 500px;
+            width: 900px;
+        }
+
+        #livefeed {
+            background-color: #bdc3c7;
+            width: 140px;
+            height: 200px;
+        }
+
+        #multigo {
+            background-color: #bdc3c7;
+            width: 140px;
+            height: 200px;
+        }
+
+        .feeds {
+            z-index: 100;
+            position: absolute;
+            left: 100px;
+            top: 20px;
+            display: block;
+            opacity: 0.90
+        }
+
+    }
+
+</style>
 
 <div class="panel panel-default">
   <div class="feeds">
@@ -8,7 +65,7 @@
       <div class="upperpart">
         <span style="text-align: center"><p> People Around You</p></span>
         <div class="lowerpart">
-          <% puts "CHECKPOINT"*20 %>
+          <% puts "CHECKPOINT"*1000 %>
           <% puts @location %>
           <% users = User.within(1, :origin => @location) %>
           <% users.each {|user| %>

@@ -6,6 +6,15 @@ GIT
     elasticsearch_autocomplete (0.1.5)
       tire (~> 0.6.0)
 
+GIT
+  remote: git://github.com/div/mailboxer.git
+  revision: 41c9d8de2e0ad4dc511718074228d40a1ba96ebe
+  branch: rails42-foreigner
+  specs:
+    mailboxer (0.12.4)
+      carrierwave (>= 0.5.8)
+      rails (>= 3.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,6 +63,12 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootbox-rails (0.5.0)
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
@@ -92,6 +107,7 @@ GEM
       sass (~> 3.2.19)
     compass-rails (2.0.0)
       compass (>= 0.12.2)
+    debug_inspector (0.0.2)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -108,8 +124,6 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.8)
-    foreigner (1.7.4)
-      activerecord (>= 3.0.0)
     formatador (0.2.5)
     fssm (0.2.10)
     geokit (1.9.0)
@@ -178,10 +192,6 @@ GEM
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    mailboxer (0.12.5)
-      carrierwave (>= 0.5.8)
-      foreigner (>= 0.9.1)
-      rails (>= 3.2.0)
     method_source (0.8.2)
     mime-types (2.6.1)
     mini_portile (0.6.2)
@@ -228,6 +238,8 @@ GEM
     psych (2.0.13)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -327,6 +339,8 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk-v1
+  better_errors
+  binding_of_caller
   bootbox-rails (~> 0.4)
   bootstrap-sass
   bootstrap-will_paginate
@@ -347,12 +361,13 @@ DEPENDENCIES
   jquery-ui-rails
   jsonify
   koala
-  mailboxer
+  mailboxer!
   omniauth-facebook
   paperclip (~> 4.2)
   pg
   piwik_analytics
   psych
+  quiet_assets
   rails (= 4.2.1)
   rails_12factor
   railties
