@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby "2.2.0"
+ruby "2.2.2"
 
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.1'
 
 gem 'pg'
 
@@ -71,7 +71,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'railties', '~> 4.1.9'
+gem 'railties'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 # Guard restarts server while doing work
 group :development do
