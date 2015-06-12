@@ -12,23 +12,37 @@
   <%= render('layouts/cdn') %>
   <%= render('layouts/stripe') %>
   <%= csrf_meta_tags %>
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
+
+  <% if current_user %>
+    <script>
+      // Enable pusher logging - don't include this in production
+      Pusher.log = function(message) {
+        if (window.console && window.console.log) {
+          window.console.log(message);
+        }
+      };
+
+      var pusher = new Pusher('73195631734c1aab016e');
+      var channel = pusher.subscribe('private-'+<%= current_user.id %>);
+      console.log("channel registration");
+      console.log(channel);
+
+      channel.bind('my_event', function(data) {
+          $.ajax({
+            type: "GET",
+            url: 'get_user_notif_count'
+          });
+      });
+    </script>
+  <% end %>
+
 </head>
 <body>
   <script>
       mixpanel.track("User visited the application.");
 
       <% if Rails.env == "production" %>
-
-          function fetchNotifs() {
-            $.ajax({
-               type: "GET",
-               url: 'get_user_notif_count'
-            });
-          }
-
-          $(function() {
-             setInterval(fetchNotifs, 5000);
-          });
 
           $(function() {
              if (window.location.protocol != "https:")

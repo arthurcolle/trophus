@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
+  get 'hello_world/hello_world'
+  
   devise_for :users
   get 'home' => 'pages#home'
   get 'about' => 'pages#about'
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   root :to => "pages#primary"
 
   get 'users/:id/show' => 'users#show'
-  
+  post 'pusher/auth'
   resources :dishes
   resources :conversations, only: [:index, :show, :destroy]
   resources :messages, only: [:new, :create]

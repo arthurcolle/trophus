@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'haml'
 gem 'chosen-rails'
-
+gem 'pusher'
 gem "psych"
 
 gem 'coffee-rails', '~> 4.0.0'

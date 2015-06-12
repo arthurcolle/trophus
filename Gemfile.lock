@@ -150,6 +150,7 @@ GEM
     hitimes (1.2.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
     image-picker-rails (0.2.4)
       railties (>= 3.0)
@@ -230,6 +231,10 @@ GEM
     psych (2.0.13)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
+    pusher (0.14.5)
+      httpclient (~> 2.5)
+      multi_json (~> 1.0)
+      signature (~> 0.1.8)
     rack (1.6.1)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -283,6 +288,7 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
+    signature (0.1.8)
     slop (3.6.0)
     spring (1.3.6)
     sprockets (2.12.3)
@@ -355,6 +361,7 @@ DEPENDENCIES
   pg
   piwik_analytics
   psych
+  pusher
   rails (= 4.2.1)
   rails_12factor
   railties
