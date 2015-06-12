@@ -1,5 +1,5 @@
 <% if current_user %>
-<div class="container" style="position: relative;">
+<div class="container" style="position: relative; padding-left: 0px; padding-right: 0px;">
   <div class="panel panel-default">
     <div class="panel-header container">
       <h4 style="text-align: center">Dishes by <a href="http://localhost:3000/users/<%= params["id"] %>/show"><%= User.find(params["id"]).name %></a> </h4>
@@ -7,7 +7,7 @@
 
 <style>
   table {
-      border-spacing: 10px;
+      border-padding: 10px;
   }
 
         th {
@@ -16,7 +16,7 @@
 
 </style>
 
-    <div class="panel-body" style="max-height: 350px; overflow-y: scroll;">
+    <div class="panel-body" style="max-height: 350px; width: 100%; overflow-y: scroll;">
       <table class="table-bordered">
         <thead>
           <tr>
