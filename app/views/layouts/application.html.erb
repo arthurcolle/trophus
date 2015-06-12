@@ -12,6 +12,34 @@
   <%= render('layouts/cdn') %>
   <%= render('layouts/stripe') %>
   <%= csrf_meta_tags %>
+  <script src="https://js.pusher.com/2.0/pusher.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        // If your Heroku application is within the EU region,
+        // uncomment the following lines
+        // Pusher.host = 'ws-eu.pusher.com';
+        // Pusher.sockjs_host = 'sockjs-eu.pusher.com';
+
+        var pusher = new Pusher('73195631734c1aab016e'); // Replace with your app key
+        var channel = pusher.subscribe('private-'+<%= current_user.id %>);
+
+        // Some useful debug msgs
+        pusher.connection.bind('connecting', function() {
+          $('div#status').text('Connecting to Pusher...');
+        });
+        pusher.connection.bind('connected', function() {
+          $('div#status').text('Connected to Pusher!');
+        });
+        pusher.connection.bind('failed', function() {
+          $('div#status').text('Connection to Pusher failed :(');
+        });
+        channel.bind('subscription_error', function(status) {
+          $('div#status').text('Pusher subscription_error');
+        });
+      });
+    </script>
+
 </head>
 <body>
   <script>

@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'haml'
+gem 'pusher-gem'
 gem 'chosen-rails'
 
 gem "psych"
