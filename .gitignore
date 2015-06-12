@@ -18,3 +18,6 @@
 
 happy.sh
 testing
+
+vendor/bundle/ruby/2.2.0/bundler/gems/elasticsearch_autocomplete-93cc19bc1650
+vendor/bundle/ruby/2.2.0/bundler/gems/mailboxer-41c9d8de2e0a
