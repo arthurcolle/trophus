@@ -81,27 +81,9 @@
       text-transform: capitalize;
   }
 </style>
-<footer class="page-footer" style="position: fixed; bottom: 0; width: 100%; height: 40px; background-color: teal; color: white; z-index: 99999">
-  <span style="float: left">
-      <% if current_user %>
-        <a class="fotter" style="position: relative; bottom: 10px" href="/conversations"> conversations </a>
-      <% end %>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/map"> around you </a>
-      <% if current_user %>
-        <a class="fotter" style="position: relative; bottom: 10px" href="/users/<%= current_user.id %>/show"> profile </a>
-      <% end %>
-  </span>
-
-  <span style="float: right">
-      <a class="fotter" style="position: relative; bottom: 10px" href="/about"> about </a>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/contact"> contact </a>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/legal"> legal </a>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/tos"> terms of service </a>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/privacy"> privacy policy </a>
-  </span>
-</footer>
 
 
+<%= render('layouts/footer') %>
 
 <%= render('layouts/modal_tos') %>
 <%= render('layouts/modal_profile') %>
