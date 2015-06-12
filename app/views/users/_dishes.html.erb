@@ -16,7 +16,7 @@
 
 </style>
 
-    <div class="panel-body" style="max-height: 400px; overflow-y: scroll;">
+    <div class="panel-body" style="max-height: 350px; overflow-y: scroll;">
       <table class="table-bordered">
         <thead>
           <tr>
@@ -47,10 +47,7 @@
               <%= render 'dish_row_table', dish: dish, order_item: @order_item %>
               <% if current_user.customer_id != nil %>
                   <td><%= link_to 'Order', order_dish_path(dish), method: :post, class: "btn-floating btn-large waves-effect waves-light blue" %></td>
-
-
               <% else %>
-
                   <td> <button class="red" onclick="addStripeInformation({'name':'<%= current_user.name %>','email':'<%= current_user.email %>'});" style="font-size: 15px; border-radius: 20px 20px 20px 20px; width: 70px; font-famiy: Helvetica Neue;">Add Card</button> </td>
               <% end %>
 
@@ -86,13 +83,3 @@
 //
     <!--</script>-->
 <% end %>
-
-<!--<h3 class="text-center">Products for Sale</h3>-->
-
-<!--<div class="row">-->
-  <!--<div class="col-xs-6 col-xs-offset-3">-->
-    <!--<% @dishes.each do |dish| %>-->
-        <!--<%= render "dish_row", dish: dish, order_item: @order_item %>-->
-    <!--<% end %>-->
-  <!--</div>-->
-<!--</div>-->

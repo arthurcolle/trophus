@@ -6,7 +6,7 @@
       <div class="input-group">
         <div class="input-group-btn">
           <%= f.hidden_field :dish_id, value: dish.id %>
-          <td style="margin-right: 10px"><%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %><%= f.submit "Add to Cart",class: "btn"  %> </td> <!-- for Add to Card -->
+          <td><%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %><%= f.submit "Add to Cart" %> </td> <!-- for Add to Card -->
         </div>
       </div>
       </form>

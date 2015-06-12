@@ -11,7 +11,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     if !session[:order_id].nil?
       Order.find(session[:order_id])
     else
-      Order.new
+      Order.new(buyer_id: current_user.id)
     end
   end
   # around_filter :set_current_user

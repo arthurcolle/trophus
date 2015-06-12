@@ -1,3 +1,42 @@
+<input type="submit" id="butt" class="styled-button-1" value="Order All Items" />
+
+<style type="text/css">
+    .styled-button-1 {
+        position: fixed;
+        right: 25px;
+        top: 75px;
+        -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+        -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+        box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+        color:#333;
+        background-color:#FA2;
+        border-radius:5px;
+        -moz-border-radius:5px;
+        -webkit-border-radius:5px;
+        border:none;
+        font-family:'Helvetica Neue',Arial,sans-serif;
+        font-size:16px;
+        font-weight:700;
+        height:64px;
+        padding:4px 16px;
+        text-shadow:#FE6 0 1px 0
+    }
+</style>
+
+
+
+<script>
+  $("#butt").on('click', function(){
+      $.ajax({
+          type: "POST",
+          url: "/order_from_cart"
+      }).done(function( html ) {
+          document.write(html);
+      });
+  });
+</script>
+
+
 <% if !@order_item.nil? && @order_item.errors.any? %>
     <div class="alert alert-danger">
       <ul>
@@ -13,6 +52,7 @@
     </p>
 <% else %>
     <% @order_items.each do |order_item| %>
+        <%= puts current_order.components.inspect %>
         <%= render 'carts/cart_row', dish: order_item.dish, order_item: order_item, show_total: true %>
     <% end %>
 <% end %>
