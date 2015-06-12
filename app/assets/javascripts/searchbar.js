@@ -21,6 +21,7 @@ myHandler = function() {
         if (data['suggestions'].length !== 0) {
           $('#results').empty();
           var sugg = data['suggestions'];
+          console.log(sugg);
           sugg.forEach( function (s) {
               var link = '';
               if (s["type"] == "dish") {
@@ -29,7 +30,7 @@ myHandler = function() {
               else {
                 link = '/users/'+s['id'] + '/show';
               }
-              console.log(link);
+              // console.log(link);
               $('#results').append('<a class="special_a" style="text-decoration: none; " href="'+link+'">'+ s['name'] + '<img alt="" style="position: relative; float:right; top: 5px; border-radius: 5px 5px 5px 5px" height="50px" src="'+ s['pic'] +'">' + '</a>');              
           });
         }        
