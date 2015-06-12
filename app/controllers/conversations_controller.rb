@@ -14,6 +14,13 @@ class ConversationsController < ApplicationController
 		end
 		@conversations = @conversations.paginate(page: params[:page], per_page: 10)
 		User.find(current_user.id).mailbox.notifications.all.each {|notification| notification.mark_as_read(User.find(current_user.id)) }
+	 	# c = m.conversations
+	 	# c.each {|convo|
+	 	# 	ps = convo.participants
+	 	# 	ps.each {|participant|
+			# 	m.notifications.each {|notification| notification.mark_as_read(participant) }
+	 	# 	}
+	 	# }
 	end
 
 	def mark_as_read

@@ -19,7 +19,7 @@ gem 'rails_12factor'
 
 gem 'guard-puma'
 
-gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
+gem 'mailboxer', github: 'lacco/mailboxer'
 
 #gem 'better_errors'
 #gem 'binding_of_caller'
