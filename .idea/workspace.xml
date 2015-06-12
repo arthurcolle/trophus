@@ -5,10 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/elasticsearch_autocomplete-93cc19bc1650" afterPath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/elasticsearch_autocomplete-93cc19bc1650" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/mailboxer-41c9d8de2e0a" afterPath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/mailboxer-41c9d8de2e0a" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/mailboxer-d436329f771d" afterPath="$PROJECT_DIR$/vendor/bundle/ruby/2.2.0/bundler/gems/mailboxer-d436329f771d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/dishes/index.html.erb" afterPath="$PROJECT_DIR$/app/views/dishes/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/messages_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/messages_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/trophus.iml" afterPath="$PROJECT_DIR$/.idea/trophus.iml" />
     </list>
     <ignored path="trophus.iws" />
     <ignored path=".idea/workspace.xml" />

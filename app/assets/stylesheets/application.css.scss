@@ -222,6 +222,10 @@ span p {
   #mixpanel {
     display: none;
   }
+
+  #kahuna {
+    height: 120px;
+  }
 }
 
 @media screen and (min-width: 500px) {
@@ -241,5 +245,7 @@ span p {
     z-index: 99999; 
   }
 
-
+  #kahuna {
+    height: 220px;
+  }
 }
