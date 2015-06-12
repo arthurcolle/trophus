@@ -21,9 +21,9 @@ gem 'guard-puma'
 
 gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'quiet_assets'
+#gem 'better_errors'
+#gem 'binding_of_caller'
+#gem 'quiet_assets'
 
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'

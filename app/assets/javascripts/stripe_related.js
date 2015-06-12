@@ -1,6 +1,6 @@
 function addStripeInformation(data) {
   var handler = StripeCheckout.configure({
-    key: 'pk_live_Q43jYi6k0EatjdmDkVYivYQY',
+    key: 'pk_test_k90DPHCGKmfYhYa5anVRrVKy',
     token: function(token) {
       $.ajax({
         url: '/charges/create',

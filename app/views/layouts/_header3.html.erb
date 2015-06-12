@@ -45,9 +45,10 @@
         </li> <!-- end of 'Log in' -->
       </ul>
     <% else %>
-      <ul class="right hide-on-med-and-down">   
+      <ul class="right hide-on-med-and-down">
+        <li><span class="cart-text"><%= render 'layouts/cart_text' %></span></li>
                 <li> <a title="Messages" class="btn-floating btn-large waves-effect waves-light teal"
-        href="/conversations"><i class="mdi-communication-forum"></i></a> </li> 
+        href="/conversations"><i class="mdi-communication-forum"></i></a> </li>
 
         <li> <!--   SEARCH  -->
             <%= render('layouts/autocomplete_form') %>

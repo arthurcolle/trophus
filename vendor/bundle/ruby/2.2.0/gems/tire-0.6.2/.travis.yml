@@ -1,0 +1,30 @@
+# ---------------------------------------------------------
+# Configuration file for http://travis-ci.org/#!/karmi/tire
+# ---------------------------------------------------------
+
+language: ruby
+
+rvm:
+  - 1.8.7
+  - 1.9.3
+  - 2.0.0
+  - jruby-19mode
+
+env:
+  - TEST_COMMAND="rake test:unit"
+  - TEST_COMMAND="rake test:integration"
+
+script: "bundle exec $TEST_COMMAND"
+
+services:
+  - elasticsearch
+  - redis
+  - mongodb
+
+matrix:
+  exclude:
+    - rvm: 1.8.7
+      env: TEST_COMMAND="rake test:integration"
+
+notifications:
+  disable: true

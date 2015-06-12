@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   devise_for :users
   get 'home' => 'pages#home'
   get 'about' => 'pages#about'
@@ -56,8 +64,11 @@ Rails.application.routes.draw do
   match '/oauth/connect', to: 'oauth#connect', via: 'get'
   match '/users/auth/instagram/callbacks', to: 'oauth#auth', via: 'get'
 
+  get '/tos' => 'pages#tos'
+  get '/privacy' => 'pages#privacy'
   get '/careers' => 'pages#careers'
   get '/primary' => 'pages#primary'
+
   get '/map' => 'pages#map'
   get '/map2' => 'pages#map2'
   get '/connect' => 'users#connect'
@@ -88,7 +99,11 @@ Rails.application.routes.draw do
 
   get 'auth/facebook', as: "auth_provider"
   get 'cb', to: 'users#login'
-  
+
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

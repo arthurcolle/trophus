@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 1.9
+  - 2.0
+  - 2.1
+script: "bundle exec rake coverage"
+before_install:
+  - gem install bundler
+notifications:
+  email:
+    - michael+geokit@noack.com.au

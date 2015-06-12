@@ -96,6 +96,9 @@ class UsersController < ApplicationController
 	def dishes
 		@user = User.find(params["id"])
 		@dishes = @user.dishes
+    @order_item = current_order.order_items.new
+    @products = Product.all
+
 		respond_to do |format|
 	    	format.js
 	    	format.html
