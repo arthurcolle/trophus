@@ -1,4 +1,4 @@
-<div class="panel panel-default" style="position: absolute; display: block; margin-left: auto; margin-right: auto;">
+<div class="panel panel-default" style="width: 100%">
   <div class="panel-heading">
 
   <style>
@@ -8,7 +8,12 @@
       border-radius:30px; 
       overflow: hidden; 
       box-shadow: 7px 7px 7px rgba(0,0,0,0.3);
+      border-radius: 10px 10px 10px 10px;
+    }
 
+
+    #food_image img {
+      border-radius: 10px 10px 10px 10px;  
     }
 
     #dish_data {
@@ -19,12 +24,6 @@
 
 #desc {
   float: right;
-}
-
-@media screen and (max-width: 480px){ /* responsive form settings, when window width is 480px or less */
-  #desc {
-    float: none;
-  }
 }
 
 
@@ -50,7 +49,7 @@
 
   </div>
 
-    <div class="panel-body" style="width: 100%">
+    <div class="panel-body">
 
   <div id="food_image">
               <% if @dish.image_url != "" %>

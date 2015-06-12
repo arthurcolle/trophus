@@ -204,3 +204,30 @@ span p {
   margin-bottom: 1em;
   margin-top: 1em;
 }
+
+@media screen and (max-width: 480px){ 
+
+}
+
+
+@media screen and (max-width: 480px){
+  .page-footer {
+    display: none;
+  }
+
+  #desc {
+    float: none;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .page-footer {
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    height: 40px; 
+    background-color: teal; 
+    color: white; 
+    z-index: 99999; 
+  }
+}

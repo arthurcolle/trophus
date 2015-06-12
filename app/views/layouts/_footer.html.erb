@@ -1,0 +1,19 @@
+<footer class="page-footer">
+  <span style="float: left">
+      <% if current_user %>
+        <a class="fotter" style="position: relative; bottom: 10px" href="/conversations"> conversations </a>
+      <% end %>
+      <a class="fotter" style="position: relative; bottom: 10px" href="/map"> around you </a>
+      <% if current_user %>
+        <a class="fotter" style="position: relative; bottom: 10px" href="/users/<%= current_user.id %>/show"> profile </a>
+      <% end %>
+  </span>
+
+  <span style="float: right">
+      <a class="fotter" style="position: relative; bottom: 10px" href="/about"> about </a>
+      <a class="fotter" style="position: relative; bottom: 10px" href="/contact"> contact </a>
+      <a class="fotter" style="position: relative; bottom: 10px" href="/legal"> legal </a>
+      <a class="fotter" style="position: relative; bottom: 10px" href="/tos"> terms of service </a>
+      <a class="fotter" style="position: relative; bottom: 10px" href="/privacy"> privacy policy </a>
+  </span>
+</footer>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
   <component name="CompassSettings">
-    <option name="compassExecutableFilePath" value="$USER_HOME$/.rubies/ruby-2.2.2/lib/ruby/gems/2.2.0/gems/compass-0.12.7/bin/compass" />
+    <option name="compassExecutableFilePath" value="$USER_HOME$/.gem/ruby/2.2.2/gems/compass-0.12.7/bin/compass" />
     <option name="compassSupportEnabled" value="true" />
     <option name="importPaths">
       <list>
