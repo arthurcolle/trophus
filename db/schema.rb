@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612045558) do
+ActiveRecord::Schema.define(version: 20150612055619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150612045558) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_url"
+    t.boolean  "active"
   end
 
   add_index "dishes", ["user_id"], name: "index_dishes_on_user_id", using: :btree
@@ -86,7 +87,7 @@ ActiveRecord::Schema.define(version: 20150612045558) do
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "product_id"
+    t.integer  "dish_id"
     t.integer  "order_id"
     t.decimal  "unit_price",  precision: 12, scale: 3
     t.integer  "quantity"
@@ -95,8 +96,8 @@ ActiveRecord::Schema.define(version: 20150612045558) do
     t.datetime "updated_at",                           null: false
   end
 
+  add_index "order_items", ["dish_id"], name: "index_order_items_on_dish_id", using: :btree
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
-  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
 
   create_table "order_statuses", force: :cascade do |t|
     t.string   "name"
@@ -181,7 +182,7 @@ ActiveRecord::Schema.define(version: 20150612045558) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "order_items", "dishes"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "products"
   add_foreign_key "orders", "order_statuses"
 end

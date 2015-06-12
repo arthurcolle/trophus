@@ -1,6 +1,11 @@
 class Dish < ActiveRecord::Base
 	ac_field :name, search_fields: [:name, :description, :price]
 
+  has_many :order_items
+
+  default_scope { where(active: true) }
+
+
 	belongs_to :chef,
 		:class_name => "User",
 		:primary_key => "user_id"

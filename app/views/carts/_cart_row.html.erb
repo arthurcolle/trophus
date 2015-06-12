@@ -1,26 +1,29 @@
-<div class="well">
+<div class="well" style="margin-top: 20px;" >
 
   <div class="row">
-    <div class="col-xs-8">
-      <h4><%= product.name %></h4>
+    <div class="col-xs-3">
+      <h5><%= dish.name %></h5>
+      <img src='<%= Dish.find(dish.id).image_url %>' height="150px" style="border-radius: 10px 10px 10px 10px">
     </div>
     <div class="col-xs-4">
-
+      <h4><%= dish.description %></h4>
+    </div>
+    <div class="col-xs-4">
       <%= form_for order_item, remote: true do |f| %>
-          <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency order_item.unit_price %></span></h4>
+          <p class="text-right">Unit Price: <span style="color: green; font-size: large;"><%= number_to_currency order_item.unit_price %></span></p>
           <div class="row">
             <div class="col-xs-4">
               <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
-              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.hidden_field :dish_id, value: dish.id %>
             </div>
             <div class="col-xs-8 text-right">
-              <div class="btn-group">
-                <%= f.submit "Update Quantity", class: "btn btn-primary" %>
-                <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.name}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+              <div class="btn-group" style="display; inline" >
+                <%= f.submit "Update Quantity", class: "btn btn-primary", style: "margin-bottom: 5px" %>
+                <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the dish? '#{order_item.dish.name}' from your cart?" }, method: :delete, remote: true, class: "btn red" } %>
               </div>
             </div>
           </div>
-          <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price %></span></h4>
+          <p class="text-right">Total Price: <span style="color: green; font-size: large;"><%= number_to_currency order_item.total_price %></span></p>
       <% end %>
     </div>
 

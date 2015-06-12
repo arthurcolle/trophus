@@ -1,0 +1,14 @@
+<%= form_for order_item, remote: true do |f| %>
+    <!--<h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency dish.price %></span></h4>-->
+    <div class="input-group">
+      <!--<%= f.hidden_field :quantity, value: 1 %>-->
+
+      <div class="input-group">
+        <div class="input-group-btn">
+          <%= f.hidden_field :dish_id, value: dish.id %>
+          <td style="margin-right: 10px"><%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %><%= f.submit "Add to Cart",class: "btn"  %> </td> <!-- for Add to Card -->
+        </div>
+      </div>
+      </form>
+    </div>
+<% end %>
