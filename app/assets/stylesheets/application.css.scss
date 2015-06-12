@@ -46,6 +46,7 @@ $jumbotron-padding: 15px;
 .navbar-default .navbar-nav > .active > a:focus {
 	color: #FFF; //8E7
 	background: #27ae60; //nephritis
+  // background: #64ffda;
 }
 
 @font-face {
@@ -107,7 +108,7 @@ p {
         width: 100%;
         padding: 0;
         margin: 0;
-        background-color: #26a69a;
+        background-color: #4db6ac;
       }
 
       #map-canvas {
