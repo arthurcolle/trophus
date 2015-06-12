@@ -7,12 +7,11 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
+  
   <%= render('layouts/analytics') %>
   <%= render('layouts/cdn') %>
   <%= render('layouts/stripe') %>
   <%= csrf_meta_tags %>
-  <!-- This is just a comment -->
 </head>
 <body>
   <script>
@@ -28,7 +27,7 @@
           }
 
           $(function() {
-             setInterval(fetchNotifs, 5000);
+             setInterval(fetchNotifs, 1000);
           });
 
           $(function() {
