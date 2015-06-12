@@ -9,7 +9,12 @@ class DishesController < ApplicationController
 	def multicreate
 		puts "testing multicreate"
 		urls = params['urls']
-	    @dishes = urls.map { |url| Dish.create(:image_url => url, :user_id => current_user.id) }
+	    @dishes = urls.map{ |url| 
+	    	Dish.create(
+	    		:image_url => url, 
+	    		:user_id => current_user.id
+	    	) 
+	   	}
 	    respond_to do |format|
 	    	format.js
 	    end
