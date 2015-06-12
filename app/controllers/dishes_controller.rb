@@ -49,8 +49,11 @@ class DishesController < ApplicationController
 	end
 
 	def destroy
+		puts "FRANKENSTEIN"
+		puts params["id"]
 		@dish = Dish.find(params["id"])
-		@dish.destroy
+		@dish.visible = false
+		@dish.save()
 	    redirect_to dishes_path, notice: 'Dish was successfully destroyed.'
 	end
 

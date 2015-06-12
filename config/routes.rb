@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   get 'order_items/destroy'
 
   get 'carts/show'
-
-  get 'hello_world/hello_world'
   
   devise_for :users
   get 'home' => 'pages#home'
@@ -26,7 +24,7 @@ Rails.application.routes.draw do
 
   get 'inbox' => 'users#inbox'
   get 'get_user_notif_count' => 'users#get_notif_count'
-  
+  post 'dishes/:id/soft_delete' => 'dishes#soft_delete'
   resources :conversations, only: [:index, :show, :destroy] do
     member do
       post :reply

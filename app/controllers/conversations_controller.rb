@@ -55,9 +55,12 @@ class ConversationsController < ApplicationController
  
  	def reply
   		current_user.reply_to_conversation(@conversation, params[:body])
-  		puts @conversation.inspect
+  		puts "crappo"
+  		puts pretty_print(@conversation.inspect)
   		@conversation.participants.each {|p|
   			channel = 'private-' + p.id.to_s
+  			puts "PARTICIPANTS"
+  			puts channel
   			if p.id != current_user.id
 		  		p.notify("#{current_user.name} sent you a message!", "xyz")
 		  		Pusher[channel].trigger('my_event', {

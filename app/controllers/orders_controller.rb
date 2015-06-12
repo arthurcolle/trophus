@@ -28,4 +28,8 @@ class OrdersController < ApplicationController
 
   def show
   end
+
+  def index
+    Order.all
+  end
 end
