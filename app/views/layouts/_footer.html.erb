@@ -1,15 +1,23 @@
-<footer class="page-footer teal">
+
+<style>
+    #killers {
+        font-size: large;
+    }
+</style>
+
+<div id = "killers">
+<footer class="page-footer teal" style="position: fixed; bottom: 0px; left:0px; right: 0px;>
   <span style="float: left">
       <% if current_user %>
         <a class="fotter" style="position: relative; bottom: 10px" href="/conversations"> conversations </a>
       <% end %>
-      <a class="fotter" style="position: relative; bottom: 10px" href="/map"> around you </a>
-      <% if current_user %>
+    <a class="fotter" style="position: relative; bottom: 10px" href="/map"> around you </a>
+    <% if current_user %>
         <a class="fotter" style="position: relative; bottom: 10px" href="/users/<%= current_user.id %>/show"> profile </a>
       <% end %>
   </span>
 
-  <span style="float: right">
+  <span style="float: right; font-size: large;">
       <a class="fotter" style="position: relative; bottom: 10px" href="/about"> about </a>
       <a class="fotter" style="position: relative; bottom: 10px" href="/contact"> contact </a>
       <a class="fotter" style="position: relative; bottom: 10px" href="/legal"> legal </a>
@@ -17,3 +25,5 @@
       <a class="fotter" style="position: relative; bottom: 10px" href="/privacy"> privacy policy </a>
   </span>
 </footer>
+
+</div>
