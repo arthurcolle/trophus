@@ -42,9 +42,7 @@
 <body>
   <script>
       mixpanel.track("User visited the application.");
-
       <% if Rails.env == "production" %>
-
           $(function() {
              if (window.location.protocol != "https:")
                  window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
@@ -83,15 +81,26 @@
   }
 </style>
 
+<style>
+
+#lean-overlay {
+  z-index: 0;
+}
+
+
+</style>
+
+<%= render('layouts/modal_single') %>
+<%= render('layouts/modal_profile') %>
 
 <%= render('layouts/footer') %>
 
 <%= render('layouts/modal_tos') %>
-<%= render('layouts/modal_profile') %>
+
 
 <%= render('layouts/modal_multiple') %>
 <%= render('layouts/modal_multicreate') %>
-<%= render('layouts/modal_single') %>
+
 
 <%= render('layouts/modal_banking_info') %>
 <%= render('layouts/modal_alert') %>
