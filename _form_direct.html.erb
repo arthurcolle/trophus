@@ -1,0 +1,42 @@
+<script id="template-upload" type="text/x-tmpl">
+<div id="file-{%=o.unique_id%}" class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+
+
+
+<div id="place-image"></div>
+<!-- callback_param: "user[avatar_url]", 
+                     callback_url: user -->
+<%= s3_uploader_form class: "s3-uploader", 
+                     id: "myS3Uploader" do %>
+    <%= file_field_tag :file, multiple: false %>
+<% end %>
+
+<%= form_for(@dish) do |f| %>
+  <% if @dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dish.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.hidden_field :direct_image_url %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

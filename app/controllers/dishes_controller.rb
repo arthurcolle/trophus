@@ -100,6 +100,6 @@ class DishesController < ApplicationController
     	if !params["image_url"].nil?
 			params["image"] = Dish.picture_from_url(params["image_url"])
 		end
-    	params.require(:dish).permit(:name, :description, :price, :image, :image_url)
+    	params.require(:dish).permit(:name, :description, :price, :image, :image_url, :direct_image_url)
     end
 end

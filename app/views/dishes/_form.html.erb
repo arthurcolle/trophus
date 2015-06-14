@@ -1,20 +1,23 @@
 <%= form_for(@dish, :html => { :multipart => true, :class => "directUpload" }) do |f| %>
 
-<span id='hideAfter'>
+<input type="hidden" name="dish[direct_image_url]" id="dish_direct_image_url">
 
+<span id='hideAfter'>
+<div id="place-image"></div>
+<%= s3_uploader_form callback_url: 'bad_news', callback_param: "zoo",
+                      class: "s3-uploader", 
+                      id: "myS3Uploader" do %>
+    <%= file_field_tag :file, multiple: false %>
+<% end %>
+
+
+
+  <%= f.hidden_field :direct_image_url %>
 
   <div class="form-group">
-    <%= f.label :image %>
       <div id="instaject-outer" style="padding: 10px; display: none;"> <!-- style="display: none;"> -->
         <div id="instaject"></div>
       </div>
-
-
-    <div class="field">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
-    </div>
-
 
       <% if session[:access_token].nil? %>
         <a href="/oauth/connect">
@@ -33,18 +36,12 @@
         <input id="dish_image" name="dish[image]" type="file" />
       </div>
     </div>
-
-
-
   </div>
 
   <div class="form-group">
-
-
-
-          <span id="spannerbutton">
-        <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Instagram Upload", "onclick" => "instaModalSingle();" } %> 
-      </span>
+    <span id="spannerbutton">
+      <%= tag "input", { "type" => "button", class: "btn btn-success", "value" => "Instagram Upload", "onclick" => "instaModalSingle();" } %> 
+    </span>
   </div>
 </span>
 
@@ -70,26 +67,3 @@
   </div> 
 
 <% end %>
-
-<script>
-    $(function() {
-        $('.directUpload').find("input:file").each(function(i, elem) {
-            var fileInput    = $(elem);
-            var form         = $(fileInput.parents('form:first'));
-            var submitButton = form.find('input[type="submit"]');
-            var progressBar  = $("<div class='bar'></div>");
-            var barContainer = $("<div class='progress'></div>").append(progressBar);
-            fileInput.after(barContainer);
-            fileInput.fileupload({
-                fileInput:       fileInput,
-                url:             '<%= @s3_direct_post.url %>',
-                type:            'POST',
-                autoUpload:       true,
-                formData:         <%= @s3_direct_post.fields.to_json.html_safe %>,
-                paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
-                dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
-                replaceFileInput: false
-            });
-        });
-    });
-</script>

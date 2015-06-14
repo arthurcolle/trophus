@@ -7,6 +7,11 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def bad_news
+		puts "AMAZING_LIFE"
+		puts params
+	end
+
 	def show
 		@user = User.find(params[:id])
 	end

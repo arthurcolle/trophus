@@ -14,6 +14,8 @@ gem 'chosen-rails'
 gem 'pusher'
 gem "psych"
 
+gem 'jquery-fileupload-rails'
+
 gem 'coffee-rails', '~> 4.0.0'
 gem 'rails_12factor'
 
@@ -39,6 +41,9 @@ gem 'jsonify'
 gem 'paperclip', "~> 4.2"
 gem 'aws-sdk-v1'
 gem 'aws-sdk'
+
+gem 's3_direct_upload'
+
 
 gem 'piwik_analytics'
 

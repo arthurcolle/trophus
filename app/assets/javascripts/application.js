@@ -23,6 +23,13 @@
 //= require zip.js
 //= require gmaps/google
 //= require messages
+//= require s3_direct_upload
 //= require_tree .
 
-
+jQuery(function() {
+  $(".s3-uploader").S3Uploader();
+  $('#myS3Uploader').bind("s3_upload_complete", function(e, content) {
+  	$('#dish_direct_image_url').val(content.url);
+  	$('#place-image').html('<img src="' + content.url + '" height="150px">');
+  });
+});

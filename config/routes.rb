@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'order_items/destroy'
 
   get 'carts/show'
-  
+  post 'bad_news' => 'users#bad_news'
   devise_for :users
   get 'home' => 'pages#home'
   get 'about' => 'pages#about'
