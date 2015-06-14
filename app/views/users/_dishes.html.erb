@@ -33,10 +33,10 @@
           <% @dishes.each do |dish| %>
             <tr>
               <% if dish.image_url != nil %>
-                <td data-th="Image"><a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
+                <td data-th="Image"><a href="https://www.trophus.com/dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
               <% else %>
                     <td>
-                      <a href="dishes/<%= dish.id %>"><img height="75px" src='<%= dish.direct_image_url.gsub('https://',"http://") %>'></a>
+                      <a href="https://www.trophus.com/dishes/<%= dish.id %>"><img height="75px" src='<%= dish.direct_image_url.gsub('https://',"http://") %>'></a>
                     </td>
               <% end %>
               <td><%= dish.name %></td>
