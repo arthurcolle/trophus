@@ -14,3 +14,5 @@ Run `. ./happy.sh` to set environment variables
 
 Imgur album for tutorial: 
 http://imgur.com/a/KDiMG
+
+Don't wanna lose my streak ;)

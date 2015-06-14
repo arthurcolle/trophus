@@ -1,4 +1,4 @@
-<%= form_for(@dish, :html => { :multipart => true }) do |f| %> 
+<%= form_for(@dish, :html => { :multipart => true, :class => "directUpload" }) do |f| %>
 
 <span id='hideAfter'>
 
@@ -6,30 +6,24 @@
   <div class="form-group">
     <%= f.label :image %>
       <div id="instaject-outer" style="padding: 10px; display: none;"> <!-- style="display: none;"> -->
-    <div id="instaject"></div>
-<!--     <button class = "button btn btn-primary" id="removeButton"
-            onclick = "removePic();">
-            Remove image
-    </button> -->
-  </div>
+        <div id="instaject"></div>
+      </div>
 
-<!-- 
-      <%= f.file_field :image, class: "form-control", style: "width: 40%;" %> </br>
 
-      <input class="form-control" id="dish_image" name="dish[image]" style="width: 40%;" type="file" /> </br>
+    <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
 
- -->
-            <% if session[:access_token].nil? %>
 
-    <a href="/oauth/connect">
+      <% if session[:access_token].nil? %>
+        <a href="/oauth/connect">
             <button class="button btn btn-primary" id="instagram-connect">
-            <i class="fa fa-instagram"></i>
-               Connect to Instagram
+                <i class="fa fa-instagram"></i>
+                Connect to Instagram
             </button>
-          </a>  
-    
-
-  <% end %>
+        </a>
+      <% end %>
 
 
     <div class="file-field input-field">
@@ -76,3 +70,26 @@
   </div> 
 
 <% end %>
+
+<script>
+    $(function() {
+        $('.directUpload').find("input:file").each(function(i, elem) {
+            var fileInput    = $(elem);
+            var form         = $(fileInput.parents('form:first'));
+            var submitButton = form.find('input[type="submit"]');
+            var progressBar  = $("<div class='bar'></div>");
+            var barContainer = $("<div class='progress'></div>").append(progressBar);
+            fileInput.after(barContainer);
+            fileInput.fileupload({
+                fileInput:       fileInput,
+                url:             '<%= @s3_direct_post.url %>',
+                type:            'POST',
+                autoUpload:       true,
+                formData:         <%= @s3_direct_post.fields.to_json.html_safe %>,
+                paramName:        'file', // S3 does not like nested name fields i.e. name="user[avatar_url]"
+                dataType:         'XML',  // S3 returns XML if success_action_status is set to 201
+                replaceFileInput: false
+            });
+        });
+    });
+</script>

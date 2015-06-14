@@ -3,7 +3,8 @@ class DishesController < ApplicationController
 	respond_to :html, :json, :js
 
 	def new
-		@dish = Dish.new
+    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
+    @dish = Dish.new
 	end
 
 	def multicreate

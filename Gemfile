@@ -38,6 +38,7 @@ gem 'jsonify'
 # To save the images from people's instagram's and from people uploading pictures of their dishes
 gem 'paperclip', "~> 4.2"
 gem 'aws-sdk-v1'
+gem 'aws-sdk'
 
 gem 'piwik_analytics'
 

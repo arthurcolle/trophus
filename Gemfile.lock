@@ -58,6 +58,12 @@ GEM
     autoprefixer-rails (5.2.0)
       execjs
       json
+    aws-sdk (2.1.0)
+      aws-sdk-resources (= 2.1.0)
+    aws-sdk-core (2.1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.1.0)
+      aws-sdk-core (= 2.1.0)
     aws-sdk-v1 (1.64.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
@@ -162,6 +168,8 @@ GEM
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -334,6 +342,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   aws-sdk-v1
   bootbox-rails (~> 0.4)
   bootstrap-sass
