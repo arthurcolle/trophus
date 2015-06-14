@@ -52,11 +52,6 @@
     <div class="panel-body">
 
   <div id="food_image">
-              <% if @dish.image_url != "" %>
-                <img height="250px" src='<%= @dish.image_url %>'>
-              <% else %>
-                 <img height="250px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/'+ENV['AWS_BUCKET_NAME']+'/', 'http://'+ENV['AWS_BUCKET_NAME']+'.s3.amazonaws.com/') %>'>
-              <% end %>
 
               <% if @dish.image_url != nil %>
                 <img height="250px" src='<%= @dish.image_url %>'></td>
