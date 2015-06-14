@@ -49,7 +49,7 @@ class SearchController < ApplicationController
 	   		ddesc = di["description"]
 	   		dscore = di["_score"]
 	   		dp = di["price"]
-	   		pic = Dish.find(di["id"]).image_url
+	   		pic = Dish.find(di["id"]).direct_image_url
 	   		item = {:type=> "dish", :id => did, :score => dscore, :name => dname, :description => ddesc, :price => dp, :pic => pic, :link => '/dishes/'+did}
 	   		dlist.push(item)
 	   		listx.push(item)
