@@ -58,6 +58,14 @@
                  <img height="250px" src='<%= @dish.image.to_s.gsub('http://s3.amazonaws.com/'+ENV['AWS_BUCKET_NAME']+'/', 'http://'+ENV['AWS_BUCKET_NAME']+'.s3.amazonaws.com/') %>'>
               <% end %>
 
+              <% if @dish.image_url != nil %>
+                <img height="250px" src='<%= @dish.image_url %>'></td>
+              <% else %>
+                    <td>
+                      <img height="250px" src='<%= @dish.direct_image_url.gsub('https://',"http://") %>'>
+                    </td>
+              <% end %>
+
         <div id="desc" style="text-align: center;"><h5><%= @dish.description %> </h5> </div>
 
 
