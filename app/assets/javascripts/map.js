@@ -53,14 +53,17 @@ function initialize(user_id) {
             map: map,
             title: address
           };
-          var postUrl = '/users/' + user_id + '/edit_latlong';
+          var postUrl = '/users/' + '<%= current_user(@conn).id %>' + '/add_ll';
           var dt = {
-            lat: parseFloat(mrkr.position.A), 
-            long: parseFloat(mrkr.position.F)                    
+            latitude: parseFloat(mrkr.position.A), 
+            longitude: parseFloat(mrkr.position.F)                    
           };
           $.ajax({
               url: postUrl, 
               type: 'POST',
+              // beforeSend: function(xhr) {
+              //   xhr.setRequestHeader('x-csrf-token', '<%= get_csrf_token() %>')
+              // },
               data: dt,
               dataType: 'json'
           });

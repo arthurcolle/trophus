@@ -1,3 +1,5 @@
+// added to extrophus
+
 function addStripeInformation(data) {
   var handler = StripeCheckout.configure({
     // key: 'pk_test_k90DPHCGKmfYhYa5anVRrVKy',

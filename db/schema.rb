@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20150614055119) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
+    t.string   "image_file_name"
+    t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "image_url",          limit: 255
+    t.string   "image_url"
     t.boolean  "active"
     t.boolean  "visible"
     t.text     "direct_image_url"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150614055119) do
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"
-    t.string  "unsubscriber_type", limit: 255
+    t.string  "unsubscriber_type"
     t.integer "conversation_id"
   end
 
@@ -45,26 +45,26 @@ ActiveRecord::Schema.define(version: 20150614055119) do
   add_index "mailboxer_conversation_opt_outs", ["unsubscriber_id", "unsubscriber_type"], name: "index_mailboxer_conversation_opt_outs_on_unsubscriber_id_type", using: :btree
 
   create_table "mailboxer_conversations", force: :cascade do |t|
-    t.string   "subject",    limit: 255, default: ""
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "subject",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "mailboxer_notifications", force: :cascade do |t|
-    t.string   "type",                 limit: 255
+    t.string   "type"
     t.text     "body"
-    t.string   "subject",              limit: 255, default: ""
+    t.string   "subject",              default: ""
     t.integer  "sender_id"
-    t.string   "sender_type",          limit: 255
+    t.string   "sender_type"
     t.integer  "conversation_id"
-    t.boolean  "draft",                            default: false
-    t.string   "notification_code",    limit: 255
+    t.boolean  "draft",                default: false
+    t.string   "notification_code"
     t.integer  "notified_object_id"
-    t.string   "notified_object_type", limit: 255
-    t.string   "attachment",           limit: 255
-    t.datetime "updated_at",                                       null: false
-    t.datetime "created_at",                                       null: false
-    t.boolean  "global",                           default: false
+    t.string   "notified_object_type"
+    t.string   "attachment"
+    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                           null: false
+    t.boolean  "global",               default: false
     t.datetime "expires"
   end
 
@@ -75,14 +75,14 @@ ActiveRecord::Schema.define(version: 20150614055119) do
 
   create_table "mailboxer_receipts", force: :cascade do |t|
     t.integer  "receiver_id"
-    t.string   "receiver_type",   limit: 255
-    t.integer  "notification_id",                             null: false
-    t.boolean  "is_read",                     default: false
-    t.boolean  "trashed",                     default: false
-    t.boolean  "deleted",                     default: false
+    t.string   "receiver_type"
+    t.integer  "notification_id",                            null: false
+    t.boolean  "is_read",                    default: false
+    t.boolean  "trashed",                    default: false
+    t.boolean  "deleted",                    default: false
     t.string   "mailbox_type",    limit: 25
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id", using: :btree
@@ -123,60 +123,55 @@ ActiveRecord::Schema.define(version: 20150614055119) do
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
-  create_table "residences", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                        limit: 255
-    t.string   "encrypted_password",           limit: 255,                         default: "", null: false
-    t.string   "reset_password_token",         limit: 255
+    t.string   "email"
+    t.string   "encrypted_password",                                   default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                                    default: 0,  null: false
+    t.integer  "sign_in_count",                                        default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",           limit: 255
-    t.string   "last_sign_in_ip",              limit: 255
-    t.string   "name",                         limit: 255
-    t.string   "address",                      limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.string   "address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "home",                         limit: 255
-    t.string   "lat",                          limit: 255
-    t.string   "long",                         limit: 255
-    t.string   "phone_number",                 limit: 255
-    t.string   "customer_id",                  limit: 255
-    t.string   "connect_id",                   limit: 255
-    t.string   "secret_id",                    limit: 255
-    t.string   "publishable_id",               limit: 255
-    t.string   "currency",                     limit: 255
-    t.string   "stripe_account_type",          limit: 255
-    t.string   "stripe_user_id",               limit: 255
-    t.string   "secret_key",                   limit: 255
-    t.string   "publishable_key",              limit: 255
-    t.string   "stripe_account_status",        limit: 255
+    t.string   "home"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "phone_number"
+    t.string   "customer_id"
+    t.string   "connect_id"
+    t.string   "secret_id"
+    t.string   "publishable_id"
+    t.string   "currency"
+    t.string   "stripe_account_type"
+    t.string   "stripe_user_id"
+    t.string   "secret_key"
+    t.string   "publishable_key"
+    t.string   "stripe_account_status"
     t.boolean  "transfers_enabled"
-    t.string   "fb_hd_profile_picture",        limit: 255
-    t.decimal  "lat_f",                                    precision: 9, scale: 6
-    t.decimal  "long_f",                                   precision: 9, scale: 6
-    t.string   "address_line_1",               limit: 255
-    t.string   "address_line_2",               limit: 255
-    t.string   "address_city",                 limit: 255
-    t.string   "address_state",                limit: 255
-    t.string   "address_zip",                  limit: 255
-    t.string   "profile_picture_file_name",    limit: 255
-    t.string   "profile_picture_content_type", limit: 255
+    t.string   "fb_hd_profile_picture"
+    t.decimal  "lat_f",                        precision: 9, scale: 6
+    t.decimal  "long_f",                       precision: 9, scale: 6
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "address_city"
+    t.string   "address_state"
+    t.string   "address_zip"
+    t.string   "profile_picture_file_name"
+    t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
-    t.string   "prof_pic",                     limit: 255
+    t.string   "profile_picture_url"
+    t.string   "prof_pic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
