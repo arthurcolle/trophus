@@ -54,6 +54,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.8)
     ansi (1.5.0)
+<<<<<<< HEAD
     arel (6.0.2)
     autoprefixer-rails (5.2.1.1)
       execjs
@@ -65,6 +66,19 @@ GEM
     aws-sdk-resources (2.1.7)
       aws-sdk-core (= 2.1.7)
     aws-sdk-v1 (1.64.0)
+=======
+    arel (6.0.3)
+    autoprefixer-rails (6.1.1)
+      execjs
+      json
+    aws-sdk (2.2.3)
+      aws-sdk-resources (= 2.2.3)
+    aws-sdk-core (2.2.3)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.2.3)
+      aws-sdk-core (= 2.2.3)
+    aws-sdk-v1 (1.66.0)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
@@ -85,10 +99,10 @@ GEM
       compass-rails (>= 1.1.2)
       railties (>= 3.0)
       sass-rails (>= 3.2)
-    chunky_png (1.3.4)
+    chunky_png (1.3.5)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.7)
+    cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -97,7 +111,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.10.0)
     compass (0.12.7)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
@@ -111,26 +125,29 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    domain_name (0.5.24)
+    domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    execjs (2.5.2)
-    faraday (0.9.1)
+    execjs (2.6.0)
+    faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.2)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.10)
     formatador (0.2.5)
     fssm (0.2.10)
-    geokit (1.9.0)
-      multi_json (>= 1.3.2)
+    geokit (1.10.0)
     geokit-rails (2.1.0)
       geokit (~> 1.5)
       rails (>= 3.0)
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
     gmaps4rails (2.1.2)
+<<<<<<< HEAD
     guard (2.12.8)
+=======
+    guard (2.13.0)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
       lumberjack (~> 1.0)
@@ -140,35 +157,49 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
+<<<<<<< HEAD
     guard-rails (0.7.1)
+=======
+    guard-puma (0.3.1)
+      guard (~> 2.8)
+      puma
+    guard-rails (0.7.2)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       guard (~> 2.11)
       guard-compat (~> 1.0)
-    haml (4.0.6)
+    haml (4.0.7)
       tilt
-    hashie (3.4.2)
+    hashie (3.4.3)
     hashr (0.0.22)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    httpclient (2.6.0.1)
+    httpclient (2.7.0.1)
     i18n (0.7.0)
     image-picker-rails (0.2.4)
       railties (>= 3.0)
-    instagram (1.1.5)
+    instagram (1.1.6)
       faraday (>= 0.7, < 0.10)
       faraday_middleware (>= 0.8, < 0.10)
       hashie (>= 0.4.0)
       multi_json (~> 1.0, >= 1.0.3)
+<<<<<<< HEAD
     jbuilder (2.3.1)
+=======
+    jbuilder (2.3.2)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jmespath (1.0.2)
-      multi_json (~> 1.0)
-    jquery-fileupload-rails (0.4.5)
+    jmespath (1.1.3)
+    jquery-fileupload-rails (0.4.6)
       actionpack (>= 3.1)
       railties (>= 3.1)
       sass (>= 3.2)
+<<<<<<< HEAD
     jquery-rails (4.0.4)
+=======
+    jquery-rails (4.0.5)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
@@ -177,32 +208,48 @@ GEM
     json (1.8.3)
     jsonify (0.4.1)
       multi_json (~> 1.3)
+<<<<<<< HEAD
     jwt (1.5.1)
     koala (2.0.0)
       addressable
       faraday
       multi_json
     listen (3.0.2)
+=======
+    jwt (1.5.2)
+    koala (2.2.0)
+      addressable
+      faraday
+      multi_json
+    listen (3.0.5)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    loofah (2.0.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
+<<<<<<< HEAD
     mime-types (2.6.1)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.7.0)
+=======
+    mime-types (2.99)
+    mimemagic (0.3.0)
+    mini_portile (0.6.2)
+    minitest (5.8.3)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nenv (0.2.0)
-    netrc (0.10.3)
-    nokogiri (1.6.6.2)
+    netrc (0.11.0)
+    nokogiri (1.6.6.4)
       mini_portile (~> 0.6.0)
-    notiffany (0.0.6)
+    notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
     oauth2 (1.0.0)
@@ -214,32 +261,54 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
-    omniauth-facebook (2.0.1)
+    omniauth-facebook (3.0.0)
       omniauth-oauth2 (~> 1.2)
+<<<<<<< HEAD
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
     paperclip (4.3.0)
+=======
+    omniauth-oauth2 (1.4.0)
+      oauth2 (~> 1.0)
+      omniauth (~> 1.2)
+    orm_adapter (0.5.0)
+    paperclip (4.3.2)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+<<<<<<< HEAD
     pg (0.18.2)
+=======
+    pg (0.18.4)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
     piwik_analytics (1.0.2)
       actionpack
       activesupport
       rails (>= 3.0.0)
-    pry (0.10.1)
+    pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+<<<<<<< HEAD
     psych (2.0.13)
     pusher (0.14.5)
       httpclient (~> 2.5)
       multi_json (~> 1.0)
       signature (~> 0.1.8)
+=======
+    psych (2.0.15)
+    puma (2.15.3)
+    pusher (0.15.1)
+      httpclient (~> 2.5)
+      multi_json (~> 1.0)
+      pusher-signature (~> 0.1.8)
+    pusher-signature (0.1.8)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -256,7 +325,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -266,14 +335,14 @@ GEM
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.4)
-    rails_stdout_logging (0.0.3)
+    rails_stdout_logging (0.0.4)
     railties (4.2.1)
       actionpack (= 4.2.1)
       activesupport (= 4.2.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
-    rb-fsevent (0.9.5)
+    rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
@@ -298,19 +367,30 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
-    signature (0.1.8)
     slop (3.6.0)
+<<<<<<< HEAD
     spring (1.3.6)
+=======
+    spring (1.4.4)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
     sprockets (2.12.4)
       hike (~> 1.2)
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+<<<<<<< HEAD
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     stripe (1.23.0)
+=======
+    sprockets-rails (2.3.3)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      sprockets (>= 2.8, < 4.0)
+    stripe (1.31.0)
+>>>>>>> 881273f673e5820cc376d64a450120ccf5872026
       json (~> 1.8.1)
       rest-client (~> 1.4)
     thor (0.19.1)
@@ -328,7 +408,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.1)
+    uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unf (0.1.4)
