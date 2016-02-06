@@ -1,3 +1,3 @@
 Tire.configure do
-  url "localhost:9200"
+  url "162.243.103.160:9200"
 end
