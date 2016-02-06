@@ -19,8 +19,6 @@ gem 'jquery-fileupload-rails'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'rails_12factor'
 
-gem 'guard-puma'
-
 gem 'mailboxer', github: 'lacco/mailboxer'
 
 #gem 'better_errors'
