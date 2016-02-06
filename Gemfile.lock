@@ -234,6 +234,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     psych (2.0.17)
+    puma (2.15.3)
     pusher (0.16.0)
       httpclient (~> 2.7)
       multi_json (~> 1.0)
@@ -369,6 +370,7 @@ DEPENDENCIES
   pg
   piwik_analytics
   psych
+  puma
   pusher
   rails (= 4.2.1)
   rails_12factor
