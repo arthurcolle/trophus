@@ -1,8 +1,8 @@
 trophus
-=
+==
 
 Social/local Rails web app, brings people together through shared culinary & cultural interests
-==
+=
 
 
 Copyright (C) Arthur Colle - All Rights Reserved
