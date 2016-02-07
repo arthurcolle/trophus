@@ -8,5 +8,6 @@ Copyright (C) Arthur Colle - All Rights Reserved
  * Built by Arthur Colle <arthur@trophus.com>, 2015
 
 ```
-Imgur album for tutorial: http://imgur.com/a/KDiMG
+  Imgur album for tutorial:   http://imgur.com/a/KDiMG
+Super secret configuration:   https://gist.github.com/arthurcolle/2adb63b496d3cadfa22f
 ```
