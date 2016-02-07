@@ -147,7 +147,7 @@ thead {
                 <td data-th="Image"><a href="<%= ENV['APP_URL'] %>/dishes/<%= dish.id %>"><img height="75px" src='<%= dish.image_url %>'></a></td>
               <% else %>
                     <td>
-                      <a href="https://www.trophus.com/dishes/<%= dish.id %>"><img height="75px" src='<%= dish.direct_image_url.gsub('https://',"http://") %>'></a>
+                      <a href="<%= ENV['APP_URL'] %>/dishes/<%= dish.id %>"><img height="75px" src='<%= dish.direct_image_url.gsub('https://',"http://") %>'></a>
                     </td>
               <% end %>
 
