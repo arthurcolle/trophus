@@ -1,4 +1,9 @@
-= trophus
+trophus
+=
+
+Social/local Rails web app, brings people together through shared culinary & cultural interests
+==
+
 
 Copyright (C) Arthur Colle - All Rights Reserved
  * Unauthorized copying, viewing, and usage of any and all files in this repository, via any medium is strictly prohibited.
