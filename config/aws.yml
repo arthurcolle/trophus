@@ -1,7 +1,7 @@
 development:
-  access_key_id: AKIAJEKX2XTWW2DW2BKA
-  secret_access_key: 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
+  access_key_id: AKIAIPIELFZCFEWF7UMQ
+  secret_access_key: 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
 
 production:
-  access_key_id: AKIAJEKX2XTWW2DW2BKA
-  secret_access_key: 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
+  access_key_id: AKIAIPIELFZCFEWF7UMQ
+  secret_access_key: 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
