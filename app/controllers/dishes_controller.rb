@@ -1,9 +1,14 @@
 class DishesController < ApplicationController
-	before_action :authenticate_user!
+  before_action :authenticate_user!
 	respond_to :html, :json, :js
 
 	def new
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
+    @s3_direct_post = 
+      S3_BUCKET.presigned_post(
+        key: "uploads/#{SecureRandom.uuid}/${filename}", 
+        success_action_status: 201, 
+        acl: :public_read
+      )
     @dish = Dish.new
 	end
 
@@ -22,12 +27,11 @@ class DishesController < ApplicationController
 	end
 
 	def delete_unfinished
-		Dish.all.each {|dish|
+		Dish.all.each { |dish|
 			if dish.name.nil? 
 				dish.delete
 			end
 		}
-		
 	end
 
 	def show
@@ -55,12 +59,12 @@ class DishesController < ApplicationController
 	end
 
 	def destroy
-		puts "FRANKENSTEIN"
-		puts params["id"]
+		# puts "FRANKENSTEIN"
+		# puts params["id"]
 		@dish = Dish.find(params["id"])
 		@dish.visible = false
 		@dish.save()
-	    redirect_to dishes_path, notice: 'Dish was successfully destroyed.'
+	  redirect_to dishes_path, notice: 'Dish was successfully destroyed.'
 	end
 
 	def update
@@ -72,6 +76,7 @@ class DishesController < ApplicationController
 	    end
 	end
 
+  # contains pricing logic for core business logic - shouldn't be in dishes controller
 	def order
 		@dish = Dish.find(params["id"])
 		@amount = ((@dish.price + 0.3*@dish.price).ceil * 100).to_i
