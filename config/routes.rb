@@ -36,7 +36,7 @@ Rails.application.routes.draw do
       post :restore
     end
   end
-  
+
   resources :conversations, only: [:index, :show, :destroy] do
     collection do
       delete :empty_trash
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   get '/charges/new' => 'charges#new'
   post '/charges/create' => 'charges#create'
-  
+
   match '/users/:id/edit_latlong', to: 'users#edit_latlong', via: 'post'
   match '/users/:id/jsonify', to: 'users#jsonify', via: 'get'
   match '/users/get_ids', to: 'users#get_ids', via: 'get'

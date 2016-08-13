@@ -1,6 +1,6 @@
 
 <style>
-@media screen and (max-width: 480px){ 
+@media screen and (max-width: 480px){
 	#map-canvas {
 		height: 350px;
 		width: 100%;
@@ -28,7 +28,7 @@
 	}
 }
 
-@media screen and (min-width: 480px){ 
+@media screen and (min-width: 480px){
 	#map-canvas {
 		height: 500px;
 		width: 900px;
@@ -36,14 +36,14 @@
 
 	#livefeed {
 			  background-color: #bdc3c7;
-			  width: 140px; 
-			  height: 200px; 
+			  width: 140px;
+			  height: 200px;
 	}
 
 	#multigo {
 			  background-color: #bdc3c7;
-			  width: 140px; 
-			  height: 200px; 
+			  width: 140px;
+			  height: 200px;
 	}
 
 	.feeds {
@@ -68,11 +68,11 @@
         <div class="upperpart">
           <span style="text-align: center"><p> People Around You</p></span>
           <div class="lowerpart">
-            <% users = User.within(1, :origin => current_user) %>
+            <% users = User.all #users = User.within(1, :origin => current_user) %>
             <% users.each {|user| %>
-                <%   if user.dishes.length > 0 and user.id != current_user.id %>
+                <%   #if user.dishes.length > 0 and user.id != current_user.id %>
                     <a class="users" style="margin: 5px 5px 5px 5px; color: #1565c0; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
-                <% end %>
+                <% #end %>
             <% } %>
           </div>
         </div>
@@ -82,14 +82,15 @@
         <div class="upperpart">
           <span style="text-align: center"><p> Dishes Around You </p></span>
           <div class="lowerpart">
-            <% users = User.within(1, :origin => current_user) %>
-            <% users.each {|user| %>
-                <% if user.id != current_user.id %>
-                    <% dishes = user.dishes %>
-                    <% dishes.each { |dish| %>
+            <% #users = User.within(1, :origin => current_user) %>
+            <% users = User.all #users.each {|user| %>
+							<% users.each { |user| %>
+                <% dishes = user.dishes # if user.id != current_user.id #%>
+                    <% #dishes = user.dishes %>
+                    <% dishes.each { | dish | #dishes.each { |dish| %>
                         <a style="margin: 5px 5px 5px 5px; text-decoration: none; color: #1565c0; opacity: 1.0" href="dishes/<%= dish.id %>"> <%= dish.name %> </a> </br>
                     <% } %>
-                <% end %>
+                <% #end %>
             <% } %>
           </div>
         </div>
@@ -140,9 +141,3 @@
 
 
 <% end %>
-
-
-
-
-
-

@@ -70,9 +70,9 @@
           <% users = User.within(1, :origin => @location) %>
           <% users.each {|user| %>
               <% puts user.name, user.lat_f, user.long_f %>
-              <%   if user.dishes.length > 0 %>
+              <%   # if user.dishes.length > 0 %>
                   <a class="users" style="margin: 5px 5px 5px 5px; color: #1565c0; text-decoration: none; opacity: 1.0" href="users/<%= user.id %>/show"> <%= user.name %> </a> </br>
-              <% end %>
+              <% # end %>
           <% } %>
         </div>
       </div>

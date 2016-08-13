@@ -1,4 +1,4 @@
-function clicky(number) {     
+function clicky(number) {
   console.log(number);
   $.ajax({
     url: "/users/" + number + "/dishes",
@@ -18,14 +18,14 @@ function initialize(user_id) {
   google.maps.visualRefresh = true;
   var map;
   var address;
-  
+
   var users = [];
   var markers = [];
   var infoWindowContent = [];
 
   $.ajax({
     url: '/users/' + user_id + '/jsonify',
-    async: false, 
+    async: false,
     success: function(data) {
       address = data["person"]["home"];
     }
@@ -53,13 +53,15 @@ function initialize(user_id) {
             map: map,
             title: address
           };
-          var postUrl = '/users/' + '<%= current_user(@conn).id %>' + '/add_ll';
+          var postUrl = '/users/' + user_id + '/edit_latlong';
+          console.log("hello arthur");
+          console.log(mrkr);
           var dt = {
-            latitude: parseFloat(mrkr.position.A), 
-            longitude: parseFloat(mrkr.position.F)                    
+            latitude: parseFloat(mrkr.position.A),
+            longitude: parseFloat(mrkr.position.F)
           };
           $.ajax({
-              url: postUrl, 
+              url: postUrl,
               type: 'POST',
               // beforeSend: function(xhr) {
               //   xhr.setRequestHeader('x-csrf-token', '<%= get_csrf_token() %>')
@@ -84,8 +86,8 @@ function initialize(user_id) {
   for (u = 0; u < users.length; u++) {
     var getURL = '/users/' + users[u] + '/jsonify';
       $.ajax({
-        url: getURL, 
-        async: false, 
+        url: getURL,
+        async: false,
         success: function(user_json) {
 
           uj = user_json["person"]
@@ -119,7 +121,7 @@ function initialize(user_id) {
 
   // Display multiple markers on a map
   var infoWindow = new google.maps.InfoWindow(), marker, i;
-  // Loop through our array of markers & place each one on the map  
+  // Loop through our array of markers & place each one on the map
   for( i = 0; i < markers.length; i++ ) {
     if (i === me) {
       var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
@@ -144,7 +146,7 @@ function initialize(user_id) {
       });
     }
 
-    // Allow each marker to have an info window    
+    // Allow each marker to have an info window
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
             infoWindow.setContent(infoWindowContent[i][0]);
@@ -165,7 +167,7 @@ function initialize(user_id) {
   google.maps.event.addDomListener(window, "resize", function() {
    var center = map.getCenter();
    google.maps.event.trigger(map, "resize");
-   map.setCenter(center); 
+   map.setCenter(center);
 });
 }
 
