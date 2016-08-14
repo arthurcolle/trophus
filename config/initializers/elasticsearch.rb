@@ -1,3 +1,3 @@
 Tire.configure do
-  url "arthurcolle.com:9200"
+  url "collegroup.com:9200"
 end
