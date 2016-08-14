@@ -1,10 +1,10 @@
 class OauthController < ActionController::Base
 
 	CALLBACK_URL = ENV["APP_URL"] +'/users/auth/instagram/callbacks'
-	# CALLBACK_URL = "http://trophus.herokuapp.com/users/auth/instagram/callbacks"
-	
+	CALLBACK_URL = "http://trophus.herokuapp.com/users/auth/instagram/callbacks"
+
 	SCOPE = "likes+comments+relationships"
-	
+
 	def connect
 		redirect_to Instagram.authorize_url(:redirect_uri => CALLBACK_URL)
 	end
