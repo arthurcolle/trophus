@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-ruby "2.3.1"
+ruby '2.4.0'
 
-gem 'rails', '4.2.1'
-
-gem 'pg'
+gem 'rails', '4.2.8'
+gem 'pg', "~> 0.20" 
 gem 'puma'
 
 gem 'sass-rails', '~> 4.0.3'
-
+gem 'rest-client', '~> 2.0.1'
 gem 'uglifier', '>= 1.3.0'
 gem 'haml'
 gem 'chosen-rails'
@@ -66,7 +65,7 @@ gem 'geokit-rails'
 #gem 'elasticsearch-rails'
 #gem 'elasticsearch-model'
 # gem 'bonsai-elasticsearch-rails'
-gem 'elasticsearch_autocomplete', github: 'arthurcolle/elasticsearch_autocomplete', branch: 'master'
+#gem 'elasticsearch_autocomplete', github: 'arthurcolle/elasticsearch_autocomplete', branch: 'master'
 
 gem 'stripe'
 

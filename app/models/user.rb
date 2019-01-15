@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	ac_field :name
+#	ac_field :name
   acts_as_messageable
   acts_as_mappable :default_units => :miles,
                  :default_formula => :sphere,
